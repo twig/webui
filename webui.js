@@ -4,8 +4,7 @@ Copyright (c) 2011 BitTorrent, Inc. All rights reserved.
 Use of this source code is governed by a BSD-style that can be
 found in the LICENSE file.
 */
-(function(jQuery){
-
+(function(){
 var LANG_LIST = LANG_LIST || {};
 var urlBase = window.location.pathname.substr(0, window.location.pathname.indexOf("/gui"));
 
@@ -336,11 +335,11 @@ var utWebUI = {
 	"init": function() {
 		this.config = Object.merge({}, this.defConfig); // deep copy default config
 		this.config.lang = "";
-		
+
 		this.bindUsernameFieldInputValidation();
 		this.bindPasswordFieldInputValidation();
 		this.bindRemoteSwitch();
-		
+
 		// Calculate index of some columns for ease of reference elsewhere
 		this.trtColDoneIdx = this.trtColDefs.map(function(item) { return (item[0] == "done"); }).indexOf(true);
 		this.trtColStatusIdx = this.trtColDefs.map(function(item) { return (item[0] == "status"); }).indexOf(true);
@@ -1780,7 +1779,7 @@ var utWebUI = {
 					}
 
 					menuItems = menuItems.concat([
-						  [_(feedIsEnabled ? "DLG_RSSDOWNLOADER_20" : "DLG_RSSDOWNLOADER_21"),
+						  [L_(feedIsEnabled ? "DLG_RSSDOWNLOADER_20" : "DLG_RSSDOWNLOADER_21"),
 							this.rssUpdate.bind(this, {id: feedIds, enabled: !feedIsEnabled}, null)
 						]
 						, [L_("DLG_RSSDOWNLOADER_22"), this.rssUpdate.bind(this, {id: feedIds, update: 1}, null)]
@@ -1882,7 +1881,7 @@ var utWebUI = {
 					else if (now - 86400000 < item[TIMESTAMP]) {
 						icon = "RSS_New";
 					}
-					
+
 					this.rssfdTable.addRow(this.fdDataToRow(item), key, icon);
 				}, this);
 			}, this);
@@ -2421,7 +2420,7 @@ var utWebUI = {
 				}
 				this.tableSetMaxRows(cookie.maxRows);
 			}
-			
+
 
 			resizeUI();
 		}).bind(this);
@@ -2507,7 +2506,7 @@ var utWebUI = {
 		}
 		if (window.utweb)
 			return;
-		
+
 		loadLangStrings({
 			"lang": this.config.lang,
 			"onload": (function() {
@@ -2847,21 +2846,21 @@ var utWebUI = {
 		}).bind(this);
 
 		this.disableRegistrationOptions();
-		this.sendRemoteRegistrationRequest(uc_username, uc_password, remote_success_callback, remote_failure_callback, {async:true});		
+		this.sendRemoteRegistrationRequest(uc_username, uc_password, remote_success_callback, remote_failure_callback, {async:true});
 
-		// Rex: old way of sending request. The reason I change this is that I need to pass failure call back into 
+		// Rex: old way of sending request. The reason I change this is that I need to pass failure call back into
 		// post_raw. However in method "request" the "fails" parameter doesn't do what I want to do.
 		// this.request("action=configremote&u=" + uc_username + "&p=" + uc_password, remote_result_callback);
 	},
 
 	bindUsernameFieldInputValidation: function() {
 		var parent = this;
-		var username_input = jQuery("#webui\\.uconnect_username");
-		var password_input = jQuery("#proposed_uconnect_password");
-		var submit_btn = jQuery("#DLG_SETTINGS_D_REMOTE_09");
-		var status_input = jQuery("#webui\\.uconnect_cred_status");
+		var username_input = $("webui.uconnect_username");
+		var password_input = $("proposed_uconnect_password");
+		var submit_btn = $("DLG_SETTINGS_10_REMOTE_09");
+		var status_input = $("webui.uconnect_cred_status");
 
-		username_input.keyup(function() {
+		username_input.addEvent('keyup', function() {
 			if(parent.validateUconnectParamters(username_input.val(), 128)) {
 				status_input.text("");
 				submit_btn.removeAttr("disabled");
@@ -2880,12 +2879,12 @@ var utWebUI = {
 
 	bindPasswordFieldInputValidation: function() {
 		var parent = this;
-		var username_input = jQuery("#webui\\.uconnect_username");
-		var password_input = jQuery("#proposed_uconnect_password");
-		var submit_btn = jQuery("#DLG_SETTINGS_D_REMOTE_09");
-		var status_input = jQuery("#webui\\.uconnect_cred_status");
+		var username_input = $("webui.uconnect_username");
+		var password_input = $("webui.uconnect_password");
+		var submit_btn = $("DLG_SETTINGS_10_REMOTE_09");
+		var status_input = $("webui.uconnect_cred_status");
 
-		password_input.keyup(function() {
+		password_input.addEvent('keyup', function() {
 			if(parent.validateUconnectParamters(password_input.val(), 128)) {
 				status_input.text("");
 				submit_btn.removeAttr("disabled");
@@ -2902,17 +2901,17 @@ var utWebUI = {
 		});
 
 	},
-	
+
 
 	bindRemoteSwitch: function() {
 		var parent = this;
-		var remote_switch = jQuery("#webui\\.uconnect_enable");
-		var status_input = jQuery("#webui\\.uconnect_cred_status");
-		var password_input = jQuery("#proposed_uconnect_password");
+		var remote_switch = $("webui.uconnect_enable");
+		var status_input = $("webui.uconnect_cred_status");
+		var password_input = $("proposed_uconnect_password");
 
 		remote_switch.click(function() {
 			if (!remote_switch.is(":checked")) {
-				status_input.text("");	
+				status_input.text("");
 				password_input.val("");
 				parent.saveRemoteSignOutStatus();
 			}
@@ -2976,24 +2975,24 @@ var utWebUI = {
 	"disableRegistrationOptions": function() {
 		this.showRemoteStatus(-1);
 
-		jQuery("#webui\\.uconnect_username").attr("disabled", "disabled");
-		jQuery("#proposed_uconnect_password").attr("disabled", "disabled");
-		jQuery("#DLG_SETTINGS_D_REMOTE_09").attr("disabled", "disabled");
-		jQuery("#DLG_SETTINGS_D_REMOTE_09").addClass("disabled");
-		jQuery("#webui\\.uconnect_enable").attr("disabled", "disabled");
+		$("webui\\.uconnect_username").attr("disabled", "disabled");
+		$("proposed_uconnect_password").attr("disabled", "disabled");
+		$("DLG_SETTINGS_10_REMOTE_09").attr("disabled", "disabled");
+		$("DLG_SETTINGS_10_REMOTE_09").addClass("disabled");
+		$("webui\\.uconnect_enable").attr("disabled", "disabled");
 	},
 
 	"enableRegistrationOptions": function() {
-		jQuery("#webui\\.uconnect_username").removeAttr("disabled");
-		jQuery("#proposed_uconnect_password").removeAttr("disabled");
-		jQuery("#DLG_SETTINGS_D_REMOTE_09").removeAttr("disabled");
-		jQuery("#DLG_SETTINGS_D_REMOTE_09").removeClass("disabled");
-		jQuery("#webui\\.uconnect_enable").removeAttr("disabled");
+		$("webui\\.uconnect_username").removeAttr("disabled");
+		$("proposed_uconnect_password").removeAttr("disabled");
+		$("DLG_SETTINGS_10_REMOTE_09").removeAttr("disabled");
+		$("DLG_SETTINGS_10_REMOTE_09").removeClass("disabled");
+		$("webui\\.uconnect_enable").removeAttr("disabled");
 	},
 
 	"showRemoteStatus": function(statusCode) {
-		var status_input = jQuery("#webui\\.uconnect_cred_status");
-		var signin_btn = jQuery("#DLG_SETTINGS_D_REMOTE_09");
+		var status_input = $("webui\\.uconnect_cred_status");
+		var signin_btn = $("DLG_SETTINGS_10_REMOTE_09");
 		switch(statusCode) {
 			case 1: {
 				status_input.css("color", "green");
@@ -3074,10 +3073,9 @@ var utWebUI = {
 	"convertBrandName": function() {
 		// Work around to switch between uTorrent and BitTorrent brand name according to the product
 		var id_list = [
-						"tab_title_dlgSettings-Remote",
-						"DLG_SETTINGS_D_REMOTE_02",
-						"DLG_SETTINGS_D_REMOTE_03",
-						"DLG_SETTINGS_D_REMOTE_05",
+						"DLG_SETTINGS_10_REMOTE_02",
+						"DLG_SETTINGS_10_REMOTE_03",
+						"DLG_SETTINGS_10_REMOTE_05",
 						"DLG_SETTINGS_C_ADV_CACHE_02",
 						"DLG_SETTINGS_8_QUEUEING_12"
 						],
@@ -3088,6 +3086,7 @@ var utWebUI = {
 		for (var i = 0; i < id_list.length; i++) {
 			var id = id_list[i];
 			var dom_obj = document.getElementById(id);
+
 			if (document.brand === "ut") {
 				var new_str = self.str_replace(dom_obj.innerHTML, bt_brand, ut_brand);
 				dom_obj.innerHTML = new_str;
@@ -3149,37 +3148,20 @@ var utWebUI = {
 	"showAddLabel": function() {
 		DialogManager.show("AddLabel");
 	},
-	
+
 	"showRSSDownloader": function() {
 		DialogManager.show("RSSDownloader");
 	},
 
 	"showSettings": function() {
-		this.animateToggle(true);
-		//DialogManager.show("Settings");
+		DialogManager.show("Settings");
 	},
-	
+
 	"hideSettings": function(load_settings) {
 		if(load_settings)
 			utWebUI.loadSettings();
-			
-		this.animateToggle(false);
-	},
-	
-	"animateToggle": function(show) {
-		var _top = show ? '0%' : '-100%';
-		
-		if(show)
-			jQuery("#settingsHider").addClass('open');
-		
-		jQuery('#dlgSettings')
-			.addClass('moving')
-			.animate({ top: _top }, 350, 'linear', 
-				function(){
-					jQuery(this).removeClass('moving');
-					jQuery("#settingsHider").toggleClass('open', show);
-				}
-			);
+
+		DialogManager.hide("Settings");
 	},
 
 	"searchExecute": function() {
@@ -3291,10 +3273,10 @@ var utWebUI = {
 				, [L_("MM_OPTIONS_TAB_ICONS"), this.toggleDetPanelIcons.bind(this, undefined)]
 			]]
 			, [CMENU_CHILD, L_("MM_HELP"), [
-				  [L_("MM_HELP_UT_WEBPAGE"), openURL.pass(["http://www.utorrent.com/", null])] 
-				, [L_("MM_HELP_UT_FORUMS"), openURL.pass(["http://forum.utorrent.com/", null])] 
+				  [L_("MM_HELP_UT_WEBPAGE"), openURL.pass(["http://www.utorrent.com/", null])]
+				, [L_("MM_HELP_UT_FORUMS"), openURL.pass(["http://forum.utorrent.com/", null])]
 				, [CMENU_SEP]
-				, [L_("MM_HELP_WEBUI_FEEDBACK"), openURL.pass(["http://forum.utorrent.com/viewtopic.php?id=58156", null])] 
+				, [L_("MM_HELP_WEBUI_FEEDBACK"), openURL.pass(["http://forum.utorrent.com/viewtopic.php?id=58156", null])]
 				, [CMENU_SEP]
 				, [L_("MM_HELP_ABOUT_WEBUI"), this.showAbout.bind(this)]
 			]]
@@ -3917,11 +3899,11 @@ var utWebUI = {
 			if (window.getraptor) {
                             // setting label
                             var torrent = utweb.tables.torrent.view.selectedRows()[0];
-                            var newLabelInput = jQuery('#torrent_props_label');
-							
+                            var newLabelInput = $('torrent_props_label');
+
 							if (newLabelInput.length)
                             {
-                                var newlabel = jQuery('#torrent_props_label').val();
+                                var newlabel = $('torrent_props_label').val();
                                 if (newlabel != torrent.label) {
                                     console.log('label has changed!  -- set to empty label');
                                     // first set the label to empty string...
@@ -4030,26 +4012,25 @@ var utWebUI = {
 		var item = this.getRSSFeedItem(feedId, itemId);
 		if (item) this.addURL({url: item[CONST.RSSITEM_URL]});
 	},
-	
+
 	"setLabel": function(param, fn) {
-		var new_label = encodeURIComponent((param.label || "").trim());
+		var new_label = encodeURIComponent((param || "").trim());
+		var torrents = this.trtTable.selectedRows;
+		var self = this;
 
-		var torrents = param.view.selectedRows();
+		var setTorrentLabel = function(torrentHash) {
+			var after_update = function() {
+				self.request("action=setprops&s=label&v="+new_label + "&hash=" + torrentHash, function() {});
+			}
 
-        var self = this;
-        var client = utweb.current_client();
-        
-        var i,l = torrents.length;
-        for (i=0; i<l; i++) {
-            (function (t) {
-        		var after_update = function() {
-                    client.raptor.post_raw( "action=setprops&s=label&v="+new_label, { hash: t.hash }, function() {} );
-                }
+			// Clear existing label first
+			self.request("action=setprops&s=label&v=" + "&hash=" + torrentHash, after_update);
+		}
 
-        	     client.raptor.post_raw( "action=setprops&s=label&v=", { hash: t.hash }, after_update );
-	        })(torrents[i]);
+        for (var i=0; i < torrents.length; i++) {
+            setTorrentLabel(torrents[i]);
         }
-	},	
+	},
 
 	"addURL": function(param, fn) {
 		var urls = Array.from(param.url).map(function(url) {
@@ -5153,7 +5134,7 @@ var utWebUI = {
 			this.config.activeSettingsPane = id;
 		}
 
-		jQuery('#dlgSettings-title').text(document.getElementById('tab_title_' + id).innerHTML || L_("ST_CAPT_GENERAL"));
+		$('dlgSettings-head').innerText = (document.getElementById('tab_' + id).innerText || L_("ST_CAPT_GENERAL"));
 	},
 
 	"fdFormatRow": function(values, index) {
@@ -5305,13 +5286,13 @@ var utWebUI = {
 				feedItemIds.each(function(id) {
 					this.addRSSFeedItem(id[0], id[1]);
 				}, this);
-			}).bind(this, feedItemIds)]
+			}).bind(this, [feedItemIds])]
 			, [L_("DLG_RSSDOWNLOADER_25"), (function(feedItemIds) { // RSSTODO: Move this elsewhere
 				feedItemIds.each(function(id) {
 					var item = this.getRSSFeedItem(id[0], id[1]);
 					if (item) openURL(item[CONST.RSSITEM_URL]);
 				}, this);
-			}).bind(this, feedItemIds)]
+			}).bind(this, [feedItemIds])]
 			, [CMENU_SEP]
 			, [L_("DLG_RSSDOWNLOADER_26"), (function(feedItemIds) {
 				feedItemIds.each(function(id) { // RSSTODO: Move this elsewhere
@@ -5325,7 +5306,7 @@ var utWebUI = {
 						});
 					}
 				}, this);
-			}).bind(this, feedItemIds)]
+			}).bind(this, [feedItemIds])]
 		];
 
 		//--------------------------------------------------
@@ -5366,4 +5347,4 @@ var utWebUI = {
 window.isGuest = isGuest;
 window.utWebUI = utWebUI;
 
-})(window.jQuery);
+})();
