@@ -130,7 +130,6 @@ function setupMouseEvents() {
 			ContextMenu.hide();
 			return mouseWhitelistWrap(ev);
 		},
-		"contextmenu": mouseWhitelist, // IE does not send right-click info for onContextMenu
 		"mouseup": mouseWhitelistWrap,
 		"click": mouseWhitelistWrap
 	});
