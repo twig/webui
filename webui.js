@@ -552,7 +552,9 @@ found in the LICENSE file.
             },
             onSuccess: fn ? fn.bind(self) : Function.from()
           }).send();
-        } catch (e) {}
+        } catch (e) {
+          // do nothing
+        }
       };
 
       if (!self.TOKEN) self.requestToken(req, true);
@@ -573,7 +575,9 @@ found in the LICENSE file.
             if (fn) fn.delay(0);
           }
         }).send();
-      } catch (e) {}
+      } catch (e) {
+        // do nothing
+      }
     },
 
     perform: function(action) {
@@ -5008,12 +5012,12 @@ found in the LICENSE file.
         delete fileDownloadItems[1][1];
       }
 
-      var fdata = this.filelist[fileIds[0]];
-      if (
-        fileIds.length > 1 ||
-        fdata[CONST.FILE_DOWNLOADED] != fdata[CONST.FILE_SIZE]
-      ) {
-      }
+      // var fdata = this.filelist[fileIds[0]];
+      // if (
+      //   fileIds.length > 1 ||
+      //   fdata[CONST.FILE_DOWNLOADED] != fdata[CONST.FILE_SIZE]
+      // ) {
+      // }
 
       menuItems = menuItems.concat(fileDownloadItems);
 
