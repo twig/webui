@@ -68,14 +68,10 @@ window.onerror = function(msg, url, linenumber) {
 };
 */
 
-if (! window.console) { window.console = {};
-console.log = function(str) {
-	if (window.opera) {
-		opera.postError(str);
-	} else {
-		log(str);
-	}
-};
+if (! window.console) {
+	window.console = {};
+
+	console.log = log;
 }
 
 
