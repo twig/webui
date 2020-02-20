@@ -929,6 +929,7 @@ var STable = new Class({
             break;
           }
 
+        // eslint-ignore-next-line no-fallthrough
         default:
           comp = function(x, y) {
             return Comparator.compare(x.v, y.v);
@@ -1018,6 +1019,7 @@ var STable = new Class({
           break;
         }
 
+      // eslint-ignore-next-line no-fallthrough
       case TYPE_NUM_ORDER:
         r = Comparator.compareNumeric(m, n);
         if (r != 0) {
@@ -1235,6 +1237,7 @@ var STable = new Class({
               break;
             }
 
+          // eslint-ignore-next-line no-fallthrough
           default:
             comp = function(x, y) {
               return Comparator.compare(x.v, y.v);

@@ -3804,6 +3804,7 @@ found in the LICENSE file.
       switch (typeOf(speed.list)) {
         case "string":
           speed.list = speed.list.split(",");
+          break;
 
         case "array":
           speed.list = speed.list.map(function(val) {
