@@ -5,7 +5,7 @@ set -ex
 # https://github.com/psychowood/ng-torrent-ui uses grunt
 
 # Files in root folder
-# declare -a rootDir=(constants.js contextmenu.js dialogmanager.js excanvas.js flotr.js guest.html ie.css ie.js ie7.css index.html logger.js main.css main.js mootools.js speedgraph.js stable.css stable.js tabs.js utils.js webui.js)
+# declare -a rootDir=(constants.js contextmenu.js dialogmanager.js flotr.js guest.html index.html logger.js main.css main.js mootools.js speedgraph.js stable.css stable.js tabs.js utils.js webui.js)
 declare -a rootDir=(*.html *.css *.js LICENSE)
 # Files in localization folder
 # declare -a locDir=(_.js ar.js be.js bg.js bs.js ca.js cs.js da.js de.js el.js en.js es.js et.js fi.js fr.js fyNL.js ga.js gl.js he.js hu.js is.js it.js ja.js ka.js ko.js lt.js lv.js nl.js nnNO.js no.js pl.js pt.js ptBR.js ro.js ru.js sk.js sl.js sq.js srSR.js sv.js th.js tr.js tw.js uk.js va.js vi.js zhCN.js zhTW.js)

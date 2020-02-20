@@ -26,3 +26,7 @@ It was branched from https://github.com/bittorrent/webui which is broken as fuck
 There's more to come if I can be bothered, but at least this is a working branch.
 
 I'm just updating this to fix the things I need. If you find something wrong with it, fix it and submit a PR
+
+## Things irreversibly changed
+
+* removed explicit support for old versions of Internet Explorer
