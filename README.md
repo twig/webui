@@ -30,3 +30,4 @@ I'm just updating this to fix the things I need. If you find something wrong wit
 ## Things irreversibly changed
 
 * removed explicit support for old versions of Internet Explorer
+* removed explicit support for Opera browser
