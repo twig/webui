@@ -38,7 +38,18 @@ I'm just updating this to fix the things I need. If you find something wrong wit
 
 ## How to ...
 
+### Get started
+
+First off, you'll need `yarn` installed. Follow the instructions [here](https://classic.yarnpkg.com/en/docs/install/).
+
+First time setup:
+
+* In the project root, type `yarn install`
+* That is all.
+
 ### build webui.zip
+
+To build the project for use or testing, type:
 
 > yarn build [-v]
 
@@ -46,6 +57,6 @@ Runs script to build the webui.zip package. Optional `-v` argument to get more d
 
 ### prettify the code
 
-> yarn prettify
+Runs `prettier` to ensure all relevant source files (js, css, html) are formatted in a consistent way.
 
-Runs prettier on all relevant source files (js, css, html)
+> yarn prettify
