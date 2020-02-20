@@ -12,18 +12,11 @@ module.exports = {
   },
   ignorePatterns: ["node_modules/", "flotr.js", "mootools.js"],
   rules: {
-    eqeqeq: ["error", "always"],
+    // eqeqeq: ["error", "always"],
 
     // disable for now
     "no-undef": 0,
-    "no-unused-vars": 0,
-    "no-mixed-spaces-and-tabs": 0,
+    "no-unused-vars": 0, // ['error', {args: 'none'}],
     "no-redeclare": 0,
-    "no-dupe-keys": 0,
-    "no-empty": 0,
-    "no-extra-boolean-cast": 0,
-    "no-unreachable": 0,
-    "no-fallthrough": 0,
-    "no-useless-escape": 0
   }
 };

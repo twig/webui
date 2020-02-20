@@ -110,7 +110,7 @@ var STable = new Class({
 
     var hasicon = false;
     this.colHeader = columns.map(function(item) {
-      if (!!item[4]) hasicon = true;
+      if (item[4]) hasicon = true;
       return {
         id: item[0],
         width: item[1],
@@ -143,7 +143,6 @@ var STable = new Class({
     var badIE = Browser.ie && Browser.version <= 7;
     var tr,
       td,
-      div,
       $me = this;
 
     this.id = "stable-" + id;
@@ -451,8 +450,6 @@ var STable = new Class({
   },
 
   setAlignment: function() {
-    var sb = "",
-      cols = this.tBody.getElement("colgroup").getElements("col");
     var tbBody = this.tb.body,
       tbc = tbBody.childNodes,
       tbcCount = tbc.length;
@@ -929,6 +926,7 @@ var STable = new Class({
             break;
           }
 
+        // eslint-ignore-next-line no-fallthrough
         default:
           comp = function(x, y) {
             return Comparator.compare(x.v, y.v);
@@ -1018,6 +1016,7 @@ var STable = new Class({
           break;
         }
 
+      // eslint-ignore-next-line no-fallthrough
       case TYPE_NUM_ORDER:
         r = Comparator.compareNumeric(m, n);
         if (r != 0) {
@@ -1235,6 +1234,7 @@ var STable = new Class({
               break;
             }
 
+          // eslint-ignore-next-line no-fallthrough
           default:
             comp = function(x, y) {
               return Comparator.compare(x.v, y.v);

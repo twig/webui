@@ -651,6 +651,7 @@ function setupToolbar() {
         case "queuedown":
           arg = ev.shift;
 
+        // eslint-ignore-next-line no-fallthrough
         default:
           utWebUI[act](arg);
       }

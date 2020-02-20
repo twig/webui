@@ -28,12 +28,11 @@ found in the LICENSE file.
       }
     };
   }
+  var guiBase = urlBase + "/gui/";
+  var proxyBase = urlBase + "/proxy";
   if (!window.config.webui) {
-    var guiBase = urlBase + "/client/gui/";
-    var proxyBase = urlBase + "/client/proxy";
-  } else {
-    var guiBase = urlBase + "/gui/";
-    var proxyBase = urlBase + "/proxy";
+    guiBase = urlBase + "/client/gui/";
+    proxyBase = urlBase + "/client/proxy";
   }
   window.guiBase = guiBase;
   window.proxyBase = guiBase;
@@ -329,7 +328,6 @@ found in the LICENSE file.
       "rss.smart_repack_filter": "",
       "rss.update_interval": "",
       "streaming.failover_rate_factor": "",
-      "streaming.failover_rate_factor": "",
       "streaming.failover_set_percentage": "",
       "streaming.min_buffer_piece": "",
       "streaming.safety_factor": "",
@@ -553,7 +551,9 @@ found in the LICENSE file.
             },
             onSuccess: fn ? fn.bind(self) : Function.from()
           }).send();
-        } catch (e) {}
+        } catch (e) {
+          // do nothing
+        }
       };
 
       if (!self.TOKEN) self.requestToken(req, true);
@@ -574,7 +574,9 @@ found in the LICENSE file.
             if (fn) fn.delay(0);
           }
         }).send();
-      } catch (e) {}
+      } catch (e) {
+        // do nothing
+      }
     },
 
     perform: function(action) {
@@ -781,11 +783,11 @@ found in the LICENSE file.
     },
 
     queueup: function(top) {
-      this.perform(!!top ? "queuetop" : "queueup");
+      this.perform(top ? "queuetop" : "queueup");
     },
 
     queuedown: function(bot) {
-      this.perform(!!bot ? "queuebottom" : "queuedown");
+      this.perform(bot ? "queuebottom" : "queuedown");
     },
 
     removeDefault: function(shift) {
@@ -884,8 +886,6 @@ found in the LICENSE file.
       Array.from(param.id).each(function(id) {
         var qs = "action=rss-update";
         if (param) {
-          var val;
-
           if (undefined !== id) qs += "&feed-id=" + (parseInt(id, 10) || -1);
 
           if (undefined !== param.url)
@@ -895,16 +895,16 @@ found in the LICENSE file.
             qs += "&alias=" + encodeURIComponent(param.name);
 
           if (undefined !== param.subscribe)
-            qs += "&subscribe=" + (!!param.subscribe ? 1 : 0);
+            qs += "&subscribe=" + (param.subscribe ? 1 : 0);
 
           if (undefined !== param.smart_ep)
-            qs += "&smart-filter=" + (!!param.smart_ep ? 1 : 0);
+            qs += "&smart-filter=" + (param.smart_ep ? 1 : 0);
 
           if (undefined !== param.enabled)
-            qs += "&enabled=" + (!!param.enabled ? 1 : 0);
+            qs += "&enabled=" + (param.enabled ? 1 : 0);
 
           if (undefined !== param.update)
-            qs += "&update=" + (!!param.update ? 1 : 0);
+            qs += "&update=" + (param.update ? 1 : 0);
         }
 
         this.request(qs, fn);
@@ -952,21 +952,21 @@ found in the LICENSE file.
             qs += "&not-filter=" + encodeURIComponent(param.not);
 
           if (undefined !== param.orig_name)
-            qs += "&origname=" + (!!param.orig_name ? 1 : 0);
+            qs += "&origname=" + (param.orig_name ? 1 : 0);
 
           if (undefined !== param.episode_enable)
-            qs += "&episode-filter=" + (!!param.episode_enable ? 1 : 0);
+            qs += "&episode-filter=" + (param.episode_enable ? 1 : 0);
 
           if (undefined !== param.episode)
             qs += "&episode=" + encodeURIComponent(param.episode);
 
           if (undefined !== param.smart_ep)
-            qs += "&smart-ep-filter=" + (!!param.smart_ep ? 1 : 0);
+            qs += "&smart-ep-filter=" + (param.smart_ep ? 1 : 0);
 
           if (undefined !== param.add_stopped)
-            qs += "&add-stopped=" + (!!param.add_stopped ? 1 : 0);
+            qs += "&add-stopped=" + (param.add_stopped ? 1 : 0);
 
-          if (undefined !== param.prio) qs += "&prio=" + (!!param.prio ? 1 : 0);
+          if (undefined !== param.prio) qs += "&prio=" + (param.prio ? 1 : 0);
 
           if (undefined !== param.savein)
             qs += "&save-in=" + encodeURIComponent(param.savein);
@@ -1685,23 +1685,6 @@ found in the LICENSE file.
       return groups;
     },
 
-    setLabel: function(lbl) {
-      var hashes = [];
-      for (var i = 0, j = this.trtTable.selectedRows.length; i < j; i++) {
-        var key = this.trtTable.selectedRows[i];
-        if (this.torrents[key][CONST.TORRENT_LABEL] != lbl) hashes.push(key);
-      }
-      if (hashes.length > 0) {
-        var sep = "&v=" + encodeURIComponent(lbl) + "&s=label&hash=";
-        this.request(
-          "action=setprops&s=label&hash=" +
-            hashes.join(sep) +
-            "&v=" +
-            encodeURIComponent(lbl)
-        );
-      }
-    },
-
     newLabel: function() {
       var tmpl = "";
       if (this.trtTable.selectedRows.length == 1)
@@ -2231,7 +2214,6 @@ found in the LICENSE file.
         case "INPUT":
           // Do nothing... handled by this.rssfilterCheckboxClick()
           return;
-          break;
 
         case "DIV":
           element = ev.withinScroll(element) ? undefined : $(this.rssfilterId);
@@ -2295,9 +2277,10 @@ found in the LICENSE file.
       var element = ev.target;
       if (element.tagName !== "INPUT") return;
 
-      var filterId = ev.target.id.replace(/^rssfilter_toggle_/, "").toInt();
+      // var filterId = ev.target.id.replace(/^rssfilter_toggle_/, "").toInt();
 
       // RSSTODO: Implement
+      console.warn("TODO: implement rssfilterCheckboxClick");
     },
 
     rssfilterEdited: function(ev) {
@@ -2349,7 +2332,7 @@ found in the LICENSE file.
             idx = CONST.RSSFILTER_FLAGS;
             val = filter[idx];
 
-            if (!!ev.target.checked) {
+            if (ev.target.checked) {
               val |= CONST.RSSFILTERFLAG_ORIG_NAME;
             } else {
               val &= ~CONST.RSSFILTERFLAG_ORIG_NAME;
@@ -2360,7 +2343,7 @@ found in the LICENSE file.
             idx = CONST.RSSFILTER_FLAGS;
             val = filter[idx];
 
-            if (!!ev.target.checked) {
+            if (ev.target.checked) {
               val |= CONST.RSSFILTERFLAG_ADD_STOPPED;
             } else {
               val &= ~CONST.RSSFILTERFLAG_ADD_STOPPED;
@@ -2371,7 +2354,7 @@ found in the LICENSE file.
             idx = CONST.RSSFILTER_FLAGS;
             val = filter[idx];
 
-            if (!!ev.target.checked) {
+            if (ev.target.checked) {
               val |= CONST.RSSFILTERFLAG_SMART_EP_FILTER;
             } else {
               val &= ~CONST.RSSFILTERFLAG_SMART_EP_FILTER;
@@ -2382,7 +2365,7 @@ found in the LICENSE file.
             idx = CONST.RSSFILTER_FLAGS;
             val = filter[idx];
 
-            if (!!ev.target.checked) {
+            if (ev.target.checked) {
               val |= CONST.RSSFILTERFLAG_HIGH_PRIORITY;
             } else {
               val &= ~CONST.RSSFILTERFLAG_HIGH_PRIORITY;
@@ -3545,14 +3528,14 @@ found in the LICENSE file.
       for (var i = 0; i < id_list.length; i++) {
         var id = id_list[i];
         var dom_obj = document.getElementById(id);
+        var new_str;
 
         if (document.brand === "ut") {
-          var new_str = self.str_replace(dom_obj.innerHTML, bt_brand, ut_brand);
-          dom_obj.innerHTML = new_str;
+          new_str = self.str_replace(dom_obj.innerHTML, bt_brand, ut_brand);
         } else {
-          var new_str = self.str_replace(dom_obj.innerHTML, ut_brand, bt_brand);
-          dom_obj.innerHTML = new_str;
+          new_str = self.str_replace(dom_obj.innerHTML, ut_brand, bt_brand);
         }
+        dom_obj.innerHTML = new_str;
       }
     },
 
@@ -3823,6 +3806,7 @@ found in the LICENSE file.
       switch (typeOf(speed.list)) {
         case "string":
           speed.list = speed.list.split(",");
+          break;
 
         case "array":
           speed.list = speed.list.map(function(val) {
@@ -4539,11 +4523,13 @@ found in the LICENSE file.
 
           if (newLabelInput.length) {
             var newlabel = $("torrent_props_label").val();
+            var after_update = function() {};
+
             if (newlabel != torrent.label) {
               console.log("label has changed!  -- set to empty label");
               // first set the label to empty string...
               str += "&s=label&v=";
-              var after_update = function() {
+              after_update = function() {
                 console.log("label has changed!  -- set to new primary label");
                 getraptor().post_raw(
                   "action=setprops&s=label&v=" + newlabel,
@@ -4551,8 +4537,6 @@ found in the LICENSE file.
                   function() {}
                 );
               };
-            } else {
-              var after_update = function() {};
             }
           }
           getraptor().post_raw(
@@ -4649,12 +4633,12 @@ found in the LICENSE file.
       var files = Array.from(param.file);
       if (files.length <= 0) return;
 
-      var count = 0;
-      var fnwrap = function() {
-        if (++count === files.length) fn();
-      };
+      // var count = 0;
+      // var fnwrap = function() {
+      //   if (++count === files.length) fn();
+      // };
 
-      var qs = "action=add-file";
+      // var qs = "action=add-file";
       var val;
 
       if ((val = parseInt(param.dir, 10) || 0)) qs += "&download_dir=" + val;
@@ -4686,6 +4670,23 @@ found in the LICENSE file.
       var item = this.getRSSFeedItem(feedId, itemId);
       if (item) this.addURL({ url: item[CONST.RSSITEM_URL] });
     },
+
+    // setLabel: function(lbl) {
+    //   var hashes = [];
+    //   for (var i = 0, j = this.trtTable.selectedRows.length; i < j; i++) {
+    //     var key = this.trtTable.selectedRows[i];
+    //     if (this.torrents[key][CONST.TORRENT_LABEL] != lbl) hashes.push(key);
+    //   }
+    //   if (hashes.length > 0) {
+    //     var sep = "&v=" + encodeURIComponent(lbl) + "&s=label&hash=";
+    //     this.request(
+    //       "action=setprops&s=label&hash=" +
+    //         hashes.join(sep) +
+    //         "&v=" +
+    //         encodeURIComponent(lbl)
+    //     );
+    //   }
+    // },
 
     setLabel: function(param, fn) {
       var new_label = encodeURIComponent((param || "").trim());
@@ -4757,7 +4758,7 @@ found in the LICENSE file.
               var key =
                 id +
                 "_" +
-                peer[CONST.PEER_IP].replace(/[\.:]/g, "_") +
+                peer[CONST.PEER_IP].replace(/[.:]/g, "_") +
                 "_" +
                 peer[CONST.PEER_PORT]; // TODO: Handle bt.allow_same_ip
               this.prsTable.addRow(
@@ -5009,12 +5010,12 @@ found in the LICENSE file.
         delete fileDownloadItems[1][1];
       }
 
-      var fdata = this.filelist[fileIds[0]];
-      if (
-        fileIds.length > 1 ||
-        fdata[CONST.FILE_DOWNLOADED] != fdata[CONST.FILE_SIZE]
-      ) {
-      }
+      // var fdata = this.filelist[fileIds[0]];
+      // if (
+      //   fileIds.length > 1 ||
+      //   fdata[CONST.FILE_DOWNLOADED] != fdata[CONST.FILE_SIZE]
+      // ) {
+      // }
 
       menuItems = menuItems.concat(fileDownloadItems);
 
@@ -5112,7 +5113,7 @@ found in the LICENSE file.
       };
 
       this.trtColDefs.each(function(item, idx) {
-        if (!!item[3]) config.colMask |= 1 << idx;
+        if (item[3]) config.colMask |= 1 << idx;
       });
 
       this.trtTable.setConfig(config);
@@ -5181,7 +5182,7 @@ found in the LICENSE file.
       };
 
       this.prsColDefs.each(function(item, idx) {
-        if (!!item[3]) config.colMask |= 1 << idx;
+        if (item[3]) config.colMask |= 1 << idx;
       });
 
       this.prsTable.setConfig(config);
@@ -5376,7 +5377,7 @@ found in the LICENSE file.
       };
 
       this.flsColDefs.each(function(item, idx) {
-        if (!!item[3]) config.colMask |= 1 << idx;
+        if (item[3]) config.colMask |= 1 << idx;
       });
 
       this.flsTable.setConfig(config);
@@ -5428,7 +5429,7 @@ found in the LICENSE file.
 
     advOptFormatRow: function(values, index) {
       var useidx = $chk(index);
-      var len = useidx ? index + 1 : values.length;
+      // var len = useidx ? index + 1 : values.length;
 
       /*
 		for (var i = (index || 0); i < len; i++) {
@@ -5450,13 +5451,13 @@ found in the LICENSE file.
         colOrder: this.advOptColDefs.map(function(item, idx) {
           return idx;
         }),
-        colWidth: this.advOptColDefs.map(function(item, idx) {
+        colWidth: this.advOptColDefs.map(function(item) {
           return item[1];
         })
       };
 
       this.advOptColDefs.each(function(item, idx) {
-        if (!!item[3]) config.colMask |= 1 << idx;
+        if (item[3]) config.colMask |= 1 << idx;
       });
 
       this.advOptTable.setConfig(config);
@@ -5985,7 +5986,7 @@ found in the LICENSE file.
       };
 
       this.fdColDefs.each(function(item, idx) {
-        if (!!item[3]) config.colMask |= 1 << idx;
+        if (item[3]) config.colMask |= 1 << idx;
       });
 
       this.rssfdTable.setConfig(config);

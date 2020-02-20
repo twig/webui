@@ -31,7 +31,7 @@ found in the LICENSE file.
     create: function(id) {
       var dlgId = "dlg" + id;
 
-      var dlgWindow = new Element("div.dlg-window", { id: dlgId })
+      new Element("div.dlg-window", { id: dlgId })
         .adopt(
           new Element("a.dlg-close", { href: "#" }),
           new Element("div.dlg-head", { id: dlgId + "-head" }),

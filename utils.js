@@ -81,7 +81,7 @@ function decodeID(str) {
 
 function encodeID(str) {
   return escape(
-    str.replace(/[A-Za-z0-9\*\@\-\_\+\.\/]/g, function(c) {
+    str.replace(/[A-Za-z0-9*@\-_+./]/g, function(c) {
       return "_" + c.charCodeAt(0).toString(16);
     })
   ).replace(/%/g, "_");
@@ -90,7 +90,7 @@ function encodeID(str) {
 Array.implement({
   // http://www.leepoint.net/notes-java/algorithms/searching/binarysearch.html
   binarySearch: function(value, comparator, first, upto) {
-    if (typeof comparator != "function") {
+    if (typeof comparator !== "function") {
       comparator = function(a, b) {
         if (a === b) return 0;
         if (a < b) return -1;
