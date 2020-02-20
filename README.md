@@ -6,7 +6,7 @@ It was branched from https://github.com/bittorrent/webui which is broken as fuck
 
 ## Things fixed/changed
 
-* added a build.sh to generate webui.zip, loosely based off build script from [afool622's material design webui](https://github.com/afool622/webui). Make a backup of your webui.zip and run it via WSL
+* added a build.sh to generate webui.zip, loosely based off build script from [afool622's material design webui](https://github.com/afool622/webui). Make a backup of your webui.zip and run `./build.sh` via WSL
 * merged [updated DOM file PR by deepak1556](https://github.com/bittorrent/webui/pull/12)
 * now able to load webui without it crashing
 * fixed language issues on load
@@ -31,3 +31,21 @@ I'm just updating this to fix the things I need. If you find something wrong wit
 
 * removed explicit support for old versions of Internet Explorer
 * removed explicit support for Opera browser
+
+## Improvements
+
+* started adding support for modern tooling such as [yarn](https://yarnpkg.com/), [prettier](https://prettier.io/) and [eslint](https://eslint.org) (more to come over time)
+
+## How to ...
+
+### build webui.zip
+
+> yarn build [-v]
+
+Runs script to build the webui.zip package. Optional `-v` argument to get more details about whats happening.
+
+### prettify the code
+
+> yarn prettify
+
+Runs prettier on all relevant source files (js, css, html)
