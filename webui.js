@@ -329,7 +329,6 @@ found in the LICENSE file.
       "rss.smart_repack_filter": "",
       "rss.update_interval": "",
       "streaming.failover_rate_factor": "",
-      "streaming.failover_rate_factor": "",
       "streaming.failover_set_percentage": "",
       "streaming.min_buffer_piece": "",
       "streaming.safety_factor": "",
@@ -1683,23 +1682,6 @@ found in the LICENSE file.
       }.bind(this)(groups, this.torGroups[tor[CONST.TORRENT_HASH]]));
 
       return groups;
-    },
-
-    setLabel: function(lbl) {
-      var hashes = [];
-      for (var i = 0, j = this.trtTable.selectedRows.length; i < j; i++) {
-        var key = this.trtTable.selectedRows[i];
-        if (this.torrents[key][CONST.TORRENT_LABEL] != lbl) hashes.push(key);
-      }
-      if (hashes.length > 0) {
-        var sep = "&v=" + encodeURIComponent(lbl) + "&s=label&hash=";
-        this.request(
-          "action=setprops&s=label&hash=" +
-            hashes.join(sep) +
-            "&v=" +
-            encodeURIComponent(lbl)
-        );
-      }
     },
 
     newLabel: function() {
@@ -4686,6 +4668,23 @@ found in the LICENSE file.
       var item = this.getRSSFeedItem(feedId, itemId);
       if (item) this.addURL({ url: item[CONST.RSSITEM_URL] });
     },
+
+    // setLabel: function(lbl) {
+    //   var hashes = [];
+    //   for (var i = 0, j = this.trtTable.selectedRows.length; i < j; i++) {
+    //     var key = this.trtTable.selectedRows[i];
+    //     if (this.torrents[key][CONST.TORRENT_LABEL] != lbl) hashes.push(key);
+    //   }
+    //   if (hashes.length > 0) {
+    //     var sep = "&v=" + encodeURIComponent(lbl) + "&s=label&hash=";
+    //     this.request(
+    //       "action=setprops&s=label&hash=" +
+    //         hashes.join(sep) +
+    //         "&v=" +
+    //         encodeURIComponent(lbl)
+    //     );
+    //   }
+    // },
 
     setLabel: function(param, fn) {
       var new_label = encodeURIComponent((param || "").trim());
