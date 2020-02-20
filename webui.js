@@ -784,11 +784,11 @@ found in the LICENSE file.
     },
 
     queueup: function(top) {
-      this.perform(!!top ? "queuetop" : "queueup");
+      this.perform(top ? "queuetop" : "queueup");
     },
 
     queuedown: function(bot) {
-      this.perform(!!bot ? "queuebottom" : "queuedown");
+      this.perform(bot ? "queuebottom" : "queuedown");
     },
 
     removeDefault: function(shift) {
@@ -898,16 +898,16 @@ found in the LICENSE file.
             qs += "&alias=" + encodeURIComponent(param.name);
 
           if (undefined !== param.subscribe)
-            qs += "&subscribe=" + (!!param.subscribe ? 1 : 0);
+            qs += "&subscribe=" + (param.subscribe ? 1 : 0);
 
           if (undefined !== param.smart_ep)
-            qs += "&smart-filter=" + (!!param.smart_ep ? 1 : 0);
+            qs += "&smart-filter=" + (param.smart_ep ? 1 : 0);
 
           if (undefined !== param.enabled)
-            qs += "&enabled=" + (!!param.enabled ? 1 : 0);
+            qs += "&enabled=" + (param.enabled ? 1 : 0);
 
           if (undefined !== param.update)
-            qs += "&update=" + (!!param.update ? 1 : 0);
+            qs += "&update=" + (param.update ? 1 : 0);
         }
 
         this.request(qs, fn);
@@ -955,21 +955,21 @@ found in the LICENSE file.
             qs += "&not-filter=" + encodeURIComponent(param.not);
 
           if (undefined !== param.orig_name)
-            qs += "&origname=" + (!!param.orig_name ? 1 : 0);
+            qs += "&origname=" + (param.orig_name ? 1 : 0);
 
           if (undefined !== param.episode_enable)
-            qs += "&episode-filter=" + (!!param.episode_enable ? 1 : 0);
+            qs += "&episode-filter=" + (param.episode_enable ? 1 : 0);
 
           if (undefined !== param.episode)
             qs += "&episode=" + encodeURIComponent(param.episode);
 
           if (undefined !== param.smart_ep)
-            qs += "&smart-ep-filter=" + (!!param.smart_ep ? 1 : 0);
+            qs += "&smart-ep-filter=" + (param.smart_ep ? 1 : 0);
 
           if (undefined !== param.add_stopped)
-            qs += "&add-stopped=" + (!!param.add_stopped ? 1 : 0);
+            qs += "&add-stopped=" + (param.add_stopped ? 1 : 0);
 
-          if (undefined !== param.prio) qs += "&prio=" + (!!param.prio ? 1 : 0);
+          if (undefined !== param.prio) qs += "&prio=" + (param.prio ? 1 : 0);
 
           if (undefined !== param.savein)
             qs += "&save-in=" + encodeURIComponent(param.savein);
@@ -2334,7 +2334,7 @@ found in the LICENSE file.
             idx = CONST.RSSFILTER_FLAGS;
             val = filter[idx];
 
-            if (!!ev.target.checked) {
+            if (ev.target.checked) {
               val |= CONST.RSSFILTERFLAG_ORIG_NAME;
             } else {
               val &= ~CONST.RSSFILTERFLAG_ORIG_NAME;
@@ -2345,7 +2345,7 @@ found in the LICENSE file.
             idx = CONST.RSSFILTER_FLAGS;
             val = filter[idx];
 
-            if (!!ev.target.checked) {
+            if (ev.target.checked) {
               val |= CONST.RSSFILTERFLAG_ADD_STOPPED;
             } else {
               val &= ~CONST.RSSFILTERFLAG_ADD_STOPPED;
@@ -2356,7 +2356,7 @@ found in the LICENSE file.
             idx = CONST.RSSFILTER_FLAGS;
             val = filter[idx];
 
-            if (!!ev.target.checked) {
+            if (ev.target.checked) {
               val |= CONST.RSSFILTERFLAG_SMART_EP_FILTER;
             } else {
               val &= ~CONST.RSSFILTERFLAG_SMART_EP_FILTER;
@@ -2367,7 +2367,7 @@ found in the LICENSE file.
             idx = CONST.RSSFILTER_FLAGS;
             val = filter[idx];
 
-            if (!!ev.target.checked) {
+            if (ev.target.checked) {
               val |= CONST.RSSFILTERFLAG_HIGH_PRIORITY;
             } else {
               val &= ~CONST.RSSFILTERFLAG_HIGH_PRIORITY;
@@ -5115,7 +5115,7 @@ found in the LICENSE file.
       };
 
       this.trtColDefs.each(function(item, idx) {
-        if (!!item[3]) config.colMask |= 1 << idx;
+        if (item[3]) config.colMask |= 1 << idx;
       });
 
       this.trtTable.setConfig(config);
@@ -5184,7 +5184,7 @@ found in the LICENSE file.
       };
 
       this.prsColDefs.each(function(item, idx) {
-        if (!!item[3]) config.colMask |= 1 << idx;
+        if (item[3]) config.colMask |= 1 << idx;
       });
 
       this.prsTable.setConfig(config);
@@ -5379,7 +5379,7 @@ found in the LICENSE file.
       };
 
       this.flsColDefs.each(function(item, idx) {
-        if (!!item[3]) config.colMask |= 1 << idx;
+        if (item[3]) config.colMask |= 1 << idx;
       });
 
       this.flsTable.setConfig(config);
@@ -5459,7 +5459,7 @@ found in the LICENSE file.
       };
 
       this.advOptColDefs.each(function(item, idx) {
-        if (!!item[3]) config.colMask |= 1 << idx;
+        if (item[3]) config.colMask |= 1 << idx;
       });
 
       this.advOptTable.setConfig(config);
@@ -5988,7 +5988,7 @@ found in the LICENSE file.
       };
 
       this.fdColDefs.each(function(item, idx) {
-        if (!!item[3]) config.colMask |= 1 << idx;
+        if (item[3]) config.colMask |= 1 << idx;
       });
 
       this.rssfdTable.setConfig(config);

@@ -110,7 +110,7 @@ var STable = new Class({
 
     var hasicon = false;
     this.colHeader = columns.map(function(item) {
-      if (!!item[4]) hasicon = true;
+      if (item[4]) hasicon = true;
       return {
         id: item[0],
         width: item[1],
