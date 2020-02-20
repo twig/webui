@@ -1,10 +1,19 @@
 {
+  "name": "utorrent-webui",
+  "version": "0.500",
+  "description": "",
+  "author": "",
+  "license": "",
+  "private": true,
+  "keywords": [],
   "scripts": {
     "build": "./build.sh",
     "prettify": "prettier --write *.js **/*.js *.css *.html"
   },
   "devDependencies": {
     "eslint": "^6.8.0",
-    "prettier": "^1.19.1"
+    "prettier": "^1.19.1",
+    "webpack": "^4.41.6",
+    "webpack-cli": "^3.3.11"
   }
 }
