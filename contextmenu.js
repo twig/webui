@@ -36,7 +36,7 @@ var ContextMenu = {
       return function(ev) {
         if (ContextMenu.hideAfterClick) ContextMenu.hide();
 
-        if (typeof fn == "function") fn(ev);
+        if (typeof fn === "function") fn(ev);
       };
     }
 

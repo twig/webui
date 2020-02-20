@@ -90,7 +90,7 @@ function encodeID(str) {
 Array.implement({
   // http://www.leepoint.net/notes-java/algorithms/searching/binarysearch.html
   binarySearch: function(value, comparator, first, upto) {
-    if (typeof comparator != "function") {
+    if (typeof comparator !== "function") {
       comparator = function(a, b) {
         if (a === b) return 0;
         if (a < b) return -1;
