@@ -40,10 +40,12 @@ I'm just updating this to fix the things I need. If you find something wrong wit
 
 ### Get started
 
-First off, you'll need `yarn` installed. Follow the instructions [here](https://classic.yarnpkg.com/en/docs/install/).
+First off, you'll need `nvm` and `yarn` installed. Follow the instructions for [nvm](https://github.com/nvm-sh/nvm) and [yarn](https://classic.yarnpkg.com/en/docs/install/).
 
 First time setup:
 
+* Install the latest node LTS via nvm using `nvm install --lts` (v12.16.1 at time of writing)
+* Verify you're using the right version with `node --version`
 * In the project root, type `yarn install`
 * That is all.
 
