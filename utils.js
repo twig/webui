@@ -9,7 +9,7 @@ found in the LICENSE file.
 	// NOTE: Performance hack, since MooTools $ seems to run very slowly
 	var moo = document.id;
 	$ = function(el, nc) {
-		return moo(((typeof(el) === 'string') ? document.getElementById(el) : el), nc, document); 
+		return moo(((typeof(el) === 'string') ? document.getElementById(el) : el), nc, document);
 	};
 })();
 
@@ -321,9 +321,6 @@ Event.implement({
 
 [Document, Window].invoke("implement", {
 	"getZoomSize": function() {
-		if (Browser.opera && Browser.version >= 9.6) {
-			return {x: document.body.clientWidth, y: document.body.clientHeight};
-		}
 		return this.getSize();
 	}
 });

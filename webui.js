@@ -4370,28 +4370,20 @@ var utWebUI = {
 
 		this.trtTable.setConfig(config);
 		Object.append(this.config.torrentTable, config);
-		if (Browser.opera)
-			this.saveConfig(true);
 	},
 
 	"trtSort": function(index, reverse) {
 		this.config.torrentTable.sIndex = index;
 		this.config.torrentTable.reverse = reverse;
-		if (Browser.opera)
-			this.saveConfig(true);
 	},
 
 	"trtColMove": function() {
 		this.config.torrentTable.colOrder = this.trtTable.colOrder;
 		this.config.torrentTable.sIndex = this.trtTable.sIndex;
-		if (Browser.opera)
-			this.saveConfig(true);
 	},
 
 	"trtColResize": function() {
 		this.config.torrentTable.colWidth = this.trtTable.getColumnWidths();
-		if (Browser.opera)
-			this.saveConfig(true);
 	},
 
 	"trtColToggle": function(index, enable, nosave) {
@@ -4401,8 +4393,6 @@ var utWebUI = {
 		} else {
 			this.config.torrentTable.colMask &= ~num;
 		}
-		if (!nosave && Browser.opera)
-			this.saveConfig(true);
 	},
 
 	"showGeneralMenu": function(ev) {
@@ -4427,8 +4417,6 @@ var utWebUI = {
 	"prsColMove": function() {
 		this.config.peerTable.colOrder = this.prsTable.colOrder;
 		this.config.peerTable.sIndex = this.prsTable.sIndex;
-		if (Browser.opera)
-			this.saveConfig(true);
 	},
 
 	"prsColReset": function() {
@@ -4442,14 +4430,10 @@ var utWebUI = {
 
 		this.prsTable.setConfig(config);
 		Object.append(this.config.peerTable, config);
-		if (Browser.opera)
-			this.saveConfig(true);
 	},
 
 	"prsColResize": function() {
 		this.config.peerTable.colWidth = this.prsTable.getColumnWidths();
-		if (Browser.opera)
-			this.saveConfig(true);
 	},
 
 	"prsColToggle": function(index, enable, nosave) {
@@ -4459,8 +4443,6 @@ var utWebUI = {
 		} else {
 			this.config.peerTable.colMask &= ~num;
 		}
-		if (!nosave && Browser.opera)
-			this.saveConfig(true);
 	},
 
 	"prsDataToRow": function(data) {
@@ -4619,8 +4601,6 @@ var utWebUI = {
 	"prsSort": function(index, reverse) {
 		this.config.peerTable.sIndex = index;
 		this.config.peerTable.reverse = reverse;
-		if (Browser.opera)
-			this.saveConfig(true);
 	},
 
 	"flsColReset": function() {
@@ -4634,28 +4614,20 @@ var utWebUI = {
 
 		this.flsTable.setConfig(config);
 		Object.append(this.config.fileTable, config);
-		if (Browser.opera)
-			this.saveConfig(true);
 	},
 
 	"flsSort": function(index, reverse) {
 		this.config.fileTable.sIndex = index;
 		this.config.fileTable.reverse = reverse;
-		if (Browser.opera)
-			this.saveConfig(true);
 	},
 
 	"flsColMove": function() {
 		this.config.fileTable.colOrder = this.flsTable.colOrder;
 		this.config.fileTable.sIndex = this.flsTable.sIndex;
-		if (Browser.opera)
-			this.saveConfig(true);
 	},
 
 	"flsColResize": function() {
 		this.config.fileTable.colWidth = this.flsTable.getColumnWidths();
-		if (Browser.opera)
-			this.saveConfig(true);
 	},
 
 	"flsColToggle": function(index, enable, nosave) {
@@ -4665,8 +4637,6 @@ var utWebUI = {
 		} else {
 			this.config.fileTable.colMask &= ~num;
 		}
-		if (!nosave && Browser.opera)
-			this.saveConfig(true);
 	},
 
 	"flsDblClk": function(id) {
@@ -4933,8 +4903,6 @@ var utWebUI = {
 		this.config.showCategories = show;
 
 		resizeUI();
-		if (Browser.opera)
-			this.saveConfig(true);
 	},
 
 	"toggleDetPanel": function(show) {
@@ -4949,8 +4917,6 @@ var utWebUI = {
 		this.detPanelTabChange();
 
 		resizeUI();
-		if (Browser.opera)
-			this.saveConfig(true);
 	},
 
 	"toggleDetPanelIcons": function(show) {
@@ -4963,8 +4929,6 @@ var utWebUI = {
 		this.config.showDetailsIcons = show;
 
 		resizeUI();
-		if (Browser.opera)
-			this.saveConfig(true);
 	},
 
 	"toggleSearchBar": function(show) {
@@ -4987,8 +4951,6 @@ var utWebUI = {
 		this.config.showStatusBar = show;
 
 		resizeUI();
-		if (Browser.opera)
-			this.saveConfig(true);
 	},
 
 	"toggleToolbar": function(show) {
@@ -5002,8 +4964,6 @@ var utWebUI = {
 		this.config.showToolbar = show;
 
 		resizeUI();
-		if (Browser.opera)
-			this.saveConfig(true);
 	},
 
 	"toggleSystemFont": function(use) {
@@ -5016,8 +4976,6 @@ var utWebUI = {
 		this.config.useSysFont = use;
 
 		resizeUI();
-		if (Browser.opera)
-			this.saveConfig(true);
 	},
 
 	"tableSetMaxRows": function(max) {
@@ -5235,21 +5193,15 @@ var utWebUI = {
 
 		this.rssfdTable.setConfig(config);
 		Object.append(this.config.feedTable, config);
-		if (Browser.opera)
-			this.saveConfig(true);
 	},
 
 	"fdColResize": function() {
 		this.config.feedTable.colWidth = this.rssfdTable.getColumnWidths();
-		if (Browser.opera)
-			this.saveConfig(true);
 	},
 
 	"fdColMove": function() {
 		this.config.feedTable.colOrder = this.rssfdTable.colOrder;
 		this.config.feedTable.sIndex = this.rssfdTable.sIndex;
-		if (Browser.opera)
-			this.saveConfig(true);
 	},
 
 	"fdColToggle": function(index, enable, nosave) {
@@ -5259,15 +5211,11 @@ var utWebUI = {
 		} else {
 			this.config.feedTable.colMask &= ~num;
 		}
-		if (!nosave && Browser.opera)
-			this.saveConfig(true);
 	},
 
 	"fdSort": function(index, reverse) {
 		this.config.feedTable.sIndex = index;
 		this.config.feedTable.reverse = reverse;
-		if (Browser.opera)
-			this.saveConfig(true);
 	},
 
 	"fdSelect": function(ev, id) {

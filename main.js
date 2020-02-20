@@ -134,33 +134,6 @@ function setupMouseEvents() {
 		"mouseup": mouseWhitelistWrap,
 		"click": mouseWhitelistWrap
 	});
-
-	if (Browser.opera && !("oncontextmenu" in document.createElement("foo"))) {
-
-		// Prevent Opera context menu from showing
-		// - http://my.opera.com/community/forums/findpost.pl?id=2112305
-		// - http://dev.fckeditor.net/changeset/683
-
-		var overrideButton;
-		document.addEvents({
-			"mousedown": function(ev) {
-				if (!overrideButton && ev.isRightClick()) {
-					var doc = ev.target.ownerDocument;
-					overrideButton = doc.createElement("input");
-					overrideButton.type = "button";
-					overrideButton.style.cssText = "z-index:1000;position:fixed;top:" + (ev.client.y - 2) + "px;left:" + (ev.client.x - 2) + "px;width:5px;height:5px;opacity:0.01";
-					(doc.body || doc.documentElement).appendChild(overrideButton);
-				}
-			},
-			"mouseup": function(ev) {
-				if (overrideButton) {
-					overrideButton.destroy();
-					overrideButton = undefined;
-				}
-			}
-		});
-	}
-
 }
 
 function setupKeyboardEvents() {
@@ -221,12 +194,6 @@ function setupKeyboardEvents() {
 				return true;
 			}
 		});
-
-		if (Browser.opera) {
-			document.addEvent("keypress", function(ev) {
-				return !keyBindings[eventToKey(ev)];
-			});
-		}
 	}
 }
 
@@ -593,8 +560,6 @@ function setupDividers() {
 		},
 		"onComplete": function() {
 //			resizeUI(this.value.now.x, null);
-			if (Browser.opera)
-				utWebUI.saveConfig(true);
 		}
 	});
 
@@ -605,8 +570,6 @@ function setupDividers() {
 		},
 		"onComplete": function() {
 //			resizeUI(null, this.value.now.y);
-			if (Browser.opera)
-				utWebUI.saveConfig(true);
 		}
 	});
 
