@@ -28,12 +28,11 @@ found in the LICENSE file.
       }
     };
   }
+  var guiBase = urlBase + "/gui/";
+  var proxyBase = urlBase + "/proxy";
   if (!window.config.webui) {
-    var guiBase = urlBase + "/client/gui/";
-    var proxyBase = urlBase + "/client/proxy";
-  } else {
-    var guiBase = urlBase + "/gui/";
-    var proxyBase = urlBase + "/proxy";
+    guiBase = urlBase + "/client/gui/";
+    proxyBase = urlBase + "/client/proxy";
   }
   window.guiBase = guiBase;
   window.proxyBase = guiBase;
@@ -3530,14 +3529,14 @@ found in the LICENSE file.
       for (var i = 0; i < id_list.length; i++) {
         var id = id_list[i];
         var dom_obj = document.getElementById(id);
+        var new_str;
 
         if (document.brand === "ut") {
-          var new_str = self.str_replace(dom_obj.innerHTML, bt_brand, ut_brand);
-          dom_obj.innerHTML = new_str;
+          new_str = self.str_replace(dom_obj.innerHTML, bt_brand, ut_brand);
         } else {
-          var new_str = self.str_replace(dom_obj.innerHTML, ut_brand, bt_brand);
-          dom_obj.innerHTML = new_str;
+          new_str = self.str_replace(dom_obj.innerHTML, ut_brand, bt_brand);
         }
+        dom_obj.innerHTML = new_str;
       }
     },
 
@@ -4525,11 +4524,13 @@ found in the LICENSE file.
 
           if (newLabelInput.length) {
             var newlabel = $("torrent_props_label").val();
+            var after_update = function() {};
+
             if (newlabel != torrent.label) {
               console.log("label has changed!  -- set to empty label");
               // first set the label to empty string...
               str += "&s=label&v=";
-              var after_update = function() {
+              after_update = function() {
                 console.log("label has changed!  -- set to new primary label");
                 getraptor().post_raw(
                   "action=setprops&s=label&v=" + newlabel,
@@ -4537,8 +4538,6 @@ found in the LICENSE file.
                   function() {}
                 );
               };
-            } else {
-              var after_update = function() {};
             }
           }
           getraptor().post_raw(
