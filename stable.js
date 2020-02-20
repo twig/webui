@@ -143,7 +143,6 @@ var STable = new Class({
     var badIE = Browser.ie && Browser.version <= 7;
     var tr,
       td,
-      div,
       $me = this;
 
     this.id = "stable-" + id;
@@ -451,8 +450,6 @@ var STable = new Class({
   },
 
   setAlignment: function() {
-    var sb = "",
-      cols = this.tBody.getElement("colgroup").getElements("col");
     var tbBody = this.tb.body,
       tbc = tbBody.childNodes,
       tbcCount = tbc.length;

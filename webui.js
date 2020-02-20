@@ -886,8 +886,6 @@ found in the LICENSE file.
       Array.from(param.id).each(function(id) {
         var qs = "action=rss-update";
         if (param) {
-          var val;
-
           if (undefined !== id) qs += "&feed-id=" + (parseInt(id, 10) || -1);
 
           if (undefined !== param.url)
@@ -2279,9 +2277,10 @@ found in the LICENSE file.
       var element = ev.target;
       if (element.tagName !== "INPUT") return;
 
-      var filterId = ev.target.id.replace(/^rssfilter_toggle_/, "").toInt();
+      // var filterId = ev.target.id.replace(/^rssfilter_toggle_/, "").toInt();
 
       // RSSTODO: Implement
+      console.warn('TODO: implement rssfilterCheckboxClick');
     },
 
     rssfilterEdited: function(ev) {
@@ -4634,12 +4633,12 @@ found in the LICENSE file.
       var files = Array.from(param.file);
       if (files.length <= 0) return;
 
-      var count = 0;
-      var fnwrap = function() {
-        if (++count === files.length) fn();
-      };
+      // var count = 0;
+      // var fnwrap = function() {
+      //   if (++count === files.length) fn();
+      // };
 
-      var qs = "action=add-file";
+      // var qs = "action=add-file";
       var val;
 
       if ((val = parseInt(param.dir, 10) || 0)) qs += "&download_dir=" + val;
@@ -5430,7 +5429,7 @@ found in the LICENSE file.
 
     advOptFormatRow: function(values, index) {
       var useidx = $chk(index);
-      var len = useidx ? index + 1 : values.length;
+      // var len = useidx ? index + 1 : values.length;
 
       /*
 		for (var i = (index || 0); i < len; i++) {
@@ -5452,7 +5451,7 @@ found in the LICENSE file.
         colOrder: this.advOptColDefs.map(function(item, idx) {
           return idx;
         }),
-        colWidth: this.advOptColDefs.map(function(item, idx) {
+        colWidth: this.advOptColDefs.map(function(item) {
           return item[1];
         })
       };
