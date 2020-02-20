@@ -12,6 +12,8 @@ module.exports = {
   },
   ignorePatterns: ["node_modules/", "flotr.js", "mootools.js"],
   rules: {
+    eqeqeq: ["error", "always"],
+
     // disable for now
     "no-undef": 0,
     "no-unused-vars": 0,
