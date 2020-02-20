@@ -2280,7 +2280,7 @@ found in the LICENSE file.
       // var filterId = ev.target.id.replace(/^rssfilter_toggle_/, "").toInt();
 
       // RSSTODO: Implement
-      console.warn('TODO: implement rssfilterCheckboxClick');
+      console.warn("TODO: implement rssfilterCheckboxClick");
     },
 
     rssfilterEdited: function(ev) {
