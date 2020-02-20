@@ -4760,7 +4760,7 @@ found in the LICENSE file.
               var key =
                 id +
                 "_" +
-                peer[CONST.PEER_IP].replace(/[\.:]/g, "_") +
+                peer[CONST.PEER_IP].replace(/[.:]/g, "_") +
                 "_" +
                 peer[CONST.PEER_PORT]; // TODO: Handle bt.allow_same_ip
               this.prsTable.addRow(

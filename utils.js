@@ -81,7 +81,7 @@ function decodeID(str) {
 
 function encodeID(str) {
   return escape(
-    str.replace(/[A-Za-z0-9\*\@\-\_\+\.\/]/g, function(c) {
+    str.replace(/[A-Za-z0-9*@\-_+./]/g, function(c) {
       return "_" + c.charCodeAt(0).toString(16);
     })
   ).replace(/%/g, "_");

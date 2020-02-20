@@ -19,7 +19,6 @@ module.exports = {
     "no-unused-vars": 0,
     "no-redeclare": 0,
     "no-extra-boolean-cast": 0,
-    "no-useless-escape": 0,
-    "no-prototype-builtins": 0,
+    "no-prototype-builtins": 0
   }
 };
