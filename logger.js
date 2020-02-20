@@ -102,7 +102,11 @@ if (!console.time) {
 
 if (!console.timeEnd) {
   console.timeEnd = function(name) {
-    if (name == "" || !__console_timers__.hasOwnProperty(name)) return;
+    if (
+      name == "" ||
+      !Object.prototype.hasOwnProperty.call(__console_timers__, name)
+    )
+      return;
     console.log(name + ": " + (Date.now() - __console_timers__[name]) + "ms");
     delete __console_timers__[name];
   };

@@ -18,6 +18,5 @@ module.exports = {
     "no-undef": 0,
     "no-unused-vars": 0, // ['error', {args: 'none'}],
     "no-redeclare": 0,
-    "no-prototype-builtins": 0
   }
 };
