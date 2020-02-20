@@ -1,4 +1,13 @@
-{
+/*
+Copyright (c) 2011 BitTorrent, Inc. All rights reserved.
+
+Use of this source code is governed by a BSD-style that can be
+found in the LICENSE file.
+
+Bosnian
+*/
+
+var LANG_STR = {
    "CT_MASK1":"Torrent fajlovi||*.torrent||Svi fajlovi (*.*)||*.*||",
    "DLG_BTN_OK":"U redu",
    "DLG_BTN_CANCEL":"Odustani",
