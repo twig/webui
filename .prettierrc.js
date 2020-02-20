@@ -6,7 +6,7 @@ module.exports = {
     {
       "files": ["*.html"],
       "options": {
-        "printWidth": 100,
+        "printWidth": 90,
       }
     }
   ]
