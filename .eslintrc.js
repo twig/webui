@@ -17,7 +17,6 @@ module.exports = {
     // disable for now
     "no-undef": 0,
     "no-unused-vars": 0,
-    "no-mixed-spaces-and-tabs": 0,
     "no-redeclare": 0,
     "no-empty": 0,
     "no-extra-boolean-cast": 0,
