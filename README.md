@@ -21,6 +21,7 @@ It was branched from https://github.com/bittorrent/webui which is broken as fuck
 * added back in "Torrent delete dialog"
 * fixed mismatched ids in tabs.js
 * fixed incorrectly named overlay/cover
+* fixed table header/content column alignment
 
 There's more to come if I can be bothered, but at least this is a working branch.
 

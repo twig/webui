@@ -60,6 +60,7 @@ limitations under the License.
 	border: 1px solid;
 	border-color: #FFFFFF #D0D0D0 #D0D0D0 #FFFFFF;
 	padding: 1px 0.5em;
+	box-sizing: border-box;
 }
 
 .stable-head td:hover {
@@ -130,25 +131,21 @@ limitations under the License.
 	overflow: hidden;
 }
 
-.stable-icon div {
-	overflow: hidden;
-	padding-left: 19px !important;
-	position: relative;
-}
-
 .stable-body .icon {
 	margin: 0;
 	padding: 0;
 }
 
 .stable-icon .icon {
+	position: relative;
+}
+
+.stable-icon .icon::after {
+	content: '';
+	display: inline-block;
 	background: transparent url(./images/blank.gif) no-repeat scroll 5px top;
-	clip: rect(0 16px 16px 0);
-	left: 0;
-	margin: -8px 0;
-	padding: 8px;
-	position: absolute;
-	top: 50%;
+	width: 16px;
+	height: 16px;
 }
 
 .stable-move-header {
