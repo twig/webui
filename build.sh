@@ -1,52 +1,45 @@
 #!/bin/bash
-set -ex
 
 # based off https://github.com/afool622/webui
 # https://github.com/psychowood/ng-torrent-ui uses grunt
 
+set -e # exit on errors
+GZIP_ARG="-qf"
+ZIP_ARG="-q"
+
+if [[ $1 == "-v" ]]; then
+	set -x # echo all commands - useful for debugging
+	GZIP_ARG="-qvf"
+	ZIP_ARG="-v"
+fi
+
 # Files in root folder
-# declare -a rootDir=(constants.js contextmenu.js dialogmanager.js flotr.js guest.html index.html logger.js main.css main.js mootools.js speedgraph.js stable.css stable.js tabs.js utils.js webui.js)
-declare -a rootDir=(*.html *.css *.js LICENSE)
+declare -a rootDir=`echo *.html *.css *.js LICENSE`
 # Files in localization folder
-# declare -a locDir=(_.js ar.js be.js bg.js bs.js ca.js cs.js da.js de.js el.js en.js es.js et.js fi.js fr.js fyNL.js ga.js gl.js he.js hu.js is.js it.js ja.js ka.js ko.js lt.js lv.js nl.js nnNO.js no.js pl.js pt.js ptBR.js ro.js ru.js sk.js sl.js sq.js srSR.js sv.js th.js tr.js tw.js uk.js va.js vi.js zhCN.js zhTW.js)
-declare -a dirList=(images lang)
+declare -a dirList="images lang"
 
 if [ -d ./.tmp ]; then
 	rm -fR .tmp
 fi
 
 mkdir ./.tmp
-cp -p *.html *.css *.js LICENSE .tmp/
-cp -r images lang .tmp/
+cp -p $rootDir .tmp/
+cp -r $dirList .tmp/
 cd .tmp
 
-for f in ${rootDir[@]}; do
-	if [[ $1 == "-v" ]]; then
-		gzip -qvf $f > ./$f.gz
-	else
-		gzip -qf $f > ./$f.gz
-	fi
-	# rm $f
+for f in $rootDir; do
+	gzip $GZIP_ARG $f > ./$f.gz
 done
 
-# for f in ${locDir[@]}; do
-for d in ${dirList[@]}; do
+for d in $dirList; do
 	cd $d
-	for f in $(ls ./*); do
-		if [[ $1 == "-v" ]]; then
-			gzip -qvf $f > ./$f.gz
-		else
-			gzip -qf $f > ./$f.gz
-		fi
+	for f in `ls ./*`; do
+		gzip $GZIP_ARG $f > ./$f.gz
 	done
 	cd ../
 done
 
-if [[ $1 == "-v" ]]; then
-	zip -r -v ../webui.zip ./*
-else
-	zip -r -q ../webui.zip ./*
-fi
+zip -r $ZIP_ARG ../webui.zip ./*
 
 cd ../
 
@@ -54,4 +47,4 @@ chmod 0644 ./webui.zip
 # cp -fp webui.zip "/Users/$USER/Library/Application Support/BitTorrent/"
 cp -fp webui.zip "/mnt/c/Users/$USER/AppData/Roaming/uTorrent"
 rm -R ./.tmp
-# rm ./webui.zip
+rm ./webui.zip
