@@ -2213,7 +2213,6 @@ found in the LICENSE file.
         case "INPUT":
           // Do nothing... handled by this.rssfilterCheckboxClick()
           return;
-          break;
 
         case "DIV":
           element = ev.withinScroll(element) ? undefined : $(this.rssfilterId);

@@ -20,7 +20,6 @@ module.exports = {
     "no-redeclare": 0,
     "no-empty": 0,
     "no-extra-boolean-cast": 0,
-    "no-unreachable": 0,
     "no-fallthrough": 0,
     "no-useless-escape": 0,
     "no-prototype-builtins": 0,
