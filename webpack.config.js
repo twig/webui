@@ -12,6 +12,26 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        loader: 'eslint-loader',
+        // use: ['babel-loader', 'eslint-loader'],
+        include: path.resolve(__dirname, 'src'),
+        options: {
+          failOnError: true,
+        }
+      },
+      // {
+      //   test: /\.js$/,
+      //   exclude: /(node_modules)/,
+      //   use: {
+      //     loader: 'babel-loader',
+      //     options: {
+      //       presets: ['@babel/preset-env']
+      //     }
+      //   }
+      // },
+      {
         test: /\.css$/i,
         use: [
           {
