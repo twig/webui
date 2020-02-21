@@ -13,10 +13,14 @@ if [[ $1 == "-v" ]]; then
 	ZIP_ARG="-v"
 fi
 
+cp LICENSE ./dist/
+
+cd dist
+
 # Files in root folder
 declare -a rootDir=`echo *.html *.css *.js LICENSE`
 # Files in localization folder
-declare -a dirList="images lang"
+declare -a dirList="images"
 
 if [ -d ./.tmp ]; then
 	rm -fR .tmp
@@ -46,5 +50,6 @@ cd ../
 chmod 0644 ./webui.zip
 # cp -fp webui.zip "/Users/$USER/Library/Application Support/BitTorrent/"
 cp -fp webui.zip "/mnt/c/Users/$USER/AppData/Roaming/uTorrent"
-rm -R ./.tmp
-rm ./webui.zip
+
+rm -R ./.tmp ./images
+rm webui.zip LICENSE main.js main.css
