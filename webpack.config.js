@@ -1,5 +1,7 @@
-const path = require("path");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const CopyPlugin = require('copy-webpack-plugin');
+
+const path = require("path");
 const outputFolder = path.resolve(__dirname, "dist");
 
 module.exports = {
@@ -37,7 +39,7 @@ module.exports = {
           {
             loader: MiniCssExtractPlugin.loader,
             options: {
-              publicPath: outputFolder
+              // publicPath: outputFolder
             }
           },
           "css-loader"
@@ -58,6 +60,24 @@ module.exports = {
       // both options are optional
       filename: "[name].css",
       chunkFilename: "[id].css"
-    })
+    }),
+    new CopyPlugin([
+      {
+        from: 'src/css/images/ut_small.png',
+        to: path.join(outputFolder, 'images'),
+      },
+      {
+        from: 'src/css/images/snake.gif',
+        to: path.join(outputFolder, 'images'),
+      },
+      {
+        from: 'src/css/images/ut.png',
+        to: path.join(outputFolder, 'images'),
+      },
+      {
+        from: 'src/css/images/mootools.png',
+        to: path.join(outputFolder, 'images'),
+      },
+    ]),
   ]
 };
