@@ -576,6 +576,11 @@ ul.folder-tabs.icon li a > span > span {
   background: transparent url(./images/tabs.png) no-repeat;
 }
 
+.stable-body .icon {
+  display: inline-block;
+  height: 16px;
+}
+
 .icon li#tab_mainInfoPane-generalTab span span {
   background-position: 0 0px;
 }
