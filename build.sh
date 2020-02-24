@@ -20,7 +20,7 @@ cd dist
 # Files in root folder
 declare -a rootDir=`echo *.html *.css *.js LICENSE`
 # Files in localization folder
-declare -a dirList="images"
+declare -a dirList="images lang"
 
 if [ -d ./.tmp ]; then
 	rm -fR .tmp
@@ -51,5 +51,5 @@ chmod 0644 ./webui.zip
 # cp -fp webui.zip "/Users/$USER/Library/Application Support/BitTorrent/"
 cp -fp webui.zip "/mnt/c/Users/$USER/AppData/Roaming/uTorrent"
 
-rm -R ./.tmp ./images
-rm webui.zip LICENSE main.js main.css
+rm -R .tmp images lang
+rm webui.zip LICENSE *.css *.js

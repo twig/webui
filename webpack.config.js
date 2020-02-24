@@ -8,7 +8,7 @@ module.exports = {
   mode: 'development',
   entry: "./src/index.js",
   output: {
-    filename: "main.js",
+    filename: "main_.js",
     path: outputFolder
   },
   module: {
@@ -62,6 +62,15 @@ module.exports = {
       chunkFilename: "[id].css"
     }),
     new CopyPlugin([
+      // temporary
+      {
+        from: '*.js',
+        to: outputFolder,
+      },
+      {
+        from: 'lang',
+        to: path.join(outputFolder, 'lang'),
+      },
       {
         from: 'src/css/images/ut_small.png',
         to: path.join(outputFolder, 'images'),
