@@ -9,7 +9,7 @@
   "scripts": {
     "build": "yarn build:webpack ; ./build.sh",
     "build:webpack": "npx webpack",
-    "prettify": "prettier --write *.js **/*.js *.css *.html"
+    "prettify": "prettier --write *.js **/*.js src/css/*.css *.html"
   },
   "devDependencies": {
     "copy-webpack-plugin": "^5.1.1",
