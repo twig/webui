@@ -76,10 +76,6 @@ module.exports = {
         to: path.join(outputFolder, "images")
       },
       {
-        from: "src/css/images/snake.gif",
-        to: path.join(outputFolder, "images")
-      },
-      {
         from: "src/css/images/ut.png",
         to: path.join(outputFolder, "images")
       },
