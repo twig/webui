@@ -71,16 +71,9 @@ module.exports = {
         from: "lang",
         to: path.join(outputFolder, "lang")
       },
+      // favicon
       {
         from: "src/css/images/ut_small.png",
-        to: path.join(outputFolder, "images")
-      },
-      {
-        from: "src/css/images/ut.png",
-        to: path.join(outputFolder, "images")
-      },
-      {
-        from: "src/css/images/mootools.png",
         to: path.join(outputFolder, "images")
       }
     ])
