@@ -7,8 +7,9 @@
   "private": true,
   "keywords": [],
   "scripts": {
-    "build": "yarn build:webpack ; ./build.sh",
+    "build": "yarn build:webpack ; yarn build:compile",
     "build:webpack": "npx webpack",
+    "build:compile": "./build.sh",
     "prettify": "prettier --write *.js **/*.js src/css/*.css *.html"
   },
   "devDependencies": {
