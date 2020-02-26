@@ -61,11 +61,13 @@ First time setup:
 
 ### build webui.zip
 
+Runs script to build the webui.zip package. This will also copy it to the default uTorrent directory.
+
 To build the project for use or testing, type:
 
 > yarn build [-v]
 
-Runs script to build the webui.zip package. Optional `-v` argument to get more details about whats happening.
+Optional `-v` argument to get more details about whats happening.
 
 ### prettify the code
 
