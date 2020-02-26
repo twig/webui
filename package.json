@@ -1,10 +1,28 @@
 {
+  "name": "utorrent-webui",
+  "version": "0.500",
+  "description": "",
+  "author": "twig",
+  "homepage": "https://github.com/twig/webui/",
+  "license": "BSD-3-Clause",
+  "private": true,
+  "keywords": [],
   "scripts": {
-    "build": "./build.sh",
-    "prettify": "prettier --write *.js **/*.js *.css *.html"
+    "build": "yarn build:webpack ; yarn build:compile",
+    "build:webpack": "npx webpack",
+    "build:compile": "./build.sh",
+    "prettify": "prettier --write *.js **/*.js src/css/*.css *.html"
   },
   "devDependencies": {
+    "copy-webpack-plugin": "^5.1.1",
+    "css-loader": "^3.4.2",
     "eslint": "^6.8.0",
-    "prettier": "^1.19.1"
+    "eslint-loader": "^3.0.3",
+    "file-loader": "^5.1.0",
+    "imports-loader": "^0.8.0",
+    "mini-css-extract-plugin": "^0.9.0",
+    "prettier": "^1.19.1",
+    "webpack": "^4.41.6",
+    "webpack-cli": "^3.3.11"
   }
 }

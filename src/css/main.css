@@ -206,6 +206,23 @@ div.disabled {
   width: 100%;
 }
 
+#cover .msgmid {
+  text-align: center;
+}
+#cover .msgmid > .msg {
+  display: inline-flex;
+  padding: 4px;
+}
+#cover .msgmid > .msg:before {
+  content: "";
+  display: block;
+  width: 16px;
+  height: 16px;
+  background-image: url("./images/snake.gif");
+  background-repeat: no-repeat;
+  margin-right: 4px;
+}
+
 #modalbg {
   display: none;
   z-index: 500;
@@ -574,6 +591,10 @@ ul.folder-tabs.icon li a > span > span {
 
 #mainInfoPane-tabs.icon li span span {
   background: transparent url(./images/tabs.png) no-repeat;
+}
+
+.stable-body .icon {
+  height: 16px;
 }
 
 .icon li#tab_mainInfoPane-generalTab span span {

@@ -179,14 +179,24 @@
   background-image: url(./images/about.png);
 }
 
-#dlgAbout-logo {
-  float: left;
-  margin: 20px 0px 15px -35px;
-}
-
 #dlgAbout-name {
+  display: flex;
+  align-items: center;
+  height: 36px;
+  padding-left: 40px;
+  background-image: url("./images/ut.png");
+  background-repeat: no-repeat;
+  background-position: left center;
   font-size: 1.5em;
   font-weight: bold;
+}
+
+#dlgAbout .mootools-logo {
+  display: inline-block;
+  width: 68px;
+  height: 25px;
+  background-image: url("./images/mootools.png");
+  background-repeat: no-repeat;
 }
 
 #dlgAbout-credits {
