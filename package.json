@@ -2,14 +2,16 @@
   "name": "utorrent-webui",
   "version": "0.500",
   "description": "",
-  "author": "",
-  "license": "",
+  "author": "twig",
+  "homepage": "https://github.com/twig/webui/",
+  "license": "BSD-3-Clause",
   "private": true,
   "keywords": [],
   "scripts": {
-    "build": "yarn build:webpack ; ./build.sh",
+    "build": "yarn build:webpack ; yarn build:compile",
     "build:webpack": "npx webpack",
-    "prettify": "prettier --write *.js **/*.js *.css *.html"
+    "build:compile": "./build.sh",
+    "prettify": "prettier --write *.js **/*.js src/css/*.css *.html"
   },
   "devDependencies": {
     "copy-webpack-plugin": "^5.1.1",

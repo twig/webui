@@ -1,11 +1,11 @@
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const CopyPlugin = require('copy-webpack-plugin');
+const CopyPlugin = require("copy-webpack-plugin");
 
 const path = require("path");
 const outputFolder = path.resolve(__dirname, "dist");
 
 module.exports = {
-  mode: 'development',
+  mode: "development",
   entry: "./src/index.js",
   output: {
     filename: "main_.js",
@@ -16,11 +16,11 @@ module.exports = {
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        loader: 'eslint-loader',
+        loader: "eslint-loader",
         // use: ['babel-loader', 'eslint-loader'],
-        include: path.resolve(__dirname, 'src'),
+        include: path.resolve(__dirname, "src"),
         options: {
-          failOnError: true,
+          failOnError: true
         }
       },
       // {
@@ -64,29 +64,18 @@ module.exports = {
     new CopyPlugin([
       // temporary
       {
-        from: '*.js',
-        to: outputFolder,
+        from: "*.js",
+        to: outputFolder
       },
       {
-        from: 'lang',
-        to: path.join(outputFolder, 'lang'),
+        from: "lang",
+        to: path.join(outputFolder, "lang")
       },
+      // favicon
       {
-        from: 'src/css/images/ut_small.png',
-        to: path.join(outputFolder, 'images'),
-      },
-      {
-        from: 'src/css/images/snake.gif',
-        to: path.join(outputFolder, 'images'),
-      },
-      {
-        from: 'src/css/images/ut.png',
-        to: path.join(outputFolder, 'images'),
-      },
-      {
-        from: 'src/css/images/mootools.png',
-        to: path.join(outputFolder, 'images'),
-      },
-    ]),
+        from: "src/css/images/ut_small.png",
+        to: path.join(outputFolder, "images")
+      }
+    ])
   ]
 };

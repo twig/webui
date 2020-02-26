@@ -2,9 +2,15 @@
 
 Be aware that the master branch is not fully functional.
 
-It was branched from https://github.com/bittorrent/webui which is broken as fuck.
+It was branched from https://github.com/bittorrent/webui which is/was broken as fuck.
 
 ## Things fixed/changed
+
+I forked a copy of v0.380 with the hope of making some small tweaks.
+
+There was no build script to generate the `webui.zip` file, which consists of every source file individually gzipped.
+
+When it did compile, the code simply didn't work. I shouldn't have been surprised since the README clearly stated the master branch was broken.
 
 * added a build.sh to generate webui.zip, loosely based off build script from [afool622's material design webui](https://github.com/afool622/webui). Make a backup of your webui.zip and run `./build.sh` via WSL
 * merged [updated DOM file PR by deepak1556](https://github.com/bittorrent/webui/pull/12)
@@ -25,12 +31,16 @@ It was branched from https://github.com/bittorrent/webui which is broken as fuck
 
 There's more to come if I can be bothered, but at least this is a working branch.
 
-I'm just updating this to fix the things I need. If you find something wrong with it, fix it and submit a PR
+I'm just updating this to fix the things I need. If you find something wrong with it, fix it and submit a PR.
+
+If all you want is a working copy of the v0.380 code, then take a look at https://github.com/twig/webui/releases/tag/v0.380-fixed
 
 ## Things irreversibly changed
 
 * removed explicit support for old versions of Internet Explorer
 * removed explicit support for Opera browser
+* all code files have been parsed through prettier
+* now using webpack for CSS
 
 ## Improvements
 
@@ -51,11 +61,13 @@ First time setup:
 
 ### build webui.zip
 
+Runs script to build the webui.zip package. This will also copy it to the default uTorrent directory.
+
 To build the project for use or testing, type:
 
 > yarn build [-v]
 
-Runs script to build the webui.zip package. Optional `-v` argument to get more details about whats happening.
+Optional `-v` argument to get more details about whats happening.
 
 ### prettify the code
 

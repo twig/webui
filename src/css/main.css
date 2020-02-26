@@ -206,6 +206,23 @@ div.disabled {
   width: 100%;
 }
 
+#cover .msgmid {
+  text-align: center;
+}
+#cover .msgmid > .msg {
+  display: inline-flex;
+  padding: 4px;
+}
+#cover .msgmid > .msg:before {
+  content: "";
+  display: block;
+  width: 16px;
+  height: 16px;
+  background-image: url("./images/snake.gif");
+  background-repeat: no-repeat;
+  margin-right: 4px;
+}
+
 #modalbg {
   display: none;
   z-index: 500;
