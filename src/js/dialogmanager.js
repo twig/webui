@@ -4,6 +4,11 @@ Copyright (c) 2011 BitTorrent, Inc. All rights reserved.
 Use of this source code is governed by a BSD-style that can be
 found in the LICENSE file.
 */
+
+import { Drag, Element } from './mootools_loader.js';
+import { has } from './utils.js';
+import { ContextMenu } from './contextmenu.js';
+
 (function($) {
   var DialogManager = {
     winZ: 500,
@@ -251,3 +256,5 @@ found in the LICENSE file.
 
   window.DialogManager = DialogManager;
 })(document.id); // mootools $ is document.id
+
+export var DialogManager = window.DialogManager;

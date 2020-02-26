@@ -7,7 +7,7 @@ found in the LICENSE file.
 
 /* List of the strings where any language could fallback is there was no translation yet */
 
-var LANG_STR_fallback = {
+export const LANG_STR_fallback = {
   CT_MASK1: "Torrent files||*.torrent||All files (*.*)||*.*||",
   DLG_BTN_OK: "OK",
   DLG_BTN_CANCEL: "Cancel",

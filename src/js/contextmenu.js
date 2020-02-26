@@ -5,17 +5,19 @@ Use of this source code is governed by a BSD-style that can be
 found in the LICENSE file.
 */
 
-var CMENU_SEP = 0;
-var CMENU_CHILD = 1;
-var CMENU_SEL = 2;
-var CMENU_CHECK = 3;
+import { Element, typeOf } from './mootools_loader.js';
+
+export var CMENU_SEP = 0;
+export var CMENU_CHILD = 1;
+export var CMENU_SEL = 2;
+export var CMENU_CHECK = 3;
 
 var ELE_A = new Element("a");
 var ELE_DIV = new Element("div");
 var ELE_LI = new Element("li");
 var ELE_UL = new Element("ul");
 
-var ContextMenu = {
+export var ContextMenu = {
   hideAfterClick: true,
   hidden: true,
 

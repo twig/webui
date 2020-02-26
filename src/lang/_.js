@@ -5,7 +5,11 @@ Use of this source code is governed by a BSD-style that can be
 found in the LICENSE file.
 */
 
-var LANG_CONST = [
+// TODO: support more than just english
+const { LANG_STR } = require('./en.js');
+const { LANG_STR_fallback } = require('./fallback.js');
+
+export const LANG_CONST = [
   "CT_MASK1",
   "DLG_BTN_OK",
   "DLG_BTN_CANCEL",
@@ -484,9 +488,12 @@ var LANG_CONST = [
   "STATUS_REMOTE_08",
   "STATUS_REMOTE_09",
   "STATUS_REMOTE_10"
-].invert();
+].reduce((map, val, idx) => {
+  map[val] = idx;
+  return map;
+}, {});
 
-var LANG_LIST = {
+export var LANG_LIST = {
   ar: "Arabic",
   eu: "Basque",
   be: "Belarusian",
@@ -537,6 +544,6 @@ var LANG_LIST = {
   zhTW: "Chinese (Traditional)"
 };
 
-function L_(id) {
+export function L_(id) {
   return LANG_STR[id] || LANG_STR_fallback[id];
 }

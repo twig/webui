@@ -5,19 +5,23 @@ Use of this source code is governed by a BSD-style that can be
 found in the LICENSE file.
 */
 
-(function() {
-  // NOTE: Performance hack, since MooTools $ seems to run very slowly
-  var moo = document.id;
-  $ = function(el, nc) {
-    return moo(
-      typeof el === "string" ? document.getElementById(el) : el,
-      nc,
-      document
-    );
-  };
-})();
+import { Browser, Document, Event, Element, Window, typeOf, $ } from './mootools_loader.js';
+import { L_ } from '../lang/_.js';
 
-function eventToKey(ev) {
+// (function() {
+//   // NOTE: Performance hack, since MooTools $ seems to run very slowly
+//   var moo = document.id;
+//   debugger;
+//   $ = function(el, nc) {
+//     return moo(
+//       typeof el === "string" ? document.getElementById(el) : el,
+//       nc,
+//       document
+//     );
+//   };
+// })();
+
+export function eventToKey(ev) {
   return (
     (ev.shift ? "shift " : "") +
     (ev.control ? "ctrl " : "") +
@@ -27,7 +31,7 @@ function eventToKey(ev) {
   );
 }
 
-function has(obj, key) {
+export function has(obj, key) {
   return Object.prototype.hasOwnProperty.apply(obj, [key]);
 }
 
@@ -46,7 +50,7 @@ function $each(obj, fn, bind) {
   }
 }
 
-function changePort(port) {
+export function changePort(port) {
   //	if (window.location.port != port) {
   // window.location.port = port; // Does NOT work on Opera
 
@@ -71,7 +75,7 @@ function changePort(port) {
   //	}
 }
 
-function openURL(url, target) {
+export function openURL(url, target) {
   window.open(url, target || "_utwebui_blank" + encodeID(url));
 }
 
@@ -79,7 +83,7 @@ function decodeID(str) {
   return unescape(str.replace(/_/g, "%"));
 }
 
-function encodeID(str) {
+export function encodeID(str) {
   return escape(
     str.replace(/[A-Za-z0-9*@\-_+./]/g, function(c) {
       return "_" + c.charCodeAt(0).toString(16);
@@ -116,14 +120,6 @@ Array.implement({
   insertAt: function(value, index) {
     this.splice(index, 0, value);
     return this;
-  },
-
-  invert: function() {
-    var obj = {};
-    for (var i = 0, il = this.length; i < il; ++i) {
-      obj[this[i]] = i;
-    }
-    return obj;
   },
 
   swap: function(indexA, indexB) {

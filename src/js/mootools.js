@@ -47,7 +47,7 @@ var typeOf = this.typeOf = function(item){
 		if (item.nodeType == 1) return 'element';
 		if (item.nodeType == 3) return (/\S/).test(item.nodeValue) ? 'textnode' : 'whitespace';
 	} else if (typeof item.length == 'number'){
-		if (item.callee) return 'arguments';
+		if ('callee' in item) return 'arguments';
 		if ('item' in item) return 'collection';
 	}
 
@@ -6466,3 +6466,24 @@ Swiff.remote = function(obj, fn){
 };
 
 }).call(this);
+
+module.exports = {
+	Asset,
+	Browser,
+	Class,
+	Drag,
+	Document: window.Document,
+	Element,
+	Event,
+	Events: window.Events,
+	IFrame,
+	Options: window.Options,
+	Request: window.Request,
+	Window: window.Window,
+	typeOf,
+	$: window.$,
+	$$: window.$$,
+	$chk: window.$chk,
+	$each: window.$each,
+	$uid: window.$uid,
+};

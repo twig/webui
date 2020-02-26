@@ -1,4 +1,4 @@
-var Flotr = (function(){
+export var Flotr = (function(){
 	var plotCnt = 0;
 	/**
 	 * Function: (private) getSeries
@@ -289,11 +289,11 @@ var Flotr = (function(){
 		 */
 		var options, canvas, overlay, ctx, octx;
 		var target = container;
-		this.id = id = 'flotr-' + plotCnt++;
-		this.series = series = getSeries(data);
-		this.xaxis = xaxis = {};
-		this.yaxis = yaxis = {};
-		this.plotOffset = plotOffset = {left: 0, right: 0, top: 0, bottom: 0};
+		var id = this.id = 'flotr-' + plotCnt++;
+		var series = this.series = getSeries(data);
+		var xaxis = this.xaxis = {};
+		var yaxis = this.yaxis = {};
+		var plotOffset = this.plotOffset = {left: 0, right: 0, top: 0, bottom: 0};
 		var labelMaxWidth = 0;
 		var labelMaxHeight = 0;
 		var canvasWidth = 0;

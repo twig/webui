@@ -18,20 +18,24 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-var TYPE_STRING = 0;
-var TYPE_NUMBER = 1;
-var TYPE_DATE = 2;
-var TYPE_NUM_ORDER = 3;
-var TYPE_NUM_PROGRESS = 4;
-var TYPE_CUSTOM = 5;
+import { Browser, Class, Drag, Element, Events, Options, typeOf, $, $chk, $each, $uid } from './mootools_loader.js';
+import { has } from './utils.js';
+import { ContextMenu, CMENU_SEP, CMENU_CHECK } from './contextmenu.js';
 
-var ALIGN_AUTO = 0;
-var ALIGN_LEFT = 1;
-var ALIGN_CENTER = 2;
-var ALIGN_RIGHT = 3;
+export var TYPE_STRING = 0;
+export var TYPE_NUMBER = 1;
+export var TYPE_DATE = 2;
+export var TYPE_NUM_ORDER = 3;
+export var TYPE_NUM_PROGRESS = 4;
+export var TYPE_CUSTOM = 5;
 
-var MODE_PAGE = 0;
-var MODE_VIRTUAL = 1;
+export var ALIGN_AUTO = 0;
+export var ALIGN_LEFT = 1;
+export var ALIGN_CENTER = 2;
+export var ALIGN_RIGHT = 3;
+
+export var MODE_PAGE = 0;
+export var MODE_VIRTUAL = 1;
 
 var NO_CHANGE = 0;
 var HAS_CHANGED = 1;
@@ -48,7 +52,7 @@ function simpleClone(element, content) {
   return element;
 }
 
-var STable = new Class({
+export var STable = new Class({
   Implements: [Options, Events],
   rows: 0, // # of rows
   rowData: {}, // the rows' raw data (unformatted)
@@ -673,7 +677,7 @@ var STable = new Class({
       Object.each(
         val,
         function(v, k) {
-          ind = colHdrIdx[k];
+          var ind = colHdrIdx[k];
           if ($chk(colHdr[ind]) && colHdr[ind].type != v) {
             changedCols.push(ind);
             colHdr[ind].type = v;
@@ -691,7 +695,7 @@ var STable = new Class({
       Object.each(
         val,
         function(v, k) {
-          ind = colHdrIdx[k];
+          var ind = colHdrIdx[k];
           if ($chk(colHdr[ind])) {
             colHdr[ind].align = v;
           }

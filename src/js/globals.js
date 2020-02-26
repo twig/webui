@@ -7,7 +7,7 @@ window.g_dayCodes; // array of strings representing ["Mon", "Tue", ..., "Sun"]
 window.g_dayNames; // array of strings representing ["Monday", "Tuesday", ... , "Sunday"]
 window.g_schLgndEx; // object whose values are string explanations of scheduler table colors
 
-window.g_winTitle = "\u00B5Torrent WebUI v" + CONST.VERSION;
+window.g_winTitle = "µTorrent WebUI v" + CONST.VERSION;
 
 // Constants
 

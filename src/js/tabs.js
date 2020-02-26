@@ -5,11 +5,14 @@ Use of this source code is governed by a BSD-style that can be
 found in the LICENSE file.
 */
 
+import { Class, Element, $ } from './mootools_loader.js';
+import { has } from './utils.js';
+
 var ELE_A = new Element("a");
 var ELE_LI = new Element("li");
 var ELE_SPAN = new Element("span");
 
-var Tabs = new Class({
+export var Tabs = new Class({
   active: "",
   tabs: {},
   lazyshow: false,

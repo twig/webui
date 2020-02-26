@@ -4,6 +4,30 @@ Copyright (c) 2011 BitTorrent, Inc. All rights reserved.
 Use of this source code is governed by a BSD-style that can be
 found in the LICENSE file.
 */
+
+import { Browser, Element, IFrame, Request, typeOf, $, $$, $chk, $each } from './mootools_loader.js';
+import { ContextMenu, CMENU_SEP, CMENU_CHILD, CMENU_SEL, CMENU_CHECK } from './contextmenu.js';
+import { SpeedGraph } from './speedgraph.js';
+import { L_ } from '../lang/_.js';
+import { Logger, log } from './logger.js';
+import { changePort, encodeID, has, openURL } from './utils.js';
+import { STable, TYPE_STRING, TYPE_NUM_ORDER, TYPE_NUMBER, TYPE_NUM_PROGRESS, TYPE_CUSTOM, ALIGN_LEFT, MODE_PAGE, MODE_VIRTUAL } from './stable.js';
+import { DialogManager } from './dialogmanager.js';
+import CONST from './constants.js';
+
+// get around circular import in main.js
+var resizeUI = function() { window._resizeUI(...arguments) };
+var _loadComboboxStrings = function() { window._loadComboboxStrings(...arguments) };
+var _unhideSetting = function() { window._unhideSetting(...arguments) };
+var loadLangStrings = function() { window.loadLangStrings(...arguments) };
+
+const { g_feedItemQlty, g_winTitle, g_perSec } = window;
+
+// hack around existing code
+function getraptor() {
+  return window.getraptor();
+}
+
 (function() {
   var LANG_LIST = LANG_LIST || {};
   var urlBase = window.location.pathname.substr(
@@ -21,10 +45,10 @@ found in the LICENSE file.
   if (window.utweb !== undefined || window.raptor) {
     window.getraptor = function() {
       if (window.utweb) {
-        return utweb.current_client().raptor;
+        return window.utweb.current_client().raptor;
       }
       if (window.raptor) {
-        return raptor;
+        return window.raptor;
       }
     };
   }
@@ -3007,7 +3031,7 @@ found in the LICENSE file.
       }, this);
 
       if (this.config.maxRows < this.limits.minTableRows) {
-        value = this.config.maxRows <= 0 ? 0 : this.limits.minTableRows;
+        // value = this.config.maxRows <= 0 ? 0 : this.limits.minTableRows;
       }
       var elemaxrows = $("webui.maxRows");
       if (elemaxrows) elemaxrows.set("value", this.config.maxRows);
@@ -4518,7 +4542,7 @@ found in the LICENSE file.
       if (str != "" || window.utweb !== undefined) {
         if (window.getraptor) {
           // setting label
-          var torrent = utweb.tables.torrent.view.selectedRows()[0];
+          var torrent = window.utweb.tables.torrent.view.selectedRows()[0];
           var newLabelInput = $("torrent_props_label");
 
           if (newLabelInput.length) {
@@ -4639,11 +4663,11 @@ found in the LICENSE file.
       // };
 
       // var qs = "action=add-file";
-      var val;
+      // var val;
 
-      if ((val = parseInt(param.dir, 10) || 0)) qs += "&download_dir=" + val;
+      // if ((val = parseInt(param.dir, 10) || 0)) qs += "&download_dir=" + val;
 
-      if ((val = param.sub || "")) qs += "&path=" + encodeURIComponent(val); // TODO: Sanitize!
+      // if ((val = param.sub || "")) qs += "&path=" + encodeURIComponent(val); // TODO: Sanitize!
 
       Array.each(
         files,
@@ -6104,3 +6128,8 @@ found in the LICENSE file.
   window.isGuest = isGuest;
   window.utWebUI = utWebUI;
 })();
+
+export var isGuest = window.isGuest;
+export var utWebUI = window.utWebUI;
+export var utweb = window.utweb;
+export var guiBase = window.guiBase;

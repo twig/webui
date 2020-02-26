@@ -4,36 +4,17 @@ Copyright (c) 2011 BitTorrent, Inc. All rights reserved.
 Use of this source code is governed by a BSD-style that can be
 found in the LICENSE file.
 */
-var g_winTitle = "µTorrent WebUI v" + CONST.VERSION;
+import CONST from './constants.js';
+import { Asset, Browser, Drag, Element, IFrame, typeOf, $, $$, $chk, $each } from './mootools_loader.js';
+import { ContextMenu } from './contextmenu.js';
+import { DialogManager } from './dialogmanager.js';
+import { Logger, log } from './logger.js';
+import { Tabs } from './tabs.js';
+import { L_, LANG_LIST } from '../lang/_.js';
+import { utWebUI, utweb, isGuest, guiBase } from './webui.js';
+import { eventToKey, has } from './utils.js';
 
-// Localized string globals ... initialized in loadLangStrings()
-
-var g_perSec; // string representing "/s"
-var g_dayCodes; // array of strings representing ["Mon", "Tue", ..., "Sun"]
-var g_dayNames; // array of strings representing ["Monday", "Tuesday", ... , "Sunday"]
-var g_schLgndEx; // object whose values are string explanations of scheduler table colors
-
-// Constants
-
-var g_feedItemQlty = [
-  ["?", CONST.RSSITEMQUALITY_NONE],
-  ["DSRip", CONST.RSSITEMQUALITY_DSRIP],
-  ["DVBRip", CONST.RSSITEMQUALITY_DVBRIP],
-  ["DVDR", CONST.RSSITEMQUALITY_DVDR],
-  ["DVDRip", CONST.RSSITEMQUALITY_DVDRIP],
-  ["DVDScr", CONST.RSSITEMQUALITY_DVDSCR],
-  ["HDTV", CONST.RSSITEMQUALITY_HDTV],
-  ["HR.HDTV", CONST.RSSITEMQUALITY_HRHDTV],
-  ["HR.PDTV", CONST.RSSITEMQUALITY_HRPDTV],
-  ["PDTV", CONST.RSSITEMQUALITY_PDTV],
-  ["SatRip", CONST.RSSITEMQUALITY_SATRIP],
-  ["SVCD", CONST.RSSITEMQUALITY_SVCD],
-  ["TVRip", CONST.RSSITEMQUALITY_TVRIP],
-  ["WebRip", CONST.RSSITEMQUALITY_WEBRIP],
-  ["720p", CONST.RSSITEMQUALITY_720P],
-  ["1080i", CONST.RSSITEMQUALITY_1080I],
-  ["1080p", CONST.RSSITEMQUALITY_1080P]
-];
+let { g_dayCodes, g_dayNames, g_perSec, g_schLgndEx, g_winTitle } = window;
 
 // Pre-generated elements
 
@@ -418,6 +399,8 @@ function resizeUI(hDiv, vDiv) {
 
   __resizeUI_ready__ = true;
 }
+// webpack hack
+window._resizeUI = resizeUI;
 
 //================================================================================
 // USER INTERFACE SETUP
@@ -1623,6 +1606,7 @@ function _unhideSetting(obj) {
     if (ele.hasClass("settings-pane")) ele.fireEvent("show");
   }, this);
 }
+window._unhideSetting = _unhideSetting;
 
 //================================================================================
 // LANGUAGE STRING LOADING
@@ -2269,16 +2253,20 @@ function loadLangStrings(reload, sTableLoad, newLang) {
   if (reload) {
     var loaded = false;
     var lang_path =
-      config.utweb && !config.webui ? "/static/webui/lang/" : "lang/";
-    Asset.javascript(lang_path + reload.lang + ".js", {
-      onload: function() {
-        if (loaded) return;
-        loaded = true;
-        var newLang = reload.lang;
-        loadLangStrings(null, !window.utweb, newLang);
-        if (reload.onload) reload.onload();
-      }
-    });
+      window.config.utweb && !window.config.webui ? "/static/webui/lang/" : "lang/";
+    // pre-webpack
+    // Asset.javascript(lang_path + reload.lang + ".js", {
+    //   onload: function() {
+    //     if (loaded) return;
+    //     loaded = true;
+    //     var newLang = reload.lang;
+    //     loadLangStrings(null, !window.utweb, newLang);
+    //     if (reload.onload) reload.onload();
+    //   }
+    // });
+    var newLang = reload.lang;
+    loadLangStrings(null, !window.utweb, newLang);
+    if (reload.onload) reload.onload();
     return;
   }
   loadGlobalStrings();
@@ -2295,6 +2283,7 @@ function loadLangStrings(reload, sTableLoad, newLang) {
     utweb.change_language(newLang);
   }
 }
+window.loadLangStrings = loadLangStrings;
 
 function _loadComboboxStrings(id, vals, def) {
   try {
@@ -2326,6 +2315,7 @@ function _loadComboboxStrings(id, vals, def) {
     console.log(e.name + ": " + e.message);
   }
 }
+window._loadComboboxStrings = _loadComboboxStrings;
 
 function _loadStrings(prop, strings) {
   var fnload;
