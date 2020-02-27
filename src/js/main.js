@@ -5,6 +5,7 @@ Use of this source code is governed by a BSD-style that can be
 found in the LICENSE file.
 */
 import CONST from './constants.js';
+import { loadGlobalStrings } from './globals';
 import { Asset, Browser, Drag, Element, IFrame, typeOf, $, $$, $chk, $each } from './mootools_loader.js';
 import { ContextMenu } from './contextmenu.js';
 import { DialogManager } from './dialogmanager.js';
@@ -2231,22 +2232,6 @@ function loadSettingStrings() {
   );
 
   $("sched_table").fireEvent("change"); // Force update scheduler related language strings
-}
-
-function loadGlobalStrings() {
-  g_perSec =
-    "/" +
-    L_("TIME_SECS")
-      .replace(/%d/, "")
-      .trim();
-  g_dayCodes = L_("ST_SCH_DAYCODES").split("||");
-  g_dayNames = L_("ST_SCH_DAYNAMES").split("||");
-  g_schLgndEx = {
-    full: L_("ST_SCH_LGND_FULLEX"),
-    limited: L_("ST_SCH_LGND_LIMITEDEX"),
-    off: L_("ST_SCH_LGND_OFFEX"),
-    seeding: L_("ST_SCH_LGND_SEEDINGEX")
-  };
 }
 
 function loadLangStrings(reload, sTableLoad, newLang) {

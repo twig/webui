@@ -1,15 +1,31 @@
 import CONST from './constants.js';
+import { L_ } from '../lang/_.js';
 
 // Localized string globals ... initialized in loadLangStrings()
+export function loadGlobalStrings() {
+  // string representing "/s"
+  window.g_perSec =
+    "/" +
+    L_("TIME_SECS")
+      .replace(/%d/, "")
+      .trim();
+  // array of strings representing ["Mon", "Tue", ..., "Sun"]
+  window.g_dayCodes = L_("ST_SCH_DAYCODES").split("||");
+  // array of strings representing ["Monday", "Tuesday", ... , "Sunday"]
+  window.g_dayNames = L_("ST_SCH_DAYNAMES").split("||");
+  // object whose values are string explanations of scheduler table colors
+  window.g_schLgndEx = {
+    full: L_("ST_SCH_LGND_FULLEX"),
+    limited: L_("ST_SCH_LGND_LIMITEDEX"),
+    off: L_("ST_SCH_LGND_OFFEX"),
+    seeding: L_("ST_SCH_LGND_SEEDINGEX")
+  };
+}
 
-window.g_perSec; // string representing "/s"
-window.g_dayCodes; // array of strings representing ["Mon", "Tue", ..., "Sun"]
-window.g_dayNames; // array of strings representing ["Monday", "Tuesday", ... , "Sunday"]
-window.g_schLgndEx; // object whose values are string explanations of scheduler table colors
-
-window.g_winTitle = "µTorrent WebUI v" + CONST.VERSION;
+loadGlobalStrings();
 
 // Constants
+window.g_winTitle = "µTorrent WebUI v" + CONST.VERSION;
 
 window.g_feedItemQlty = [
   ["?", CONST.RSSITEMQUALITY_NONE],
