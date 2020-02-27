@@ -62,15 +62,6 @@ module.exports = {
       chunkFilename: "[id].css"
     }),
     new CopyPlugin([
-      // temporary
-      {
-        from: "*.js",
-        to: outputFolder
-      },
-      {
-        from: "lang",
-        to: path.join(outputFolder, "lang")
-      },
       // favicon
       {
         from: "src/css/images/ut_small.png",
