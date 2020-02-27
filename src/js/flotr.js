@@ -1,3 +1,5 @@
+import { Element, typeOf, $ } from './mootools_loader.js';
+
 export var Flotr = (function(){
 	var plotCnt = 0;
 	/**
@@ -305,6 +307,7 @@ export var Flotr = (function(){
 		this.options = setOptions(opts);
 
 		this.repaint = repaint;
+		this.insertLegend = insertLegend;
 
 		/**
 		 * Function: (private) setOptions
@@ -499,7 +502,7 @@ export var Flotr = (function(){
 			calculateTicks(yaxis, options.yaxis);
 			calculateSpacing();
 			draw();
-			insertLegend();
+			this.insertLegend();
 		}
 
 		/**
