@@ -6,21 +6,21 @@ window.config = window.config || {
   webui: true
 };
 
-require('./js/globals.js');
-// // require('mootools');
-// // require('imports-loader?exports=>undefined&this=>window!./js/mootools.js');
-require('./js/mootools_loader.js');
-// require('./js/flotr.js');
-require('./js/utils.js');
+import './js/globals.js';
+// import('mootools');
+// import('imports-loader?exports=>undefined&this=>window!./js/mootools.js');
+import './js/mootools_loader.js';
+// import('./js/flotr.js');
+import './js/utils.js';
 
-// require('./js/constants.js');
-// require('./lang/en.js');
-// require('./lang/_.js');
-// require('./js/logger.js');
-// require('./js/speedgraph.js');
-// require('./js/stable.js');
-// require('./js/tabs.js');
-// require('./js/webui.js');
-// require('./js/contextmenu.js');
-// require('./js/dialogmanager.js');
-require('./js/main.js');
+// import './js/constants.js';
+// import './lang/en.js';
+// import'./lang/_.js';
+// import './js/logger.js';
+// import './js/speedgraph.js';
+// import './js/stable.js';
+// import './js/tabs.js';
+// import './js/webui.js';
+// import './js/contextmenu.js';
+// import './js/dialogmanager.js';
+import './js/main.js';
