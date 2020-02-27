@@ -7,15 +7,13 @@ window.config = window.config || {
 };
 
 import './js/globals.js';
-// import('mootools');
-// import('imports-loader?exports=>undefined&this=>window!./js/mootools.js');
 import './js/mootools_loader.js';
 // import('./js/flotr.js');
 import './js/utils.js';
 
 // import './js/constants.js';
 // import './lang/en.js';
-// import'./lang/_.js';
+// import './lang/_.js';
 // import './js/logger.js';
 // import './js/speedgraph.js';
 // import './js/stable.js';
