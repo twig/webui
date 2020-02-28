@@ -4,7 +4,7 @@ Copyright (c) 2011 BitTorrent, Inc. All rights reserved.
 Use of this source code is governed by a BSD-style that can be
 found in the LICENSE file.
 */
-import { $ } from './mootools_loader.js';
+import { $ } from "./mootools_loader.js";
 
 //================================================================================
 // LOGGER

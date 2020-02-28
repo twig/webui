@@ -5,9 +5,9 @@ Use of this source code is governed by a BSD-style that can be
 found in the LICENSE file.
 */
 
-import { Drag, Element } from './mootools_loader.js';
-import { has } from './utils.js';
-import { ContextMenu } from './contextmenu.js';
+import { Drag, Element } from "./mootools_loader.js";
+import { has } from "./utils.js";
+import { ContextMenu } from "./contextmenu.js";
 
 (function($) {
   var DialogManager = {

@@ -5,8 +5,16 @@ Use of this source code is governed by a BSD-style that can be
 found in the LICENSE file.
 */
 
-import { Browser, Document, Event, Element, Window, typeOf, $ } from './mootools_loader.js';
-import { L_ } from '../lang/_.js';
+import {
+  Browser,
+  Document,
+  Event,
+  Element,
+  Window,
+  typeOf,
+  $
+} from "./mootools_loader.js";
+import { L_ } from "../lang/_.js";
 
 // (function() {
 //   // NOTE: Performance hack, since MooTools $ seems to run very slowly

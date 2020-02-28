@@ -4,16 +4,27 @@ Copyright (c) 2011 BitTorrent, Inc. All rights reserved.
 Use of this source code is governed by a BSD-style that can be
 found in the LICENSE file.
 */
-import CONST from './constants.js';
-import { loadGlobalStrings } from './globals';
-import { Asset, Browser, Drag, Element, IFrame, typeOf, $, $$, $chk, $each } from './mootools_loader.js';
-import { ContextMenu } from './contextmenu.js';
-import { DialogManager } from './dialogmanager.js';
-import { Logger, log } from './logger.js';
-import { Tabs } from './tabs.js';
-import { L_, LANG_LIST } from '../lang/_.js';
-import { utWebUI, utweb, isGuest, guiBase } from './webui.js';
-import { eventToKey, has } from './utils.js';
+import CONST from "./constants.js";
+import { loadGlobalStrings } from "./globals";
+import {
+  Asset,
+  Browser,
+  Drag,
+  Element,
+  IFrame,
+  typeOf,
+  $,
+  $$,
+  $chk,
+  $each
+} from "./mootools_loader.js";
+import { ContextMenu } from "./contextmenu.js";
+import { DialogManager } from "./dialogmanager.js";
+import { Logger, log } from "./logger.js";
+import { Tabs } from "./tabs.js";
+import { L_, LANG_LIST } from "../lang/_.js";
+import { utWebUI, utweb, isGuest, guiBase } from "./webui.js";
+import { eventToKey, has } from "./utils.js";
 
 let { g_dayCodes, g_dayNames, g_perSec, g_schLgndEx, g_winTitle } = window;
 
@@ -2238,7 +2249,9 @@ function loadLangStrings(reload, sTableLoad, newLang) {
   if (reload) {
     var loaded = false;
     var lang_path =
-      window.config.utweb && !window.config.webui ? "/static/webui/lang/" : "lang/";
+      window.config.utweb && !window.config.webui
+        ? "/static/webui/lang/"
+        : "lang/";
     // pre-webpack
     // Asset.javascript(lang_path + reload.lang + ".js", {
     //   onload: function() {

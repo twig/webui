@@ -5,7 +5,7 @@ Use of this source code is governed by a BSD-style that can be
 found in the LICENSE file.
 */
 
-import { Element, typeOf } from './mootools_loader.js';
+import { Element, typeOf } from "./mootools_loader.js";
 
 export var CMENU_SEP = 0;
 export var CMENU_CHILD = 1;

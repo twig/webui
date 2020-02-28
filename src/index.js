@@ -6,10 +6,10 @@ window.config = window.config || {
   webui: true
 };
 
-import './js/globals.js';
-import './js/mootools_loader.js';
+import "./js/globals.js";
+import "./js/mootools_loader.js";
 // import('./js/flotr.js');
-import './js/utils.js';
+import "./js/utils.js";
 
 // import './js/constants.js';
 // import './lang/en.js';
@@ -21,4 +21,4 @@ import './js/utils.js';
 // import './js/webui.js';
 // import './js/contextmenu.js';
 // import './js/dialogmanager.js';
-import './js/main.js';
+import "./js/main.js";

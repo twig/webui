@@ -18,9 +18,21 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-import { Browser, Class, Drag, Element, Events, Options, typeOf, $, $chk, $each, $uid } from './mootools_loader.js';
-import { has } from './utils.js';
-import { ContextMenu, CMENU_SEP, CMENU_CHECK } from './contextmenu.js';
+import {
+  Browser,
+  Class,
+  Drag,
+  Element,
+  Events,
+  Options,
+  typeOf,
+  $,
+  $chk,
+  $each,
+  $uid
+} from "./mootools_loader.js";
+import { has } from "./utils.js";
+import { ContextMenu, CMENU_SEP, CMENU_CHECK } from "./contextmenu.js";
 
 export var TYPE_STRING = 0;
 export var TYPE_NUMBER = 1;

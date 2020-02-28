@@ -5,9 +5,9 @@ Use of this source code is governed by a BSD-style that can be
 found in the LICENSE file.
 */
 
-import { Class, $ } from './mootools_loader.js';
-import { Flotr }  from './flotr.js';
-import { utWebUI } from './webui.js';
+import { Class, $ } from "./mootools_loader.js";
+import { Flotr } from "./flotr.js";
+import { utWebUI } from "./webui.js";
 
 var g_perSec = window.g_perSec;
 

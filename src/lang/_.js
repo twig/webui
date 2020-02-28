@@ -6,8 +6,8 @@ found in the LICENSE file.
 */
 
 // TODO: support more than just english
-import { LANG_STR } from './en.js';
-import { LANG_STR_fallback } from './fallback.js';
+import { LANG_STR } from "./en.js";
+import { LANG_STR_fallback } from "./fallback.js";
 
 export const LANG_CONST = [
   "CT_MASK1",

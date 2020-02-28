@@ -1,5 +1,5 @@
-import CONST from './constants.js';
-import { L_ } from '../lang/_.js';
+import CONST from "./constants.js";
+import { L_ } from "../lang/_.js";
 
 // Localized string globals ... initialized in loadLangStrings()
 export function loadGlobalStrings() {

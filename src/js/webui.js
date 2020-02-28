@@ -5,21 +5,55 @@ Use of this source code is governed by a BSD-style that can be
 found in the LICENSE file.
 */
 
-import { Browser, Element, IFrame, Request, typeOf, $, $$, $chk, $each } from './mootools_loader.js';
-import { ContextMenu, CMENU_SEP, CMENU_CHILD, CMENU_SEL, CMENU_CHECK } from './contextmenu.js';
-import { SpeedGraph } from './speedgraph.js';
-import { L_ } from '../lang/_.js';
-import { Logger, log } from './logger.js';
-import { changePort, encodeID, has, openURL } from './utils.js';
-import { STable, TYPE_STRING, TYPE_NUM_ORDER, TYPE_NUMBER, TYPE_NUM_PROGRESS, TYPE_CUSTOM, ALIGN_LEFT, MODE_PAGE, MODE_VIRTUAL } from './stable.js';
-import { DialogManager } from './dialogmanager.js';
-import CONST from './constants.js';
+import {
+  Browser,
+  Element,
+  IFrame,
+  Request,
+  typeOf,
+  $,
+  $$,
+  $chk,
+  $each
+} from "./mootools_loader.js";
+import {
+  ContextMenu,
+  CMENU_SEP,
+  CMENU_CHILD,
+  CMENU_SEL,
+  CMENU_CHECK
+} from "./contextmenu.js";
+import { SpeedGraph } from "./speedgraph.js";
+import { L_ } from "../lang/_.js";
+import { Logger, log } from "./logger.js";
+import { changePort, encodeID, has, openURL } from "./utils.js";
+import {
+  STable,
+  TYPE_STRING,
+  TYPE_NUM_ORDER,
+  TYPE_NUMBER,
+  TYPE_NUM_PROGRESS,
+  TYPE_CUSTOM,
+  ALIGN_LEFT,
+  MODE_PAGE,
+  MODE_VIRTUAL
+} from "./stable.js";
+import { DialogManager } from "./dialogmanager.js";
+import CONST from "./constants.js";
 
 // get around circular import in main.js
-var resizeUI = function() { window._resizeUI(...arguments) };
-var _loadComboboxStrings = function() { window._loadComboboxStrings(...arguments) };
-var _unhideSetting = function() { window._unhideSetting(...arguments) };
-var loadLangStrings = function() { window.loadLangStrings(...arguments) };
+var resizeUI = function() {
+  window._resizeUI(...arguments);
+};
+var _loadComboboxStrings = function() {
+  window._loadComboboxStrings(...arguments);
+};
+var _unhideSetting = function() {
+  window._unhideSetting(...arguments);
+};
+var loadLangStrings = function() {
+  window.loadLangStrings(...arguments);
+};
 
 const { g_feedItemQlty, g_winTitle, g_perSec } = window;
 
