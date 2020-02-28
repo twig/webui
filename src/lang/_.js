@@ -7,7 +7,6 @@ found in the LICENSE file.
 
 // TODO: support more than just english
 import { LANG_STR as EN_STR } from "./en.js";
-import { LANG_STR_fallback } from "./fallback.js";
 
 let languageStr = EN_STR;
 
@@ -569,5 +568,5 @@ export var LANG_LIST = {
 };
 
 export function L_(id) {
-  return languageStr[id] || LANG_STR_fallback[id];
+  return languageStr[id] || EN_STR[id];
 }

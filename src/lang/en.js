@@ -515,6 +515,4 @@ export const LANG_STR = {
   STATUS_REMOTE_10: "Status: "
 };
 
-var LANG_STR_fallback = LANG_STR;
-
-/* README : If you add any strings *Please consider updating fallback.js */
+/* README : If you add any strings *Please consider updating en.js */
