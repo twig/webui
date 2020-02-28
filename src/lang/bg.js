@@ -7,7 +7,7 @@ found in the LICENSE file.
 Bulgarian
 */
 
-var LANG_STR = {
+export const LANG_STR = {
   CT_MASK1: "Торенти||*.torrent||Всички файлове (*.*)||*.*||",
   DLG_BTN_OK: "ОК",
   DLG_BTN_CANCEL: "Отказ",

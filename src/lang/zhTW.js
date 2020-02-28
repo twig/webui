@@ -5,7 +5,7 @@ Use of this source code is governed by a BSD-style that can be
 found in the LICENSE file.
 */
 
-var LANG_STR = {
+export const LANG_STR = {
   CT_MASK1: "Torrent檔案||*.torrent||所有檔案 (*.*)||*.*||",
   DLG_BTN_OK: "確定",
   DLG_BTN_CANCEL: "取消",

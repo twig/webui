@@ -5,7 +5,7 @@ Use of this source code is governed by a BSD-style that can be
 found in the LICENSE file.
 */
 
-var LANG_STR = {
+export const LANG_STR = {
   CT_MASK1: "Comhaid Torrent||*.torrent||Gach comhad (*.*)||*.*||",
   DLG_BTN_OK: "Tá go maith",
   DLG_BTN_CANCEL: "Cealaigh",

@@ -7,7 +7,7 @@ found in the LICENSE file.
 Bosnian
 */
 
-var LANG_STR = {
+export const LANG_STR = {
   CT_MASK1: "Torrent fajlovi||*.torrent||Svi fajlovi (*.*)||*.*||",
   DLG_BTN_OK: "U redu",
   DLG_BTN_CANCEL: "Odustani",

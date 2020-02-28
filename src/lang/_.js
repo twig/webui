@@ -5,7 +5,6 @@ Use of this source code is governed by a BSD-style that can be
 found in the LICENSE file.
 */
 
-// TODO: support more than just english
 import { LANG_STR as EN_STR } from "./en.js";
 
 let languageStr = EN_STR;

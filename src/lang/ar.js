@@ -7,7 +7,7 @@ found in the LICENSE file.
 Arbic
 */
 
-var LANG_STR = {
+export const LANG_STR = {
   CT_MASK1: "ملفات التورنت||*.torrent||كل الملفات (*.*)||*.*||",
   DLG_BTN_OK: "حسنا",
   DLG_BTN_CANCEL: "إلغاء الأمر",

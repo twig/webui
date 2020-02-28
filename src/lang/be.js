@@ -7,7 +7,7 @@ found in the LICENSE file.
 Belarusian
 */
 
-var LANG_STR = {
+export const LANG_STR = {
   CT_MASK1: "Торэнт файлы||*.torrent||Усе файлы (*.*)||*.*||",
   DLG_BTN_OK: "OK",
   DLG_BTN_CANCEL: "Адмена",
