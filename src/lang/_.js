@@ -6,8 +6,32 @@ found in the LICENSE file.
 */
 
 // TODO: support more than just english
-import { LANG_STR } from "./en.js";
+import { LANG_STR as EN_STR } from "./en.js";
 import { LANG_STR_fallback } from "./fallback.js";
+
+let languageStr = EN_STR;
+
+export const loadLanguageFile = (lang) => {
+  return new Promise((success, fail) => {
+    if (lang in LANG_LIST) {
+      import(`./${lang}.js`)
+        .then(({ LANG_STR }) => {
+          if (LANG_STR === undefined) {
+            fail({message: `loadLanguageFile(): Invalid language file: ${lang}`});
+            return;
+          }
+
+          languageStr = LANG_STR;
+          success();
+        })
+        .catch(fail);
+    }
+    else {
+      const message = `loadLanguageFile(): Unknown language ${lang}`;
+      fail({message});
+    }
+  });
+};
 
 export const LANG_CONST = [
   "CT_MASK1",
@@ -545,5 +569,5 @@ export var LANG_LIST = {
 };
 
 export function L_(id) {
-  return LANG_STR[id] || LANG_STR_fallback[id];
+  return languageStr[id] || LANG_STR_fallback[id];
 }

@@ -22,7 +22,7 @@ import { ContextMenu } from "./contextmenu.js";
 import { DialogManager } from "./dialogmanager.js";
 import { Logger, log } from "./logger.js";
 import { Tabs } from "./tabs.js";
-import { L_, LANG_LIST } from "../lang/_.js";
+import { loadLanguageFile, L_, LANG_LIST } from "../lang/_.js";
 import { utWebUI, utweb, isGuest, guiBase } from "./webui.js";
 import { eventToKey, has } from "./utils.js";
 
@@ -2247,26 +2247,19 @@ function loadSettingStrings() {
 
 function loadLangStrings(reload, sTableLoad, newLang) {
   if (reload) {
-    var loaded = false;
-    var lang_path =
-      window.config.utweb && !window.config.webui
-        ? "/static/webui/lang/"
-        : "lang/";
-    // pre-webpack
-    // Asset.javascript(lang_path + reload.lang + ".js", {
-    //   onload: function() {
-    //     if (loaded) return;
-    //     loaded = true;
-    //     var newLang = reload.lang;
-    //     loadLangStrings(null, !window.utweb, newLang);
-    //     if (reload.onload) reload.onload();
-    //   }
-    // });
-    var newLang = reload.lang;
-    loadLangStrings(null, !window.utweb, newLang);
-    if (reload.onload) reload.onload();
+    loadLanguageFile(reload.lang)
+      .catch()
+      .then(() => {
+        loadLangStrings(null, !window.utweb, reload.lang);
+
+        if (reload.onload) {
+          reload.onload();
+        }
+      })
+    ;
     return;
   }
+
   loadGlobalStrings();
   loadCategoryStrings();
   if (sTableLoad) {
