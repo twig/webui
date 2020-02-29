@@ -567,6 +567,7 @@ export var LANG_LIST = {
   zhTW: "Chinese (Traditional)"
 };
 
+/* README: If you add strings to ANY language, update en.js */
 export function L_(id) {
   return languageStr[id] || EN_STR[id];
 }

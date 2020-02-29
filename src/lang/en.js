@@ -514,5 +514,3 @@ export const LANG_STR = {
   STATUS_REMOTE_09: "Password may not contain non-English characters",
   STATUS_REMOTE_10: "Status: "
 };
-
-/* README : If you add any strings *Please consider updating en.js */
