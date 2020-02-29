@@ -31,7 +31,7 @@ export function loadGlobalStrings() {
   // Constants
   G.winTitle = "µTorrent WebUI v" + CONST.VERSION;
 
-  window.g_feedItemQlty = [
+  G.feedItemQlty = [
     ["?", CONST.RSSITEMQUALITY_NONE],
     ["DSRip", CONST.RSSITEMQUALITY_DSRIP],
     ["DVBRip", CONST.RSSITEMQUALITY_DVBRIP],

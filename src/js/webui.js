@@ -56,8 +56,6 @@ var loadLangStrings = function() {
   window.loadLangStrings(...arguments);
 };
 
-const { g_feedItemQlty } = window;
-
 // hack around existing code
 function getraptor() {
   return window.getraptor();
@@ -2520,7 +2518,7 @@ function getraptor() {
       var qualities = [L_("DLG_RSSDOWNLOADER_29")];
       if (qual !== undefined && qual !== CONST.RSSITEMQUALITY_ALL) {
         qualities = [];
-        g_feedItemQlty.each(function(item) {
+        G.feedItemQlty.each(function(item) {
           if (qual & item[1]) {
             qualities.push(item[0]);
           }
@@ -2558,10 +2556,10 @@ function getraptor() {
         [CMENU_SEP]
       ];
 
-      for (var i = 1, il = g_feedItemQlty.length; i < il; ++i) {
+      for (var i = 1, il = G.feedItemQlty.length; i < il; ++i) {
         menuItems.push([
-          g_feedItemQlty[i][0],
-          qualSelect(g_feedItemQlty[i][1])
+          G.feedItemQlty[i][0],
+          qualSelect(G.feedItemQlty[i][1])
         ]);
       }
 
@@ -2574,7 +2572,7 @@ function getraptor() {
         if (quality !== CONST.RSSITEMQUALITY_ALL) {
           menuItems[0].shift();
           for (var i = 2, il = menuItems.length; i < il; ++i) {
-            if (quality & g_feedItemQlty[i - 1][1]) {
+            if (quality & G.feedItemQlty[i - 1][1]) {
               menuItems[i].unshift(CMENU_CHECK);
             }
           }
