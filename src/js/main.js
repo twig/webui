@@ -2265,7 +2265,7 @@ function _loadStrings(prop, strings) {
       fnload(val, key);
     } catch (e) {
       console.log(
-        "Error attempting to assign string '" + val + "' to element..."
+        `Error attempting to assign string '${val}' to element '${key}'`
       );
     }
   });
