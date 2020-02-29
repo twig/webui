@@ -3,14 +3,6 @@ import { L_ } from "../lang/_.js";
 
 export const G = {};
 
-export const updateGlobal = (name, value) => {
-  if (!(name in G)) {
-    throw new Error(`updateGlobal(): invalid name '${name}'`);
-  }
-
-  G[name] = value;
-};
-
 // Localized string globals ... initialized in loadLangStrings()
 export function loadGlobalStrings() {
   // string representing "/s"
