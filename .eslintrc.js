@@ -18,7 +18,7 @@ module.exports = {
     'no-debugger': 1, // warn
 
     // disable for now
-    "no-unused-vars": ['error', {args: 'none'}],
+    "no-unused-vars": ['warn', {args: 'none'}],
     "no-redeclare": 0,
   }
 };
