@@ -26,7 +26,7 @@ import {
 } from "./contextmenu.js";
 import { SpeedGraph } from "./speedgraph.js";
 import { L_ } from "../lang/_.js";
-import { Logger, log } from "./logger.js";
+import { Logger } from "./logger.js";
 import { changePort, encodeID, has, openURL } from "./utils.js";
 import {
   STable,
@@ -570,7 +570,7 @@ function getraptor() {
               fails[0]++;
               var delay = Math.pow(self.limits.reqRetryDelayBase, fails[0]);
               if (fails[0] <= self.limits.reqRetryMaxAttempts) {
-                log(
+                Logger.log(
                   "Request failure #" +
                     fails[0] +
                     " (will retry in " +
@@ -597,7 +597,7 @@ function getraptor() {
                     // hammer the backend with tons of requests after failure recovery (to
                     // be exact, it may spam as many requests as there have been failures)
 
-                    log("Request retry succeeded: " + qs);
+                    Logger.log("Request retry succeeded: " + qs);
                     if (fn) fn.delay(0, self, json);
                     self.beginPeriodicUpdate();
                   }
