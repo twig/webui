@@ -6,12 +6,12 @@ window.config = window.config || {
   webui: true
 };
 
+// require() keeps order, import() is hoisted
 import "./js/globals.js";
 import "./js/mootools_loader.js";
 // import('./js/flotr.js');
 import "./js/utils.js";
 
-// require() keeps order, import() is hoisted
 // import './js/constants.js';
 // import './lang/en.js';
 // import './lang/_.js';
