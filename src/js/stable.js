@@ -49,9 +49,6 @@ export var ALIGN_RIGHT = 3;
 export var MODE_PAGE = 0;
 export var MODE_VIRTUAL = 1;
 
-var NO_CHANGE = 0;
-var HAS_CHANGED = 1;
-
 var TD = new Element("td");
 var TR = new Element("tr");
 var DIV = new Element("div");
