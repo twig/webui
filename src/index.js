@@ -11,6 +11,7 @@ import "./js/mootools_loader.js";
 // import('./js/flotr.js');
 import "./js/utils.js";
 
+// require() keeps order, import() is hoisted
 // import './js/constants.js';
 // import './lang/en.js';
 // import './lang/_.js';
@@ -21,4 +22,4 @@ import "./js/utils.js";
 // import './js/webui.js';
 // import './js/contextmenu.js';
 // import './js/dialogmanager.js';
-import "./js/main.js";
+require("./js/main.js");
