@@ -985,42 +985,6 @@ function setupDeleteTorrentDialog() {
   $("dlgDelete-form").addEvent("submit", Function.from(false));
 }
 
-function setupAddLabelDialog(view) {
-  //--------------------------------------------------
-  // ADD URL DIALOG
-  //--------------------------------------------------
-
-  // -- OK Button (URL)
-  $("ADD_LABEL_OK").addEvent("click", function() {
-    if (
-      $("dlgAddLabel-label")
-        .get("value")
-        .trim().length > 0
-    ) {
-      DialogManager.hide("AddLabel");
-
-      var param = {
-        label: $("dlgAddLabel-label").get("value"),
-        view: view
-      };
-
-      utWebUI.setLabel(param, function() {
-        $("dlgAddLabel-label").set("value", "");
-      });
-    }
-  });
-
-  // -- Cancel Button (URL)
-
-  $("ADD_LABEL_CANCEL").addEvent("click", function(ev) {
-    DialogManager.hide("AddLabel");
-  });
-
-  // -- Form Submission
-
-  $("dlgAddLabel-form").addEvent("submit", Function.from(false));
-}
-
 function setupAddURLDialog() {
   //--------------------------------------------------
   // ADD URL DIALOG
@@ -1756,25 +1720,6 @@ function loadDetailPaneStrings() {
   if (utWebUI.spdGraph) {
     utWebUI.spdGraph.setLabels(L_("OV_COL_UPSPD"), L_("OV_COL_DOWNSPD"));
   }
-}
-
-function loadAboutStrings() {
-  //--------------------------------------------------
-  // ABOUT DIALOG
-  //--------------------------------------------------
-
-  _loadStrings("text", [
-    "DLG_ABOUT_VERSION_LEGEND",
-    "DLG_ABOUT_VERSION_VERSION",
-    "DLG_ABOUT_VERSION_REVISION",
-    "DLG_ABOUT_VERSION_BUILD_DATE",
-    "DLG_ABOUT_VERSION_PEER_ID",
-    "DLG_ABOUT_VERSION_USER_AGENT",
-    "DLG_ABOUT_UPNP_EXTERNAL_ADDRESS",
-    "DLG_ABOUT_UI_REVISION"
-  ]);
-  console.warn("RUNNING!!YAY!!");
-  _loadStrings("text", { show_about: "about" });
 }
 
 function loadMiscStrings() {

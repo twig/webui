@@ -12,7 +12,6 @@ import {
   Element,
   Window,
   typeOf,
-  $
 } from "./mootools_loader.js";
 import { L_ } from "../lang/_.js";
 
@@ -43,21 +42,6 @@ export function has(obj, key) {
   return Object.prototype.hasOwnProperty.apply(obj, [key]);
 }
 
-function $chk(obj) {
-  return !!(obj || obj === 0);
-}
-
-function $each(obj, fn, bind) {
-  switch (typeOf(obj)) {
-    case "array":
-    case "collection":
-    case "elements":
-      return Array.each(obj, fn, bind);
-    default:
-      return Object.each(obj, fn, bind);
-  }
-}
-
 export function changePort(port) {
   //	if (window.location.port != port) {
   // window.location.port = port; // Does NOT work on Opera
@@ -85,10 +69,6 @@ export function changePort(port) {
 
 export function openURL(url, target) {
   window.open(url, target || "_utwebui_blank" + encodeID(url));
-}
-
-function decodeID(str) {
-  return unescape(str.replace(/_/g, "%"));
 }
 
 export function encodeID(str) {
