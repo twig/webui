@@ -7,7 +7,7 @@ const outputFolder = path.resolve(__dirname, "dist");
 const { env } = process;
 
 module.exports = {
-  mode: (env.PRODUCTION ? 'production' : "development"),
+  mode: env.PRODUCTION ? "production" : "development",
   entry: "./src/index.js",
   output: {
     filename: "main.js",
