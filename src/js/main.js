@@ -25,7 +25,7 @@ import { loadLanguageFile, L_, LANG_LIST } from "../lang/_.js";
 import { utWebUI, utweb, isGuest, guiBase } from "./webui.js";
 import { eventToKey, has } from "./utils.js";
 
-let { g_schLgndEx, g_winTitle } = window;
+let { g_winTitle } = window;
 
 // Pre-generated elements
 
@@ -1287,7 +1287,7 @@ function setupSettings() {
     mouseenter: function() {
       $("sched_table_info").set(
         "text",
-        g_schLgndEx[this.get("id").match(/.*_([^_]+)$/)[1]]
+        G.schLgndEx[this.get("id").match(/.*_([^_]+)$/)[1]]
       );
     },
     mouseleave: function() {

@@ -21,7 +21,7 @@ export function loadGlobalStrings() {
   // array of strings representing ["Monday", "Tuesday", ... , "Sunday"]
   G.dayNames = L_("ST_SCH_DAYNAMES").split("||");
   // object whose values are string explanations of scheduler table colors
-  window.g_schLgndEx = {
+  G.schLgndEx = {
     full: L_("ST_SCH_LGND_FULLEX"),
     limited: L_("ST_SCH_LGND_LIMITEDEX"),
     off: L_("ST_SCH_LGND_OFFEX"),
