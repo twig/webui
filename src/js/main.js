@@ -19,7 +19,7 @@ import {
 } from "./mootools_loader.js";
 import { ContextMenu } from "./contextmenu.js";
 import { DialogManager } from "./dialogmanager.js";
-import { Logger, log } from "./logger.js";
+import { Logger } from "./logger.js";
 import { Tabs } from "./tabs.js";
 import { loadLanguageFile, L_, LANG_LIST } from "../lang/_.js";
 import { utWebUI, utweb, isGuest, guiBase } from "./webui.js";
@@ -782,7 +782,7 @@ function setupAddTorrentDialog() {
         var data = JSON.decode(str);
         if (has(data, "error")) {
           alert(data.error);
-          log("[Add Torrent File Error] " + data.error);
+          Logger.log("[Add Torrent File Error] " + data.error);
         }
       }
     }

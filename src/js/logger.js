@@ -63,10 +63,6 @@ export var Logger = {
   }
 };
 
-export function log() {
-  Logger.log.apply(Logger, arguments);
-}
-
 //================================================================================
 // BROWSER CONSOLE
 //================================================================================
@@ -76,12 +72,6 @@ window.onerror = function(msg, url, linenumber) {
 	//return true;
 };
 */
-
-if (!window.console) {
-  window.console = {};
-
-  console.log = log;
-}
 
 if (!console.assert) {
   console.assert = function() {
