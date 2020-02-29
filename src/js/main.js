@@ -25,7 +25,7 @@ import { loadLanguageFile, L_, LANG_LIST } from "../lang/_.js";
 import { utWebUI, utweb, isGuest, guiBase } from "./webui.js";
 import { eventToKey, has } from "./utils.js";
 
-let { g_dayNames, g_schLgndEx, g_winTitle } = window;
+let { g_schLgndEx, g_winTitle } = window;
 
 // Pre-generated elements
 
@@ -1250,7 +1250,7 @@ function setupSettings() {
                     hour = idx % 24;
                   $("sched_table_info").set(
                     "text",
-                    g_dayNames[day] + ", " + hour + ":00 - " + hour + ":59"
+                    `${G.dayNames[day]}, ${hour}:00 - ${hour}:59`
                   );
 
                   if (

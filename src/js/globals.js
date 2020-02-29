@@ -19,7 +19,7 @@ export function loadGlobalStrings() {
   // array of strings representing ["Mon", "Tue", ..., "Sun"]
   G.dayCodes = L_("ST_SCH_DAYCODES").split("||");
   // array of strings representing ["Monday", "Tuesday", ... , "Sunday"]
-  window.g_dayNames = L_("ST_SCH_DAYNAMES").split("||");
+  G.dayNames = L_("ST_SCH_DAYNAMES").split("||");
   // object whose values are string explanations of scheduler table colors
   window.g_schLgndEx = {
     full: L_("ST_SCH_LGND_FULLEX"),
