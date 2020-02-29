@@ -198,12 +198,16 @@ div.disabled {
 }
 
 #cover {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   background: #ffffff;
-  height: 100%;
-  left: 0px;
   position: absolute;
-  top: 0px;
-  width: 100%;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
 }
 
 #cover .msgmid {
