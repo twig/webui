@@ -1,14 +1,21 @@
 import CONST from "./constants.js";
 import { L_ } from "../lang/_.js";
 
+export const G = {};
+
+export const updateGlobal = (name, value) => {
+  if (!(name in G)) {
+    throw new Error(`updateGlobal(): invalid name '${name}'`);
+  }
+
+  G[name] = value;
+};
+
 // Localized string globals ... initialized in loadLangStrings()
 export function loadGlobalStrings() {
   // string representing "/s"
-  window.g_perSec =
-    "/" +
-    L_("TIME_SECS")
-      .replace(/%d/, "")
-      .trim();
+  G.perSec = `/${L_("TIME_SECS")}`.replace(/%d/, "").trim();
+
   // array of strings representing ["Mon", "Tue", ..., "Sun"]
   window.g_dayCodes = L_("ST_SCH_DAYCODES").split("||");
   // array of strings representing ["Monday", "Tuesday", ... , "Sunday"]
@@ -20,29 +27,29 @@ export function loadGlobalStrings() {
     off: L_("ST_SCH_LGND_OFFEX"),
     seeding: L_("ST_SCH_LGND_SEEDINGEX")
   };
+
+  // Constants
+  window.g_winTitle = "µTorrent WebUI v" + CONST.VERSION;
+
+  window.g_feedItemQlty = [
+    ["?", CONST.RSSITEMQUALITY_NONE],
+    ["DSRip", CONST.RSSITEMQUALITY_DSRIP],
+    ["DVBRip", CONST.RSSITEMQUALITY_DVBRIP],
+    ["DVDR", CONST.RSSITEMQUALITY_DVDR],
+    ["DVDRip", CONST.RSSITEMQUALITY_DVDRIP],
+    ["DVDScr", CONST.RSSITEMQUALITY_DVDSCR],
+    ["HDTV", CONST.RSSITEMQUALITY_HDTV],
+    ["HR.HDTV", CONST.RSSITEMQUALITY_HRHDTV],
+    ["HR.PDTV", CONST.RSSITEMQUALITY_HRPDTV],
+    ["PDTV", CONST.RSSITEMQUALITY_PDTV],
+    ["SatRip", CONST.RSSITEMQUALITY_SATRIP],
+    ["SVCD", CONST.RSSITEMQUALITY_SVCD],
+    ["TVRip", CONST.RSSITEMQUALITY_TVRIP],
+    ["WebRip", CONST.RSSITEMQUALITY_WEBRIP],
+    ["720p", CONST.RSSITEMQUALITY_720P],
+    ["1080i", CONST.RSSITEMQUALITY_1080I],
+    ["1080p", CONST.RSSITEMQUALITY_1080P]
+  ];
 }
 
 loadGlobalStrings();
-
-// Constants
-window.g_winTitle = "µTorrent WebUI v" + CONST.VERSION;
-
-window.g_feedItemQlty = [
-  ["?", CONST.RSSITEMQUALITY_NONE],
-  ["DSRip", CONST.RSSITEMQUALITY_DSRIP],
-  ["DVBRip", CONST.RSSITEMQUALITY_DVBRIP],
-  ["DVDR", CONST.RSSITEMQUALITY_DVDR],
-  ["DVDRip", CONST.RSSITEMQUALITY_DVDRIP],
-  ["DVDScr", CONST.RSSITEMQUALITY_DVDSCR],
-  ["HDTV", CONST.RSSITEMQUALITY_HDTV],
-  ["HR.HDTV", CONST.RSSITEMQUALITY_HRHDTV],
-  ["HR.PDTV", CONST.RSSITEMQUALITY_HRPDTV],
-  ["PDTV", CONST.RSSITEMQUALITY_PDTV],
-  ["SatRip", CONST.RSSITEMQUALITY_SATRIP],
-  ["SVCD", CONST.RSSITEMQUALITY_SVCD],
-  ["TVRip", CONST.RSSITEMQUALITY_TVRIP],
-  ["WebRip", CONST.RSSITEMQUALITY_WEBRIP],
-  ["720p", CONST.RSSITEMQUALITY_720P],
-  ["1080i", CONST.RSSITEMQUALITY_1080I],
-  ["1080p", CONST.RSSITEMQUALITY_1080P]
-];

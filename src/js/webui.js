@@ -5,6 +5,7 @@ Use of this source code is governed by a BSD-style that can be
 found in the LICENSE file.
 */
 
+import { G } from './globals.js';
 import {
   Browser,
   Element,
@@ -55,7 +56,7 @@ var loadLangStrings = function() {
   window.loadLangStrings(...arguments);
 };
 
-const { g_feedItemQlty, g_winTitle, g_perSec } = window;
+const { g_feedItemQlty, g_winTitle } = window;
 
 // hack around existing code
 function getraptor() {
@@ -3893,7 +3894,7 @@ function getraptor() {
 
           default:
             if (val < 0) val *= -1;
-            item = [val + " " + L_("SIZE_KB") + g_perSec];
+            item = [val + " " + L_("SIZE_KB") + G.perSec];
         }
 
         if (val === speed.cur) {
@@ -4123,7 +4124,7 @@ function getraptor() {
           case "downspeed":
           case "upspeed":
             values[i] =
-              values[i] >= 103 ? values[i].toFileSize() + g_perSec : "";
+              values[i] >= 103 ? values[i].toFileSize() + G.perSec : "";
             break;
 
           case "eta":
@@ -4659,8 +4660,8 @@ function getraptor() {
           ? "\u221E"
           : (d[CONST.TORRENT_RATIO] / 1000).toFixedNR(3)
       );
-      $("us").set("html", d[CONST.TORRENT_UPSPEED].toFileSize() + g_perSec);
-      $("ds").set("html", d[CONST.TORRENT_DOWNSPEED].toFileSize() + g_perSec);
+      $("us").set("html", d[CONST.TORRENT_UPSPEED].toFileSize() + G.perSec);
+      $("ds").set("html", d[CONST.TORRENT_DOWNSPEED].toFileSize() + G.perSec);
       $("rm").set(
         "html",
         d[CONST.TORRENT_ETA] == 0
@@ -5354,7 +5355,7 @@ function getraptor() {
           case "maxup":
           case "maxdown":
             values[i] =
-              values[i] > 103 ? values[i].toFileSize() + g_perSec : "";
+              values[i] > 103 ? values[i].toFileSize() + G.perSec : "";
             break;
 
           case "waited":
@@ -5617,7 +5618,7 @@ function getraptor() {
       val = "";
       data = this.settings["max_dl_rate"] || 0;
       if (this.settings["gui.limits_in_statusbar"] && data > 0) {
-        val = "[" + data + " " + L_("SIZE_KB") + g_perSec + "] ";
+        val = "[" + data + " " + L_("SIZE_KB") + G.perSec + "] ";
       }
       seg = seg.replace(/%s/, val);
 
@@ -5633,7 +5634,7 @@ function getraptor() {
       val = "";
       data = this.settings["max_ul_rate"] || 0;
       if (this.settings["gui.limits_in_statusbar"] && data > 0) {
-        val = "[" + data + " " + L_("SIZE_KB") + g_perSec + "] ";
+        val = "[" + data + " " + L_("SIZE_KB") + G.perSec + "] ";
       }
       seg = seg.replace(/%s/, val);
 
@@ -5644,8 +5645,8 @@ function getraptor() {
 
     updateTitle: function() {
       var str = L_("MAIN_TITLEBAR_SPEED")
-        .replace(/%s/, this.totalDL.toFileSize() + g_perSec)
-        .replace(/%s/, this.totalUL.toFileSize() + g_perSec);
+        .replace(/%s/, this.totalDL.toFileSize() + G.perSec)
+        .replace(/%s/, this.totalUL.toFileSize() + G.perSec);
       window.status = window.defaultStatus = str.replace(/%s/, "");
       if (this.settings["gui.speed_in_title"])
         document.title = str.replace(/%s/, g_winTitle);

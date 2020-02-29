@@ -7,7 +7,6 @@ found in the LICENSE file.
 import CONST from "./constants.js";
 import { loadGlobalStrings } from "./globals";
 import {
-  Asset,
   Browser,
   Drag,
   Element,
@@ -26,7 +25,7 @@ import { loadLanguageFile, L_, LANG_LIST } from "../lang/_.js";
 import { utWebUI, utweb, isGuest, guiBase } from "./webui.js";
 import { eventToKey, has } from "./utils.js";
 
-let { g_dayCodes, g_dayNames, g_perSec, g_schLgndEx, g_winTitle } = window;
+let { g_dayCodes, g_dayNames, g_schLgndEx, g_winTitle } = window;
 
 // Pre-generated elements
 

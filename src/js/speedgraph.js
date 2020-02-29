@@ -5,11 +5,10 @@ Use of this source code is governed by a BSD-style that can be
 found in the LICENSE file.
 */
 
+import { G } from "./globals";
 import { Class, $ } from "./mootools_loader.js";
 import { Flotr } from "./flotr.js";
 import { utWebUI } from "./webui.js";
-
-var g_perSec = window.g_perSec;
 
 export var SpeedGraph = new Class({
   element: null,
@@ -40,7 +39,7 @@ export var SpeedGraph = new Class({
         min: 0,
         minMaxTickSize: 512,
         tickFormatter: function(n) {
-          return parseInt(n).toFileSize() + g_perSec;
+          return parseInt(n).toFileSize() + G.perSec;
         }
       },
       grid: {
