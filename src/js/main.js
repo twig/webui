@@ -1763,7 +1763,6 @@ function loadDialogStrings() {
   _loadStrings("text", {
     "dlgAdd-head": "OV_TB_ADDTORR",
     "dlgAddURL-head": "OV_TB_ADDURL",
-    "dlgAddLabel-head": "OV_NEWLABEL_CAPTION",
     "dlgProps-head": "DLG_TORRENTPROP_00",
     "dlgRSSDownloader-head": "OV_TB_RSSDOWNLDR",
     "dlgSettings-head": "OV_TB_PREF"
@@ -1779,10 +1778,6 @@ function loadDialogStrings() {
     // Add/Edit RSS Feed
     DLG_ADDEDITRSSFEED_01: "DLG_BTN_OK",
     DLG_ADDEDITRSSFEED_02: "DLG_BTN_CANCEL",
-
-    // Add LABEL
-    ADD_LABEL_OK: "DLG_BTN_OK",
-    ADD_LABEL_CANCEL: "DLG_BTN_CANCEL",
 
     // Add URL
     ADD_URL_OK: "DLG_BTN_OK",
@@ -2071,15 +2066,15 @@ function loadSettingStrings() {
     "MM_OPTIONS_SHOW_TOOLBAR",
 
     // Remote
-    "DLG_SETTINGS_10_REMOTE_01",
+    // "DLG_SETTINGS_10_REMOTE_01",
     "DLG_SETTINGS_10_REMOTE_02",
     "DLG_SETTINGS_10_REMOTE_03",
-    "DLG_SETTINGS_10_REMOTE_04",
+    // "DLG_SETTINGS_10_REMOTE_04",
     "DLG_SETTINGS_10_REMOTE_05",
     "DLG_SETTINGS_10_REMOTE_06",
     "DLG_SETTINGS_10_REMOTE_07",
     "DLG_SETTINGS_10_REMOTE_08",
-    "DLG_SETTINGS_10_REMOTE_09",
+    // "DLG_SETTINGS_10_REMOTE_09",
 
     // Advanced
     "DLG_SETTINGS_A_ADVANCED_01",
@@ -2137,15 +2132,15 @@ function loadSettingStrings() {
     "DLG_SETTINGS_4_CONN_04", // "Random"
     "DLG_SETTINGS_7_TRANSFERCAP_12", // "Reset History"
     "DLG_SETTINGS_A_ADVANCED_05", // "Set"
-    "DLG_SETTINGS_10_REMOTE_04", // "Learn more"
-    "DLG_SETTINGS_10_REMOTE_09" // "Sign in..."
+    // "DLG_SETTINGS_10_REMOTE_04", // "Learn more"
+    // "DLG_SETTINGS_10_REMOTE_09" // "Sign in..."
   ]);
 
-  _loadStrings("text", [
-    "DLG_SETTINGS_MENU_TITLE", // "Settings"
-    "STATUS_REMOTE_10",
-    "logout"
-  ]);
+  // _loadStrings("text", [
+  //   "DLG_SETTINGS_MENU_TITLE", // "Settings"
+  //   "STATUS_REMOTE_10",
+  //   "logout"
+  // ]);
 
   // -- Comboboxes
   _loadComboboxStrings(
