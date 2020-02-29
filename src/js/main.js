@@ -5,7 +5,7 @@ Use of this source code is governed by a BSD-style that can be
 found in the LICENSE file.
 */
 import CONST from "./constants.js";
-import { loadGlobalStrings } from "./globals";
+import { loadGlobalStrings, G } from "./globals";
 import {
   Browser,
   Drag,
@@ -25,7 +25,7 @@ import { loadLanguageFile, L_, LANG_LIST } from "../lang/_.js";
 import { utWebUI, utweb, isGuest, guiBase } from "./webui.js";
 import { eventToKey, has } from "./utils.js";
 
-let { g_dayCodes, g_dayNames, g_schLgndEx, g_winTitle } = window;
+let { g_dayNames, g_schLgndEx, g_winTitle } = window;
 
 // Pre-generated elements
 
@@ -1211,8 +1211,8 @@ function setupSettings() {
         for (var j = 0; j < 25; j++) {
           var td = ELE_TD.clone(false);
           if (j == 0) {
-            if ($chk(g_dayCodes))
-              td.set("text", g_dayCodes[i]).addClass("daycode");
+            if ($chk(G.dayCodes))
+              td.set("text", G.dayCodes[i]).addClass("daycode");
           } else {
             (function() {
               // Closure used here to ensure that each cell gets its own copy of idx...

@@ -17,7 +17,7 @@ export function loadGlobalStrings() {
   G.perSec = `/${L_("TIME_SECS")}`.replace(/%d/, "").trim();
 
   // array of strings representing ["Mon", "Tue", ..., "Sun"]
-  window.g_dayCodes = L_("ST_SCH_DAYCODES").split("||");
+  G.dayCodes = L_("ST_SCH_DAYCODES").split("||");
   // array of strings representing ["Monday", "Tuesday", ... , "Sunday"]
   window.g_dayNames = L_("ST_SCH_DAYNAMES").split("||");
   // object whose values are string explanations of scheduler table colors
