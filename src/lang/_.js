@@ -9,13 +9,15 @@ import { LANG_STR as EN_STR } from "./en.js";
 
 let languageStr = EN_STR;
 
-export const loadLanguageFile = (lang) => {
+export const loadLanguageFile = lang => {
   return new Promise((success, fail) => {
     if (lang in LANG_LIST) {
       import(`./${lang}.js`)
         .then(({ LANG_STR }) => {
           if (LANG_STR === undefined) {
-            fail({message: `loadLanguageFile(): Invalid language file: ${lang}`});
+            fail({
+              message: `loadLanguageFile(): Invalid language file: ${lang}`
+            });
             return;
           }
 
@@ -23,10 +25,9 @@ export const loadLanguageFile = (lang) => {
           success();
         })
         .catch(fail);
-    }
-    else {
+    } else {
       const message = `loadLanguageFile(): Unknown language ${lang}`;
-      fail({message});
+      fail({ message });
     }
   });
 };

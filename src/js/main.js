@@ -2252,8 +2252,7 @@ function loadLangStrings(reload, sTableLoad, newLang) {
         if (reload.onload) {
           reload.onload();
         }
-      })
-    ;
+      });
     return;
   }
 
