@@ -1,7 +1,7 @@
 module.exports = {
   extends: "eslint:recommended",
   parserOptions: {
-    ecmaVersion: 6,
+    ecmaVersion: 11,
     sourceType: "module",
     ecmaFeatures: {
       "impliedStrict ": true
@@ -10,6 +10,7 @@ module.exports = {
   env: {
     browser: true,
     node: true,
+    es6: true,
   },
   ignorePatterns: ["node_modules/", "flotr.js", "mootools.js"],
   rules: {

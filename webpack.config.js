@@ -4,11 +4,13 @@ const CopyPlugin = require("copy-webpack-plugin");
 const path = require("path");
 const outputFolder = path.resolve(__dirname, "dist");
 
+const { env } = process;
+
 module.exports = {
-  mode: "development",
+  mode: (env.PRODUCTION ? 'production' : "development"),
   entry: "./src/index.js",
   output: {
-    filename: "main_.js",
+    filename: "main.js",
     path: outputFolder
   },
   module: {
@@ -62,15 +64,6 @@ module.exports = {
       chunkFilename: "[id].css"
     }),
     new CopyPlugin([
-      // temporary
-      {
-        from: "*.js",
-        to: outputFolder
-      },
-      {
-        from: "lang",
-        to: path.join(outputFolder, "lang")
-      },
       // favicon
       {
         from: "src/css/images/ut_small.png",
