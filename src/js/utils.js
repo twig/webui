@@ -11,7 +11,7 @@ import {
   Event,
   Element,
   Window,
-  typeOf,
+  typeOf
 } from "./mootools_loader.js";
 import { L_ } from "../lang/_.js";
 
