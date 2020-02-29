@@ -40,7 +40,7 @@ import {
   MODE_VIRTUAL
 } from "./stable.js";
 import { DialogManager } from "./dialogmanager.js";
-import CONST from "./constants.js";
+import { CONST } from "./constants.js";
 
 // get around circular import in main.js
 var resizeUI = function() {

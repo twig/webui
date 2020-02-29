@@ -4,7 +4,7 @@ Copyright (c) 2011 BitTorrent, Inc. All rights reserved.
 Use of this source code is governed by a BSD-style that can be
 found in the LICENSE file.
 */
-import CONST from "./constants.js";
+import { CONST } from "./constants.js";
 import { loadGlobalStrings, G } from "./globals";
 import {
   Browser,

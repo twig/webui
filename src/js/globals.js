@@ -1,4 +1,4 @@
-import CONST from "./constants.js";
+import { CONST } from "./constants.js";
 import { L_ } from "../lang/_.js";
 
 export const G = {};

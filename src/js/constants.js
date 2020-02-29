@@ -5,7 +5,7 @@ Use of this source code is governed by a BSD-style that can be
 found in the LICENSE file.
 */
 
-const CONST = {
+export const CONST = {
   VERSION: "0.500",
   BUILD: "",
 
@@ -293,5 +293,3 @@ const CONST = {
   TRANSDISP_IN_UTP: 8,
   TRANSDISP_UTP_NEW_HEADER: 16
 };
-
-export default CONST;
