@@ -8,7 +8,7 @@ module.exports = {
   mode: "development",
   entry: "./src/index.js",
   output: {
-    filename: "main_.js",
+    filename: "main.js",
     path: outputFolder
   },
   module: {
