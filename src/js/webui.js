@@ -56,7 +56,7 @@ var loadLangStrings = function() {
   window.loadLangStrings(...arguments);
 };
 
-const { g_feedItemQlty, g_winTitle } = window;
+const { g_feedItemQlty } = window;
 
 // hack around existing code
 function getraptor() {
@@ -3165,7 +3165,7 @@ function getraptor() {
 
       value = $("gui.speed_in_title").checked;
       if (!value && !!this.settings["gui.speed_in_title"] != value) {
-        document.title = g_winTitle;
+        document.title = G.winTitle;
       }
 
       value = $("gui.alternate_color").checked;
@@ -5649,7 +5649,7 @@ function getraptor() {
         .replace(/%s/, this.totalUL.toFileSize() + G.perSec);
       window.status = window.defaultStatus = str.replace(/%s/, "");
       if (this.settings["gui.speed_in_title"])
-        document.title = str.replace(/%s/, g_winTitle);
+        document.title = str.replace(/%s/, G.winTitle);
     },
 
     getDisabledActions: function() {

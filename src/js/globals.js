@@ -29,7 +29,7 @@ export function loadGlobalStrings() {
   };
 
   // Constants
-  window.g_winTitle = "µTorrent WebUI v" + CONST.VERSION;
+  G.winTitle = "µTorrent WebUI v" + CONST.VERSION;
 
   window.g_feedItemQlty = [
     ["?", CONST.RSSITEMQUALITY_NONE],

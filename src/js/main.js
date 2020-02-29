@@ -25,8 +25,6 @@ import { loadLanguageFile, L_, LANG_LIST } from "../lang/_.js";
 import { utWebUI, utweb, isGuest, guiBase } from "./webui.js";
 import { eventToKey, has } from "./utils.js";
 
-let { g_winTitle } = window;
-
 // Pre-generated elements
 
 var ELE_TD = new Element("td");
@@ -1549,7 +1547,7 @@ function setupUserInterface() {
   if (__executed_setupUserInterface__) return;
   __executed_setupUserInterface__ = true;
 
-  document.title = g_winTitle;
+  document.title = G.winTitle;
   setupCategoryUI();
   setupTorrentJobsUI();
   setupDetailInfoPaneUI();
