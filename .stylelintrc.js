@@ -1,8 +1,8 @@
 module.exports = {
   extends: ["stylelint-config-standard", "stylelint-config-sass-guidelines"],
   rules: {
-    // competes with prettier
-    "string-quotes": null,
+    // match prettier
+    "string-quotes": "double",
 
     "property-no-vendor-prefix": null,
     "declaration-colon-newline-after": null,
