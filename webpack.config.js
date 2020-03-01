@@ -48,6 +48,15 @@ module.exports = {
         ]
       },
       {
+        test: /\.s[ac]ss$/i,
+        use: [
+          // 'style-loader', // Creates `style` nodes from JS strings
+          MiniCssExtractPlugin.loader,
+          "css-loader",
+          "sass-loader"
+        ]
+      },
+      {
         test: /\.(png|jpg|gif|svg)$/,
         loader: "file-loader",
         options: {
