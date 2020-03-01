@@ -12,7 +12,8 @@
     "build:production": "PRODUCTION=1 yarn build",
     "build:webpack": "npx webpack",
     "build:compile": "./build.sh",
-    "prettify": "prettier --write *.js **/*.js src/**/*.js src/css/*.css src/*.html"
+    "prettify": "prettier --write *.js **/*.js src/**/*.js src/css/*.css src/*.html",
+    "stylelint": "stylelint src/css/*.*css"
   },
   "husky": {
     "hooks": {
