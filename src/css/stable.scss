@@ -45,7 +45,7 @@ limitations under the License.
 .stable-head {
   position: relative;
   overflow: hidden;
-  background: transparent url(./images/header.png) repeat-x scroll center top;
+  background: transparent url("./images/header.png") repeat-x scroll center top;
   z-index: 10;
   -webkit-user-select: ignore !important;
   -moz-user-select: none !important;
@@ -78,7 +78,7 @@ limitations under the License.
 }
 
 .stable-head .sorted span {
-  background: transparent url(./images/arrow.png) no-repeat scroll right -32px;
+  background: transparent url("./images/arrow.png") no-repeat scroll right -32px;
   clip: rect(0 16px 16px 0);
   margin: -8px 0;
   padding: 8px;
@@ -142,7 +142,7 @@ limitations under the License.
 .stable-icon .icon::after {
   content: "";
   display: inline-block;
-  background: transparent url(./images/blank.gif) no-repeat scroll 5px top;
+  background: transparent url("./images/blank.gif") no-repeat scroll 5px top;
   width: 16px;
   height: 16px;
 }
@@ -199,7 +199,7 @@ limitations under the License.
 
 .stable-infobar .refreshBtn span {
   padding: 1px 8px 2px;
-  background: transparent url(./images/table_refresh.png) no-repeat scroll
+  background: transparent url("./images/table_refresh.png") no-repeat scroll
     center center;
   cursor: pointer;
 }
@@ -217,7 +217,7 @@ limitations under the License.
 .stable-infobar .pageChanger .nextlink {
   padding: 2px 8px 1px;
   margin: 0 2px;
-  background: url(./images/nextprev.png) no-repeat;
+  background: url("./images/nextprev.png") no-repeat;
   cursor: pointer;
 }
 
