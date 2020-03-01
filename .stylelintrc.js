@@ -1,6 +1,9 @@
 module.exports = {
-  "extends": ["stylelint-config-standard", 'stylelint-config-sass-guidelines'],
-  "rules": {
+  extends: ["stylelint-config-standard", "stylelint-config-sass-guidelines"],
+  rules: {
+    // competes with prettier
+    "string-quotes": null,
+
     "property-no-vendor-prefix": null,
     "declaration-colon-newline-after": null,
     "declaration-block-no-duplicate-properties": null,
@@ -12,7 +15,6 @@ module.exports = {
     "selector-no-qualifying-type": null,
     "selector-max-id": null,
     "rule-empty-line-before": null,
-    "string-quotes": null,
     "shorthand-property-no-redundant-values": null,
     "comment-whitespace-inside": null,
     "selector-max-compound-selectors": null,
@@ -20,6 +22,6 @@ module.exports = {
     "comment-empty-line-before": null,
     "selector-pseudo-element-colon-notation": null,
     "declaration-empty-line-before": null,
-    "declaration-property-value-blacklist": null,
+    "declaration-property-value-blacklist": null
   }
 };
