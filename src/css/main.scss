@@ -44,8 +44,6 @@ img {
 }
 
 fieldset {
-  -moz-border-radius: 5px;
-  -webkit-border-radius: 5px;
   border: 1px solid #d0d0d0;
   border-radius: 5px;
   margin: 2px 0 3px 0;
@@ -283,8 +281,6 @@ ul.folder-tabs li {
 }
 
 ul.folder-tabs li a {
-  -moz-border-radius: 5px 5px 0 0;
-  -webkit-border-radius: 5px 5px 0 0;
   background-color: #ddd;
   border: 1px solid #b0b0b0;
   border-bottom: 1px solid #868686;
@@ -1511,10 +1507,6 @@ ul.folder-tabs.icon li a > span > span {
 }
 #tabs_toolbar .uki-view-Button {
   margin-left: 2px !important;
-  -webkit-border-radius: 4px 4px 0 0;
-  -moz-border-radius: 4px 4px 0 0;
-  -ms-border-radius: 4px 4px 0 0;
-  -o-border-radius: 4px 4px 0 0;
   border-radius: 4px 4px 0 0;
 }
 
@@ -1522,10 +1514,6 @@ ul.folder-tabs.icon li a > span > span {
   background-color: #fff !important;
   border: 0;
   /*	background-image: -webkit-linear-gradient(top, #fff, #eee 15%, #fff 50%) !important;*/
-  -webkit-box-shadow: 0 0 0 1px #bbb inset;
-  -moz-box-shadow: 0 0 0 1px #bbb inset;
-  -ms-box-shadow: 0 0 0 1px #bbb inset;
-  -o-box-shadow: 0 0 0 1px #bbb inset;
   box-shadow: 0 0 0 1px #bbb inset;
 }
 #tabs_toolbar .uki-view-Button .uki-background-CssBox {
@@ -1547,35 +1535,21 @@ ul.folder-tabs.icon li a > span > span {
 #Toolbar {
   /*	top: -1px !important;*/
   border-bottom: 1px solid #ccc;
-  -webkit-box-shadow: 0 2px 0 rgba(255, 255, 255, 0.75) inset !important;
-  -moz-box-shadow: 0 2px 0 rgba(255, 255, 255, 0.75) inset !important;
-  -ms-box-shadow: 0 2px 0 rgba(255, 255, 255, 0.75) inset !important;
-  -o-box-shadow: 0 2px 0 rgba(255, 255, 255, 0.75) inset !important;
   box-shadow: 0 2px 0 rgba(255, 255, 255, 0.75) inset !important;
 }
 
 #tabs_toolbar .toolbar-flow {
   left: 10px !important;
 }
-#tabs_toolbar .uki-view-Button {
-  /*	margin-left: 10px;*/
-}
+// #tabs_toolbar .uki-view-Button {
+//   margin-left: 10px;
+// }
 
 #tabs_toolbar .uki-background-CssBox,
 #statusbar .uki-background-CssBox {
-  -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset !important;
-  -moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset !important;
-  -ms-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset !important;
-  -o-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset !important;
   box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset !important;
-  /*
-	background-color: #e8e8e8 !important;
-	background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,0)), to(rgba(0,0,0,0.1))) !important;
-	background-image: -webkit-linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.1)) !important;
-	background-image: -moz-linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.1)) !important;
-	background-image: -ms-linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.1)) !important;
-	background-image: -o-linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.1)) !important;
-	background-image: linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.1)) !important;*/
+  // background-color: #e8e8e8 !important;
+  // background-image: linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.1)) !important;
 }
 #statusbar .uki-background-CssBox {
   border-top: 1px solid #ccc;
@@ -1592,15 +1566,7 @@ ul.folder-tabs.icon li a > span > span {
   text-shadow: 0 1px 0 #666;
   text-transform: lowercase;
   cursor: pointer !important;
-  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.25) inset, 0 1px 0 #fff;
-  -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.25) inset, 0 1px 0 #fff;
-  -ms-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.25) inset, 0 1px 0 #fff;
-  -o-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.25) inset, 0 1px 0 #fff;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.25) inset, 0 1px 0 #fff;
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  -ms-border-radius: 10px;
-  -o-border-radius: 10px;
   border-radius: 10px;
 }
 #statusbar_sessions:hover {
