@@ -52,7 +52,7 @@ fieldset {
   clear: both;
 }
 
-fieldset:after {
+fieldset::after {
   clear: both;
   content: ".";
   display: block;
@@ -215,7 +215,7 @@ div.disabled {
   display: inline-flex;
   padding: 4px;
 }
-#cover .msgmid > .msg:before {
+#cover .msgmid > .msg::before {
   content: "";
   display: block;
   width: 16px;

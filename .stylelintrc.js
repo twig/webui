@@ -20,7 +20,6 @@ module.exports = {
 
     // ignoring for now
     "selector-class-pattern": null,
-    "no-duplicate-selectors": null,
-    "selector-pseudo-element-colon-notation": null
+    "no-duplicate-selectors": null
   }
 };

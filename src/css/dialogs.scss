@@ -43,7 +43,7 @@
   position: relative;
 }
 
-.dlg-body:after {
+.dlg-body::after {
   clear: both;
   content: ".";
   display: block;
