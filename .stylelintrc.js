@@ -3,11 +3,11 @@ module.exports = {
   rules: {
     // match prettier
     "string-quotes": "double",
+
+    // ignore these
     "rule-empty-line-before": null,
     "declaration-colon-newline-after": null,
     "declaration-empty-line-before": null,
-
-    // ignore these
     "comment-empty-line-before": null,
     "order/properties-alphabetical-order": null,
     "selector-max-id": null,
