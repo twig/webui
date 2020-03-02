@@ -19,7 +19,6 @@ module.exports = {
     "selector-max-compound-selectors": null,
     "no-duplicate-selectors": null,
     "comment-empty-line-before": null,
-    "selector-pseudo-element-colon-notation": null,
-    "declaration-property-value-blacklist": null
+    "selector-pseudo-element-colon-notation": null
   }
 };
