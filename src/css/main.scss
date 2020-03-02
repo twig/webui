@@ -379,11 +379,11 @@ ul.folder-tabs.icon li a > span > span {
 }
 
 #mainToolbar .tbbutton {
-  background: transparent url("./images/toolbar.png") no-repeat 0px top;
+  background: transparent url("./images/toolbar.png") no-repeat 0 top;
 }
 
 #mainToolbar .tbbutton#add {
-  background-position: 0px;
+  background-position: 0;
 }
 #mainToolbar .tbbutton#addurl {
   background-position: -24px;
@@ -544,11 +544,11 @@ ul.folder-tabs.icon li a > span > span {
  **************************************************/
 
 #mainTorList .icon {
-  background: transparent url("./images/tstatus.png") no-repeat 0 0px;
+  background: transparent url("./images/tstatus.png") no-repeat 0 0;
 }
 
 .Status_Down .icon {
-  background-position: 0 0px !important;
+  background-position: 0 0 !important;
 }
 .Status_Up .icon {
   background-position: 0 -16px !important;
@@ -602,7 +602,7 @@ ul.folder-tabs.icon li a > span > span {
 }
 
 .icon li#tab_mainInfoPane-generalTab span span {
-  background-position: 0 0px;
+  background-position: 0 0;
 }
 .icon li#tab_mainInfoPane-peersTab span span {
   background-position: 0 -32px;
@@ -656,7 +656,7 @@ ul.folder-tabs.icon li a > span > span {
   background: transparent url("./images/flags.png") no-repeat 0 16px !important;
 }
 .country_00 .icon {
-  background-position: 0 0px !important;
+  background-position: 0 0 !important;
 }
 .country_AC .icon {
   background-position: 0 -16px !important;

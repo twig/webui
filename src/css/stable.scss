@@ -150,7 +150,7 @@ limitations under the License.
 .stable-move-header {
   position: absolute;
   background-color: #fff;
-  top: 0px;
+  top: 0;
   padding: 1px 0.5em;
   opacity: 0.7;
   -moz-user-select: none;
@@ -165,14 +165,14 @@ limitations under the License.
 
 .stable-separator-header {
   position: absolute;
-  top: 0px;
-  left: 0px;
+  top: 0;
+  left: 0;
   height: 100%;
   width: 1px;
   overflow: hidden;
   visibility: hidden;
   background: #a0a0a0;
-  padding: 3px 0px;
+  padding: 3px 0;
   z-index: 100;
 }
 
@@ -230,7 +230,7 @@ limitations under the License.
 }
 
 .stable-infobar .pageChanger .prevlink:hover {
-  background-position: 0px center;
+  background-position: 0 center;
 }
 
 .stable-infobar .pageChanger .nextlink:hover {
@@ -242,9 +242,9 @@ limitations under the License.
 }
 
 .stable-pad {
-  height: 0px;
-  padding: 0px;
-  margin: 0px;
+  height: 0;
+  padding: 0;
+  margin: 0;
   position: relative;
 }
 
