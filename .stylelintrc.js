@@ -5,6 +5,7 @@ module.exports = {
     "string-quotes": "double",
     "rule-empty-line-before": null,
     "declaration-colon-newline-after": null,
+    "declaration-empty-line-before": null,
 
     "property-no-vendor-prefix": null,
     "declaration-block-no-duplicate-properties": null,
@@ -19,7 +20,6 @@ module.exports = {
     "no-duplicate-selectors": null,
     "comment-empty-line-before": null,
     "selector-pseudo-element-colon-notation": null,
-    "declaration-empty-line-before": null,
     "declaration-property-value-blacklist": null
   }
 };
