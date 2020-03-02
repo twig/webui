@@ -12,6 +12,7 @@ module.exports = {
     "order/properties-alphabetical-order": null,
     "selector-max-id": null,
     "selector-max-compound-selectors": null,
+    "no-descending-specificity": null,
     "shorthand-property-no-redundant-values": null,
 
     // customise rules
@@ -19,7 +20,6 @@ module.exports = {
 
     // ignoring for now
     "selector-class-pattern": null,
-    "no-descending-specificity": null,
     "no-duplicate-selectors": null,
     "selector-pseudo-element-colon-notation": null
   }
