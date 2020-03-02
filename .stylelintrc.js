@@ -9,8 +9,8 @@ module.exports = {
 
     // ignore these
     "comment-empty-line-before": null,
-
     "order/properties-alphabetical-order": null,
+
     "selector-class-pattern": null,
     "no-descending-specificity": null,
     "selector-no-qualifying-type": null,
