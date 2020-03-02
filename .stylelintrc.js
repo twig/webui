@@ -3,6 +3,7 @@ module.exports = {
   rules: {
     // match prettier
     "string-quotes": "double",
+    "rule-empty-line-before": null,
 
     "property-no-vendor-prefix": null,
     "declaration-colon-newline-after": null,
@@ -12,7 +13,6 @@ module.exports = {
     "no-descending-specificity": null,
     "selector-no-qualifying-type": null,
     "selector-max-id": null,
-    "rule-empty-line-before": null,
     "shorthand-property-no-redundant-values": null,
     "comment-whitespace-inside": null,
     "selector-max-compound-selectors": null,
