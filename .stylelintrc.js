@@ -8,7 +8,6 @@ module.exports = {
     "declaration-empty-line-before": null,
 
     "property-no-vendor-prefix": null,
-    "declaration-block-no-duplicate-properties": null,
     "order/properties-alphabetical-order": null,
     "selector-class-pattern": null,
     "no-descending-specificity": null,
