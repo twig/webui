@@ -11,6 +11,7 @@ module.exports = {
     "comment-empty-line-before": null,
     "order/properties-alphabetical-order": null,
     "selector-max-id": null,
+    "shorthand-property-no-redundant-values": null,
 
     // customise rules
     "selector-no-qualifying-type": [true, { ignore: ["attribute", "class"] }],
@@ -18,7 +19,6 @@ module.exports = {
     // ignoring for now
     "selector-class-pattern": null,
     "no-descending-specificity": null,
-    "shorthand-property-no-redundant-values": null,
     "comment-whitespace-inside": null,
     "selector-max-compound-selectors": null,
     "no-duplicate-selectors": null,
