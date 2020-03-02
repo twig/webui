@@ -7,6 +7,9 @@ module.exports = {
     "declaration-colon-newline-after": null,
     "declaration-empty-line-before": null,
 
+    // ignore these
+    "comment-empty-line-before": null,
+
     "order/properties-alphabetical-order": null,
     "selector-class-pattern": null,
     "no-descending-specificity": null,
@@ -16,7 +19,6 @@ module.exports = {
     "comment-whitespace-inside": null,
     "selector-max-compound-selectors": null,
     "no-duplicate-selectors": null,
-    "comment-empty-line-before": null,
     "selector-pseudo-element-colon-notation": null
   }
 };
