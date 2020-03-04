@@ -100,6 +100,7 @@ function setupMouseEvents() {
     var targ = ev.target,
       tag = targ.tagName.toLowerCase();
     return (
+      (ev.isRightClick() && ev.shift) ||
       targ.retrieve("mousewhitelist") ||
       "textarea" === tag ||
       ("input" === tag &&
