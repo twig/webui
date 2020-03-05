@@ -12,22 +12,24 @@ There was no build script to generate the `webui.zip` file, which consists of ev
 
 When it did compile, the code simply didn't work. I shouldn't have been surprised since the README clearly stated the master branch was broken.
 
-* added a build.sh to generate webui.zip, loosely based off build script from [afool622's material design webui](https://github.com/afool622/webui). Make a backup of your webui.zip and run `./build.sh` via WSL
-* merged [updated DOM file PR by deepak1556](https://github.com/bittorrent/webui/pull/12)
-* now able to load webui without it crashing
-* fixed language issues on load
-* fixed settings dialog not loading
-* fixed broken styling for settings dialog
-* fixed settings dialog remote panel not showing up
-* fixed settings dialog remote panel showing wrong text
-* fixed a bunch of incorrectly named translation keys
-* fixed add label dialog
-* removed use of jquery library because its not imported
-* fixed rss dialog functionality
-* added back in "Torrent delete dialog"
-* fixed mismatched ids in tabs.js
-* fixed incorrectly named overlay/cover
-* fixed table header/content column alignment
+- added a build.sh to generate webui.zip, loosely based off build script from [afool622's material design webui](https://github.com/afool622/webui). Make a backup of your webui.zip and run `./build.sh` via WSL
+- merged [updated DOM file PR by deepak1556](https://github.com/bittorrent/webui/pull/12)
+- now able to load webui without it crashing
+- fixed language issues on load
+- fixed settings dialog not loading
+- fixed broken styling for settings dialog
+- fixed settings dialog remote panel not showing up
+- fixed settings dialog remote panel showing wrong text
+- fixed a bunch of incorrectly named translation keys
+- fixed add label dialog
+- removed use of jquery library because its not imported
+- fixed rss dialog functionality
+- added back in "Torrent delete dialog"
+- fixed mismatched ids in tabs.js
+- fixed incorrectly named overlay/cover
+- fixed table header/content column alignment
+- fixed `_loadStrings()` warnings on load
+- re-enable right click menu (hold shift and click)
 
 There's more to come if I can be bothered, but at least this is a working branch.
 
@@ -37,14 +39,25 @@ If all you want is a working copy of the v0.380 code, then take a look at https:
 
 ## Things irreversibly changed
 
-* removed explicit support for old versions of Internet Explorer
-* removed explicit support for Opera browser
-* all code files have been parsed through prettier
-* now using webpack for CSS
+- removed explicit support for old versions of Internet Explorer
+- removed explicit support for Opera browser
+- all code files have been parsed through prettier
+- now using webpack for JS and CSS
+- removed browser prefixes on CSS that is now standard
+- removed Falcon support (there wasn't enough info to get that working)
 
 ## Improvements
 
-* started adding support for modern tooling such as [yarn](https://yarnpkg.com/), [prettier](https://prettier.io/) and [eslint](https://eslint.org) (more to come over time)
+Added support for modern tooling such as:
+
+- [yarn](https://yarnpkg.com/)
+- [webpack](https://webpack.js.org/)
+- [prettier](https://prettier.io/)
+- [eslint](https://eslint.org)
+- [stylelint](https://stylelint.io/)
+- [sass](https://sass-lang.com/)
+
+More to come over time
 
 ## How to ...
 
@@ -54,10 +67,10 @@ First off, you'll need `nvm` and `yarn` installed. Follow the instructions for [
 
 First time setup:
 
-* Install the latest node LTS via nvm using `nvm install --lts` (v12.16.1 at time of writing)
-* Verify you're using the right version with `node --version`
-* In the project root, type `yarn install`
-* That is all.
+- Install the latest node LTS via nvm using `nvm install --lts` (v12.16.1 at time of writing)
+- Verify you're using the right version with `node --version`
+- In the project root, type `yarn install`
+- That is all.
 
 ### build webui.zip
 
