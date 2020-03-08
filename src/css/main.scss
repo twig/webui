@@ -540,7 +540,9 @@ ul.folder-tabs.icon li a > span > span {
  **************************************************/
 
 #mainTorList .icon {
-  background: transparent url("./images/tstatus.png") no-repeat 0 0;
+  background-color: transparent;
+  background-image: url("./images/tstatus.png");
+  background-repeat: no-repeat;
 }
 
 .Status_Down .icon {
