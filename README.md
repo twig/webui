@@ -40,7 +40,8 @@ If all you want is a working copy of the v0.380 code, then take a look at https:
 * removed explicit support for old versions of Internet Explorer
 * removed explicit support for Opera browser
 * all code files have been parsed through prettier
-* now using webpack for CSS
+* now using webpack for (S)CSS
+* removed unecessary legacy browser prefixes
 
 ## Improvements
 

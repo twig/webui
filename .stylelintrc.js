@@ -3,6 +3,7 @@ module.exports = {
   rules: {
     // match prettier
     "string-quotes": "double",
+    "max-empty-lines": null,
 
     // ignore these
     "rule-empty-line-before": null,
@@ -14,6 +15,7 @@ module.exports = {
     "selector-max-compound-selectors": null,
     "no-descending-specificity": null,
     "shorthand-property-no-redundant-values": null,
+    "max-nesting-depth": null,
 
     // customise rules
     "selector-no-qualifying-type": [true, { ignore: ["attribute", "class"] }],
