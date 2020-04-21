@@ -123,13 +123,16 @@ limitations under the License.
 
 .stable-body td {
   width: 100%;
-  padding: 2px 5px;
+  padding: 4px;
   overflow: hidden;
 }
 
 .stable-body .icon {
+  display: inline-block;
   margin: 0;
   padding: 0;
+  margin-right: 2px;
+  vertical-align: sub;
 }
 
 .stable-icon .icon {
