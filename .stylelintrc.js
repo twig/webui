@@ -1,27 +1,27 @@
 module.exports = {
-  "extends": ["stylelint-config-standard", 'stylelint-config-sass-guidelines'],
-  "rules": {
-    "property-no-vendor-prefix": null,
-    "declaration-colon-newline-after": null,
-    "declaration-block-no-duplicate-properties": null,
-    "color-hex-length": null,
-    "order/properties-alphabetical-order": null,
-    "function-url-quotes": null,
-    "length-zero-no-unit": null,
-    "selector-class-pattern": null,
-    "color-hex-case": null,
-    "no-descending-specificity": null,
-    "selector-no-qualifying-type": null,
-    "selector-max-id": null,
+  extends: ["stylelint-config-standard", "stylelint-config-sass-guidelines"],
+  rules: {
+    // match prettier
+    "string-quotes": "double",
+    "max-empty-lines": null,
+
+    // ignore these
     "rule-empty-line-before": null,
-    "string-quotes": null,
-    "shorthand-property-no-redundant-values": null,
-    "comment-whitespace-inside": null,
-    "selector-max-compound-selectors": null,
-    "no-duplicate-selectors": null,
-    "comment-empty-line-before": null,
-    "selector-pseudo-element-colon-notation": null,
+    "declaration-colon-newline-after": null,
     "declaration-empty-line-before": null,
-    "declaration-property-value-blacklist": null,
+    "comment-empty-line-before": null,
+    "order/properties-alphabetical-order": null,
+    "selector-max-id": null,
+    "selector-max-compound-selectors": null,
+    "no-descending-specificity": null,
+    "shorthand-property-no-redundant-values": null,
+    "max-nesting-depth": null,
+
+    // customise rules
+    "selector-no-qualifying-type": [true, { ignore: ["attribute", "class"] }],
+
+    // ignoring for now
+    "selector-class-pattern": null,
+    "no-duplicate-selectors": null
   }
 };

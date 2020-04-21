@@ -42,7 +42,7 @@ If all you want is a working copy of the v0.380 code, then take a look at https:
 - removed explicit support for old versions of Internet Explorer
 - removed explicit support for Opera browser
 - all code files have been parsed through prettier
-- now using webpack for JS and CSS
+- now using webpack for JS and (S)CSS
 - removed browser prefixes on CSS that is now standard
 - removed Falcon support (there wasn't enough info to get that working)
 

@@ -1,6 +1,6 @@
-import "./css/main.css";
-import "./css/dialogs.css";
-import "./css/stable.css";
+import "./css/main.scss";
+import "./css/dialogs.scss";
+import "./css/stable.scss";
 
 window.config = window.config || {
   webui: true

@@ -44,8 +44,6 @@ img {
 }
 
 fieldset {
-  -moz-border-radius: 5px;
-  -webkit-border-radius: 5px;
   border: 1px solid #d0d0d0;
   border-radius: 5px;
   margin: 2px 0 3px 0;
@@ -54,7 +52,7 @@ fieldset {
   clear: both;
 }
 
-fieldset:after {
+fieldset::after {
   clear: both;
   content: ".";
   display: block;
@@ -63,7 +61,7 @@ fieldset:after {
 }
 
 fieldset legend {
-  color: #000000;
+  color: #000;
   font-weight: bold;
   padding: 0 3px 3px 3px;
 }
@@ -83,7 +81,7 @@ textarea {
 }
 
 textarea:focus {
-  border: 1px solid #0099ff;
+  border: 1px solid #09f;
 }
 
 .textarea_wrap {
@@ -102,13 +100,13 @@ input[type="checkbox"] {
 input.fbox,
 input.tbox,
 select {
-  background-color: #ffffff;
+  background-color: #fff;
   border: 1px solid #d0d0d0;
-  color: #000000;
+  color: #000;
 }
 
 input.btn {
-  background: #f0f0f0 url(./images/header.png) repeat center top;
+  background: #f0f0f0 url("./images/header.png") repeat center top;
   border: 1px solid #a0a0a0;
   width: 6.5em;
 }
@@ -125,13 +123,13 @@ input.btn.disabled {
 }
 
 input.tbox {
-  background-color: #ffffff;
+  background-color: #fff;
   margin: 1px 0;
   vertical-align: top;
 }
 
 input.tbox:focus {
-  border: 1px solid #0099ff;
+  border: 1px solid #09f;
 }
 
 input.num {
@@ -190,7 +188,7 @@ div.disabled {
   clear: both;
   height: 1.5em;
   line-height: 1.3em;
-  /*	overflow: hidden;*/
+  /* overflow: hidden; */
 }
 
 .line-cont * {
@@ -202,7 +200,7 @@ div.disabled {
   align-items: center;
   justify-content: center;
 
-  background: #ffffff;
+  background: #fff;
   position: absolute;
   left: 0;
   right: 0;
@@ -217,7 +215,7 @@ div.disabled {
   display: inline-flex;
   padding: 4px;
 }
-#cover .msgmid > .msg:before {
+#cover .msgmid > .msg::before {
   content: "";
   display: block;
   width: 16px;
@@ -283,9 +281,7 @@ ul.folder-tabs li {
 }
 
 ul.folder-tabs li a {
-  -moz-border-radius: 5px 5px 0 0;
-  -webkit-border-radius: 5px 5px 0 0;
-  background-color: #dddddd;
+  background-color: #ddd;
   border: 1px solid #b0b0b0;
   border-bottom: 1px solid #868686;
   border-radius: 5px 5px 0 0;
@@ -297,15 +293,15 @@ ul.folder-tabs li a {
 
 ul.folder-tabs li a:hover {
   background-color: #e5e5e5;
-  border-top: 2px solid #0099ff;
+  border-top: 2px solid #09f;
 }
 
 ul.folder-tabs li.selected a {
-  background-color: #ffffff !important;
+  background-color: #fff !important;
   border: 1px solid #868686;
-  border-bottom: 1px solid #ffffff;
-  border-top: 2px solid #0099ff;
-  color: #000000;
+  border-bottom: 1px solid #fff;
+  border-top: 2px solid #09f;
+  color: #000;
   z-index: 50;
 }
 
@@ -340,8 +336,8 @@ ul.folder-tabs.icon li a > span > span {
  **************************************************/
 
 #mainToolbar {
-  background: #eeeeee;
-  border-bottom: 1px solid #aaaaaa;
+  background: #eee;
+  border-bottom: 1px solid #aaa;
   height: 30px;
   line-height: 30px;
   margin: 0;
@@ -379,11 +375,11 @@ ul.folder-tabs.icon li a > span > span {
 }
 
 #mainToolbar .tbbutton {
-  background: transparent url(./images/toolbar.png) no-repeat 0px top;
+  background: transparent url("./images/toolbar.png") no-repeat 0 top;
 }
 
 #mainToolbar .tbbutton#add {
-  background-position: 0px;
+  background-position: 0;
 }
 #mainToolbar .tbbutton#addurl {
   background-position: -24px;
@@ -464,14 +460,14 @@ ul.folder-tabs.icon li a > span > span {
 }
 
 #mainToolbar-searchbar #search {
-  background: #ffffff url(./images/zoom.png) no-repeat center center;
+  background: #fff url("./images/zoom.png") no-repeat center center;
   border-width: 1px 0;
   height: 20px;
   width: 20px;
 }
 
 #mainToolbar-searchbar #searchsel {
-  background: #ffffff url(./images/arrow.png) no-repeat -2px 3px;
+  background: #fff url("./images/arrow.png") no-repeat -2px 3px;
   height: 20px;
   width: 10px;
 }
@@ -481,7 +477,7 @@ ul.folder-tabs.icon li a > span > span {
  **************************************************/
 
 #mainCatList {
-  background-color: #ffffff;
+  background-color: #fff;
   border: 1px solid #868686;
   float: left;
   margin: 0 3px 0 0;
@@ -506,18 +502,18 @@ ul.folder-tabs.icon li a > span > span {
 
 #mainCatList ul li.sel {
   background-color: #c0c0c0;
-  color: #ffffff;
+  color: #fff;
 }
 
 #mainCatList hr {
   background-color: #868686;
-  border: none;
+  border: 0;
   height: 1px;
   margin: 4px;
 }
 
 #mainCatList ul li .icon {
-  background: transparent url(./images/tstatus.png) no-repeat;
+  background: transparent url("./images/tstatus.png") no-repeat;
   clip: rect(0 16px 16px 0);
   left: 0;
   margin: -8px 3px;
@@ -544,11 +540,13 @@ ul.folder-tabs.icon li a > span > span {
  **************************************************/
 
 #mainTorList .icon {
-  background: transparent url(./images/tstatus.png) no-repeat 0 0px;
+  background-color: transparent;
+  background-image: url("./images/tstatus.png");
+  background-repeat: no-repeat;
 }
 
 .Status_Down .icon {
-  background-position: 0 0px !important;
+  background-position: 0 0 !important;
 }
 .Status_Up .icon {
   background-position: 0 -16px !important;
@@ -593,32 +591,33 @@ ul.folder-tabs.icon li a > span > span {
   position: absolute; /* NOTE: This fixes tab wrapping on Opera caused by FF/IE reflow fix */
 }
 
-#mainInfoPane-tabs.icon li span span {
-  background: transparent url(./images/tabs.png) no-repeat;
-}
-
 .stable-body .icon {
   height: 16px;
 }
 
-.icon li#tab_mainInfoPane-generalTab span span {
-  background-position: 0 0px;
+#mainInfoPane-tabs.icon li .tabIcon {
+  background-image: url("./images/tabs.png");
+  background-repeat: no-repeat;
 }
-.icon li#tab_mainInfoPane-peersTab span span {
-  background-position: 0 -32px;
+
+.icon #tab_mainInfoPane-generalTab .tabIcon {
+  background-position-y: 0;
 }
-.icon li#tab_mainInfoPane-filesTab span span {
-  background-position: 0 -64px;
+.icon #tab_mainInfoPane-peersTab .tabIcon {
+  background-position-y: -32px;
 }
-.icon li#tab_mainInfoPane-speedTab span span {
-  background-position: 0 -80px;
+.icon #tab_mainInfoPane-filesTab .tabIcon {
+  background-position-y: -64px;
 }
-.icon li#tab_mainInfoPane-loggerTab span span {
-  background-position: 0 -96px;
+.icon #tab_mainInfoPane-speedTab .tabIcon {
+  background-position-y: -80px;
+}
+.icon #tab_mainInfoPane-loggerTab .tabIcon {
+  background-position-y: -96px;
 }
 
 #mainInfoPane-content {
-  background: #ffffff;
+  background: #fff;
   border: 1px solid #868686;
   padding: 3px;
   position: relative;
@@ -627,7 +626,7 @@ ul.folder-tabs.icon li a > span > span {
 
 #mainInfoPane-generalTab,
 #mainInfoPane-loggerTab {
-  background-color: #ffffff;
+  background-color: #fff;
   border: 1px solid #868686;
   overflow: auto;
 }
@@ -653,10 +652,10 @@ ul.folder-tabs.icon li a > span > span {
 }
 
 .country .icon {
-  background: transparent url(./images/flags.png) no-repeat 0 16px !important;
+  background: transparent url("./images/flags.png") no-repeat 0 16px !important;
 }
 .country_00 .icon {
-  background-position: 0 0px !important;
+  background-position: 0 0 !important;
 }
 .country_AC .icon {
   background-position: 0 -16px !important;
@@ -1407,7 +1406,7 @@ ul.folder-tabs.icon li a > span > span {
 }
 
 #mainInfoPane-speedTab {
-  background-color: #ffffff;
+  background-color: #fff;
   overflow: hidden;
 }
 
@@ -1425,7 +1424,7 @@ ul.folder-tabs.icon li a > span > span {
 }
 
 #mainInfoPane-loggerTab .timestamp {
-  color: #999999;
+  color: #999;
   font-weight: bold;
 }
 
@@ -1434,8 +1433,8 @@ ul.folder-tabs.icon li a > span > span {
  **************************************************/
 
 #mainStatusBar {
-  background: #eeeeee;
-  border-top: 1px solid #aaaaaa;
+  background: #eee;
+  border-top: 1px solid #aaa;
   bottom: 0;
   height: 1.25em;
   left: 0;
@@ -1448,7 +1447,7 @@ ul.folder-tabs.icon li a > span > span {
 }
 
 #mainStatusBar .section {
-  border-left: 1px solid #cccccc;
+  border-left: 1px solid #ccc;
   float: right;
   padding: 0 0.5em;
   text-align: left;
@@ -1460,7 +1459,7 @@ ul.folder-tabs.icon li a > span > span {
 }
 
 #mainStatusBar-menu {
-  background: transparent url(./images/ut_small.png) no-repeat center center;
+  background: transparent url("./images/ut_small.png") no-repeat center center;
   float: left;
   height: 100%;
   min-height: 16px;
@@ -1484,7 +1483,7 @@ ul.folder-tabs.icon li a > span > span {
 
 #mainHDivider:hover,
 #mainVDivider:hover {
-  background: #cccccc;
+  background: #ccc;
 }
 
 #mainHDivider {
@@ -1511,21 +1510,13 @@ ul.folder-tabs.icon li a > span > span {
 }
 #tabs_toolbar .uki-view-Button {
   margin-left: 2px !important;
-  -webkit-border-radius: 4px 4px 0 0;
-  -moz-border-radius: 4px 4px 0 0;
-  -ms-border-radius: 4px 4px 0 0;
-  -o-border-radius: 4px 4px 0 0;
   border-radius: 4px 4px 0 0;
 }
 
 #tabs_toolbar .active_tab {
   background-color: #fff !important;
   border: 0;
-  /*	background-image: -webkit-linear-gradient(top, #fff, #eee 15%, #fff 50%) !important;*/
-  -webkit-box-shadow: 0 0 0 1px #bbb inset;
-  -moz-box-shadow: 0 0 0 1px #bbb inset;
-  -ms-box-shadow: 0 0 0 1px #bbb inset;
-  -o-box-shadow: 0 0 0 1px #bbb inset;
+  /* background-image: -webkit-linear-gradient(top, #fff, #eee 15%, #fff 50%) !important; */
   box-shadow: 0 0 0 1px #bbb inset;
 }
 #tabs_toolbar .uki-view-Button .uki-background-CssBox {
@@ -1545,37 +1536,23 @@ ul.folder-tabs.icon li a > span > span {
   height: 39px !important;
 }
 #Toolbar {
-  /*	top: -1px !important;*/
+  /* top: -1px !important; */
   border-bottom: 1px solid #ccc;
-  -webkit-box-shadow: 0 2px 0 rgba(255, 255, 255, 0.75) inset !important;
-  -moz-box-shadow: 0 2px 0 rgba(255, 255, 255, 0.75) inset !important;
-  -ms-box-shadow: 0 2px 0 rgba(255, 255, 255, 0.75) inset !important;
-  -o-box-shadow: 0 2px 0 rgba(255, 255, 255, 0.75) inset !important;
   box-shadow: 0 2px 0 rgba(255, 255, 255, 0.75) inset !important;
 }
 
 #tabs_toolbar .toolbar-flow {
   left: 10px !important;
 }
-#tabs_toolbar .uki-view-Button {
-  /*	margin-left: 10px;*/
-}
+// #tabs_toolbar .uki-view-Button {
+//   margin-left: 10px;
+// }
 
 #tabs_toolbar .uki-background-CssBox,
 #statusbar .uki-background-CssBox {
-  -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset !important;
-  -moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset !important;
-  -ms-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset !important;
-  -o-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset !important;
   box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset !important;
-  /*
-	background-color: #e8e8e8 !important;
-	background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,0)), to(rgba(0,0,0,0.1))) !important;
-	background-image: -webkit-linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.1)) !important;
-	background-image: -moz-linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.1)) !important;
-	background-image: -ms-linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.1)) !important;
-	background-image: -o-linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.1)) !important;
-	background-image: linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.1)) !important;*/
+  // background-color: #e8e8e8 !important;
+  // background-image: linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.1)) !important;
 }
 #statusbar .uki-background-CssBox {
   border-top: 1px solid #ccc;
@@ -1592,15 +1569,7 @@ ul.folder-tabs.icon li a > span > span {
   text-shadow: 0 1px 0 #666;
   text-transform: lowercase;
   cursor: pointer !important;
-  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.25) inset, 0 1px 0 #fff;
-  -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.25) inset, 0 1px 0 #fff;
-  -ms-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.25) inset, 0 1px 0 #fff;
-  -o-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.25) inset, 0 1px 0 #fff;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.25) inset, 0 1px 0 #fff;
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  -ms-border-radius: 10px;
-  -o-border-radius: 10px;
   border-radius: 10px;
 }
 #statusbar_sessions:hover {
@@ -1618,7 +1587,7 @@ ul.folder-tabs.icon li a > span > span {
 }
 
 #categories [class*="selected"] {
-  /*	background: #39f !important;*/
+  /* background: #39f !important; */
   background-color: #bbcee9;
 }
 #categories [class*="selected"] div {
