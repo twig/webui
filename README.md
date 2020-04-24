@@ -48,6 +48,8 @@ If all you want is a working copy of the v0.380 code, then take a look at https:
 
 ## Improvements
 
+- labels on the left panel truncate when too long but maintain torrent count
+
 Added support for modern tooling such as:
 
 - [yarn](https://yarnpkg.com/)

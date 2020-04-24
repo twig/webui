@@ -481,12 +481,8 @@ ul.folder-tabs.icon li a > span > span {
   border: 1px solid #868686;
   float: left;
   margin: 0 3px 0 0;
-  overflow: auto;
+  overflow-y: auto;
   position: relative;
-}
-
-#mainCatList > div {
-  min-width: 100%;
 }
 
 #mainCatList ul {
@@ -520,6 +516,18 @@ ul.folder-tabs.icon li a > span > span {
   padding: 8px;
   position: absolute;
   top: 50%;
+}
+
+#mainCatList {
+  ul > li {
+    display: flex;
+
+    .flex-label {
+      text-overflow: ellipsis;
+      overflow: hidden;
+      margin-right: 4px;
+    }
+  }
 }
 
 #cat_all .icon {
