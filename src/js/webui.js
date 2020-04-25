@@ -1582,7 +1582,14 @@ function getraptor() {
         } else {
           labelList.grab(
             new Element("li", { id: labelId })
-              .appendText(label + " (")
+              .grab(
+                new Element("span", {
+                  class: "flex-label",
+                  text: label,
+                  title: label
+                })
+              )
+              .appendText(" (")
               .grab(new Element("span", { class: "count", text: count }))
               .appendText(")")
           );
