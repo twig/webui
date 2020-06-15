@@ -35,6 +35,9 @@
   /* white-space: nowrap; */
   /* width: 100%; */
   z-index: 1;
+
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .dlg-body {
@@ -94,7 +97,6 @@
   background-color: #e0e0e0;
   border-color: #989898;
   color: #202020;
-  text-transform: capitalize;
 }
 
 /**************************************************
