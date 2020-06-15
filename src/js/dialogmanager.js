@@ -71,7 +71,7 @@ import { ContextMenu } from "./contextmenu.js";
       dlgFoot.set("html", "");
 
       // Set text
-      dlgHead.set("text", options.title || "");
+      dlgHead.set("text", options.title || "").set("tite", options.title || "");
       dlgMsg.set("text", options.message || "");
       dlgInput.set("value", options.input || "");
 
