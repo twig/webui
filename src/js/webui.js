@@ -4398,22 +4398,26 @@ function getraptor() {
     },
 
     torShowCopy: function() {
-      debugger;
-      this.showCopy(L_("MENU_COPY"), this.trtTable.copySelection());
+      const value = this.trtTable
+        .getSortedSelection()
+        .map(hash => this.torrents[hash][CONST.TORRENT_NAME])
+        .join("\r\n");
+
+      this.showCopy(L_("MENU_COPY"), value);
     },
 
     torShowMagnetCopy: function() {
-      var txtArray = [];
-      this.trtTable.getSortedSelection().each(function(hash) {
-        txtArray.push(
-          "magnet:?xt=urn:btih:" +
-            hash +
-            "&dn=" +
-            encodeURIComponent(this.torrents[hash][CONST.TORRENT_NAME])
-        );
-      }, this);
+      const value = this.trtTable
+        .getSortedSelection()
+        .map(hash => {
+          const dn = encodeURIComponent(
+            this.torrents[hash][CONST.TORRENT_NAME]
+          );
+          return `magnet:?xt=urn:btih:${hash}&dn=${dn}`;
+        })
+        .join("\r\n");
 
-      this.showCopy(L_("ML_COPY_MAGNETURI"), txtArray.join("\r\n"));
+      this.showCopy(L_("ML_COPY_MAGNETURI"), value);
     },
 
     showCopy: function(title, txt) {
