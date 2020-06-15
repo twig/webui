@@ -5113,8 +5113,14 @@ function getraptor() {
     },
 
     flsShowCopy: function() {
-      debugger;
-      this.showCopy(L_("MENU_COPY"), this.flsTable.copySelection());
+      const value = this.flsTable
+        .getSortedSelection()
+        .map(hash_fileIndex => {
+          const index = Number.parseInt(hash_fileIndex.split("_")[1]);
+          return this.filelist[index][CONST.FILE_NAME];
+        })
+        .join("\r\n");
+      this.showCopy(L_("MENU_COPY"), value);
     },
 
     getSelFileIds: function() {
@@ -5223,7 +5229,6 @@ function getraptor() {
     showGeneralMenu: function(ev) {
       if (isGuest || !ev.isRightClick()) return;
 
-      debugger;
       var menuItems = [
         [
           L_("MENU_COPY"),
