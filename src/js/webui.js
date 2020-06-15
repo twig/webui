@@ -5440,8 +5440,29 @@ function getraptor() {
     },
 
     prsShowCopy: function() {
-      debugger;
-      this.showCopy(L_("MENU_COPY"), this.prsTable.copySelection());
+      const tid = this.torrentID;
+
+      if (tid !== this.peerlist._ID_) {
+        return;
+      }
+
+      const value = this.prsTable.selectedRows
+        .map(rowKey => {
+          const peer = this.peerlist.find(p => {
+            // TODO: Handle bt.allow_same_ip
+            return (
+              rowKey ===
+              `${tid}_${p[CONST.PEER_IP].replace(/[.:]/g, "_")}_${
+                p[CONST.PEER_PORT]
+              }`
+            );
+          });
+
+          return peer[CONST.PEER_IP];
+        })
+        .join("\r\n");
+
+      this.showCopy(L_("MENU_COPY"), value);
     },
 
     prsSort: function(index, reverse) {
