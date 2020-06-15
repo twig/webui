@@ -4398,6 +4398,7 @@ function getraptor() {
     },
 
     torShowCopy: function() {
+      debugger;
       this.showCopy(L_("MENU_COPY"), this.trtTable.copySelection());
     },
 
@@ -4416,6 +4417,7 @@ function getraptor() {
     },
 
     showCopy: function(title, txt) {
+      // show a temporary popup that automatically highlights text
       DialogManager.popup({
         title: title,
         icon: "dlgIcon-Copy",
@@ -4423,6 +4425,12 @@ function getraptor() {
         input: txt,
         buttons: [{ text: L_("DLG_BTN_CLOSE") }]
       });
+
+      // copy text
+      document.execCommand("copy");
+
+      // close the popup
+      DialogManager.hide("Popup");
     },
 
     showProperties: function(k) {
@@ -5101,6 +5109,7 @@ function getraptor() {
     },
 
     flsShowCopy: function() {
+      debugger;
       this.showCopy(L_("MENU_COPY"), this.flsTable.copySelection());
     },
 
@@ -5210,6 +5219,7 @@ function getraptor() {
     showGeneralMenu: function(ev) {
       if (isGuest || !ev.isRightClick()) return;
 
+      debugger;
       var menuItems = [
         [
           L_("MENU_COPY"),
@@ -5421,6 +5431,7 @@ function getraptor() {
     },
 
     prsShowCopy: function() {
+      debugger;
       this.showCopy(L_("MENU_COPY"), this.prsTable.copySelection());
     },
 
