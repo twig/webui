@@ -4398,31 +4398,43 @@ function getraptor() {
     },
 
     torShowCopy: function() {
-      this.showCopy(L_("MENU_COPY"), this.trtTable.copySelection());
+      const value = this.trtTable
+        .getSortedSelection()
+        .map(hash => this.torrents[hash][CONST.TORRENT_NAME])
+        .join("\r\n");
+
+      this.copyToClipboard(value);
     },
 
     torShowMagnetCopy: function() {
-      var txtArray = [];
-      this.trtTable.getSortedSelection().each(function(hash) {
-        txtArray.push(
-          "magnet:?xt=urn:btih:" +
-            hash +
-            "&dn=" +
-            encodeURIComponent(this.torrents[hash][CONST.TORRENT_NAME])
-        );
-      }, this);
+      const value = this.trtTable
+        .getSortedSelection()
+        .map(hash => {
+          const dn = encodeURIComponent(
+            this.torrents[hash][CONST.TORRENT_NAME]
+          );
+          return `magnet:?xt=urn:btih:${hash}&dn=${dn}`;
+        })
+        .join("\r\n");
 
-      this.showCopy(L_("ML_COPY_MAGNETURI"), txtArray.join("\r\n"));
+      this.copyToClipboard(value);
     },
 
-    showCopy: function(title, txt) {
-      DialogManager.popup({
-        title: title,
-        icon: "dlgIcon-Copy",
-        width: "35em",
-        input: txt,
-        buttons: [{ text: L_("DLG_BTN_CLOSE") }]
-      });
+    copyToClipboard: function(value) {
+      // show a temporary input that automatically highlights text
+      const textarea = document.createElement("textarea");
+      textarea.value = value;
+      document.body.appendChild(textarea);
+
+      // select all the text
+      textarea.select();
+      textarea.setSelectionRange(0, value.length);
+
+      // copy text
+      document.execCommand("copy");
+
+      // clean up after itself
+      textarea.remove();
     },
 
     showProperties: function(k) {
@@ -4811,23 +4823,22 @@ function getraptor() {
       );
     },
 
+    getPeerTableKey: (torrentId, peerData) => {
+      // TODO: Handle bt.allow_same_ip
+      const ip = peerData[CONST.PEER_IP].replace(/[.:]/g, "_");
+      return `${torrentId}_${ip}_${peerData[CONST.PEER_PORT]}`;
+    },
+
     loadPeers: function() {
       this.prsTable.keepScroll(
         function() {
           this.prsTable.clearRows(true);
 
-          var id = this.torrentID;
-          if (id === this.peerlist._ID_) {
+          if (this.torrentID === this.peerlist._ID_) {
             this.peerlist.each(function(peer, i) {
-              var key =
-                id +
-                "_" +
-                peer[CONST.PEER_IP].replace(/[.:]/g, "_") +
-                "_" +
-                peer[CONST.PEER_PORT]; // TODO: Handle bt.allow_same_ip
               this.prsTable.addRow(
                 this.prsDataToRow(peer),
-                key,
+                this.getPeerTableKey(this.torrentID, peer),
                 "country country_" + peer[CONST.PEER_COUNTRY]
               );
             }, this);
@@ -5101,7 +5112,14 @@ function getraptor() {
     },
 
     flsShowCopy: function() {
-      this.showCopy(L_("MENU_COPY"), this.flsTable.copySelection());
+      const value = this.flsTable
+        .getSortedSelection()
+        .map(hash_fileIndex => {
+          const index = Number.parseInt(hash_fileIndex.split("_")[1]);
+          return this.filelist[index][CONST.FILE_NAME];
+        })
+        .join("\r\n");
+      this.copyToClipboard(value);
     },
 
     getSelFileIds: function() {
@@ -5213,7 +5231,7 @@ function getraptor() {
       var menuItems = [
         [
           L_("MENU_COPY"),
-          this.showCopy.bind(this, L_("MENU_COPY"), ev.target.get("text"))
+          this.copyToClipboard.bind(this, ev.target.get("text"))
         ]
       ];
 
@@ -5421,7 +5439,19 @@ function getraptor() {
     },
 
     prsShowCopy: function() {
-      this.showCopy(L_("MENU_COPY"), this.prsTable.copySelection());
+      if (this.torrentID !== this.peerlist._ID_) {
+        return;
+      }
+
+      const value = this.prsTable.selectedRows
+        .map(rowKey => {
+          return this.peerlist.find(p => {
+            return rowKey === this.getPeerTableKey(this.torrentID, p);
+          })[CONST.PEER_IP];
+        })
+        .join("\r\n");
+
+      this.copyToClipboard(value);
     },
 
     prsSort: function(index, reverse) {
