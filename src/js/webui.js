@@ -4823,23 +4823,22 @@ function getraptor() {
       );
     },
 
+    getPeerTableKey: (torrentId, peerData) => {
+      // TODO: Handle bt.allow_same_ip
+      const ip = peerData[CONST.PEER_IP].replace(/[.:]/g, "_");
+      return `${torrentId}_${ip}_${peerData[CONST.PEER_PORT]}`;
+    },
+
     loadPeers: function() {
       this.prsTable.keepScroll(
         function() {
           this.prsTable.clearRows(true);
 
-          var id = this.torrentID;
-          if (id === this.peerlist._ID_) {
+          if (this.torrentID === this.peerlist._ID_) {
             this.peerlist.each(function(peer, i) {
-              var key =
-                id +
-                "_" +
-                peer[CONST.PEER_IP].replace(/[.:]/g, "_") +
-                "_" +
-                peer[CONST.PEER_PORT]; // TODO: Handle bt.allow_same_ip
               this.prsTable.addRow(
                 this.prsDataToRow(peer),
-                key,
+                this.getPeerTableKey(this.torrentID, peer),
                 "country country_" + peer[CONST.PEER_COUNTRY]
               );
             }, this);
@@ -5440,25 +5439,15 @@ function getraptor() {
     },
 
     prsShowCopy: function() {
-      const tid = this.torrentID;
-
-      if (tid !== this.peerlist._ID_) {
+      if (this.torrentID !== this.peerlist._ID_) {
         return;
       }
 
       const value = this.prsTable.selectedRows
         .map(rowKey => {
-          const peer = this.peerlist.find(p => {
-            // TODO: Handle bt.allow_same_ip
-            return (
-              rowKey ===
-              `${tid}_${p[CONST.PEER_IP].replace(/[.:]/g, "_")}_${
-                p[CONST.PEER_PORT]
-              }`
-            );
-          });
-
-          return peer[CONST.PEER_IP];
+          return this.peerlist.find(p => {
+            return rowKey === this.getPeerTableKey(this.torrentID, p);
+          })[CONST.PEER_IP];
         })
         .join("\r\n");
 
