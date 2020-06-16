@@ -4403,7 +4403,7 @@ function getraptor() {
         .map(hash => this.torrents[hash][CONST.TORRENT_NAME])
         .join("\r\n");
 
-      this.showCopy(L_("MENU_COPY"), value);
+      this.copyToClipboard(value);
     },
 
     torShowMagnetCopy: function() {
@@ -4417,24 +4417,24 @@ function getraptor() {
         })
         .join("\r\n");
 
-      this.showCopy(L_("ML_COPY_MAGNETURI"), value);
+      this.copyToClipboard(value);
     },
 
-    showCopy: function(title, txt) {
-      // show a temporary popup that automatically highlights text
-      DialogManager.popup({
-        title: title,
-        icon: "dlgIcon-Copy",
-        width: "35em",
-        input: txt,
-        buttons: [{ text: L_("DLG_BTN_CLOSE") }]
-      });
+    copyToClipboard: function(value) {
+      // show a temporary input that automatically highlights text
+      const textarea = document.createElement("textarea");
+      textarea.value = value;
+      document.body.appendChild(textarea);
+
+      // select all the text
+      textarea.select();
+      textarea.setSelectionRange(0, value.length);
 
       // copy text
       document.execCommand("copy");
 
-      // close the popup
-      DialogManager.hide("Popup");
+      // clean up after itself
+      textarea.remove();
     },
 
     showProperties: function(k) {
@@ -5120,7 +5120,7 @@ function getraptor() {
           return this.filelist[index][CONST.FILE_NAME];
         })
         .join("\r\n");
-      this.showCopy(L_("MENU_COPY"), value);
+      this.copyToClipboard(value);
     },
 
     getSelFileIds: function() {
@@ -5232,7 +5232,7 @@ function getraptor() {
       var menuItems = [
         [
           L_("MENU_COPY"),
-          this.showCopy.bind(this, L_("MENU_COPY"), ev.target.get("text"))
+          this.copyToClipboard.bind(this, ev.target.get("text"))
         ]
       ];
 
@@ -5462,7 +5462,7 @@ function getraptor() {
         })
         .join("\r\n");
 
-      this.showCopy(L_("MENU_COPY"), value);
+      this.copyToClipboard(value);
     },
 
     prsSort: function(index, reverse) {
