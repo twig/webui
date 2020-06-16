@@ -1563,35 +1563,6 @@ export var STable = new Class({
     if (!noRefresh) this.refreshSelection();
   },
 
-  copySelection: function(delim) {
-    delim = [delim, "\t"].pick();
-
-    var selCols = this.colOrder
-      .map(function(idx) {
-        if (!this.colHeader[idx].disabled) return idx;
-      }, this)
-      .clean();
-
-    return (
-      selCols
-        .map(function(idx) {
-          return this.colHeader[idx].text;
-        }, this)
-        .join(delim) +
-      "\r\n" +
-      this.getSortedSelection()
-        .map(function(id) {
-          var data = Array.clone(this.rowData[id].data);
-          return selCols
-            .map(function(idx) {
-              return this.options.format(data, idx);
-            }, this)
-            .join(delim);
-        }, this)
-        .join("\r\n")
-    );
-  },
-
   getSortedSelection: function() {
     var rowIdx = Object.map(this.rowData, function(r) {
       return r.activeIndex;
