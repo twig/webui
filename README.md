@@ -30,6 +30,9 @@ When it did compile, the code simply didn't work. I shouldn't have been surprise
 - fixed table header/content column alignment
 - fixed `_loadStrings()` warnings on load
 - re-enable right click menu (hold shift and click)
+- list of labels will truncate label in favour of number of torrents
+- fixed dialog titles overflowing
+- copy to clipboard rather than show an awkward popup
 
 There's more to come if I can be bothered, but at least this is a working branch.
 
