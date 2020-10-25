@@ -28,7 +28,7 @@ import { ContextMenu } from "./contextmenu.js";
             new Element("textarea.wide", {
               id: dlgPopupId + "-input",
               styles: { marginTop: "5px" }
-            }).setProperty("wrap", "off")
+            })
           )
         );
     },
@@ -74,6 +74,8 @@ import { ContextMenu } from "./contextmenu.js";
       dlgHead.set("text", options.title || "").set("tite", options.title || "");
       dlgMsg.set("text", options.message || "");
       dlgInput.set("value", options.input || "");
+      dlgInput.setStyle('white-space', 'normal');
+      dlgInput.setStyle("min-height", "5em");
 
       // Set icon
       if ((opt = options.icon || "")) {
@@ -107,25 +109,6 @@ import { ContextMenu } from "./contextmenu.js";
       // Set dimensions
       var width = [options.width, "25em"].pick();
       dlgWin.setStyle("width", width);
-      if (undefined !== options.input) {
-        dlgInput.measure(function() {
-          var lines = (options.input.split("\n").length || 1).min(5);
-          dlgInput.setStyle("height", lines * 1.3 + "em");
-
-          // Make room for horizontal scrollbar
-          var dims = dlgInput.getDimensions({ computeSize: true });
-          var bordY = dims["border-bottom-width"] + dims["border-top-width"];
-          var sbHeight =
-            dlgInput.offsetHeight - (dlgInput.clientHeight + bordY);
-
-          if (sbHeight > 0) {
-            dlgInput.setStyle(
-              "height",
-              dlgInput.offsetHeight - bordY + sbHeight
-            );
-          }
-        });
-      }
 
       // Finish
       this.items[id].modal = !![options.modal, true].pick();
