@@ -33,6 +33,8 @@ When it did compile, the code simply didn't work. I shouldn't have been surprise
 - list of labels will truncate label in favour of number of torrents
 - fixed dialog titles overflowing
 - copy to clipboard rather than show an awkward popup
+- fixed poor text wrapping in set label dialog
+- fixed bug in setupKeyboardEvents() that prevented ctrl+a from working
 
 There's more to come if I can be bothered, but at least this is a working branch.
 
