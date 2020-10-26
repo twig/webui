@@ -179,13 +179,15 @@ function setupKeyboardEvents() {
     }
 
     document.addStopEvent("keydown", function(ev) {
-      var key = eventToKey(ev);
+      const key = eventToKey(ev);
+
       if (keyBindings[key]) {
-        if (!DialogManager.modalIsVisible() || keyBindingModalOK[key])
-          keyBindings[key]();
-      } else {
-        return true;
+        if (!DialogManager.modalIsVisible() || keyBindingModalOK[key]) {
+          return keyBindings[key]();
+        }
       }
+
+      return true;
     });
   }
 }
