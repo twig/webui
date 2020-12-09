@@ -1402,23 +1402,29 @@ function getraptor() {
     },
 
     loadRSSFeedList: function() {
-      var feedList = $("dlgRSSDownloader-feeds");
-      var itemAll = $("rssfeed_all").dispose();
+      const feedList = $("dlgRSSDownloader-feeds");
+      const itemAll = $("rssfeed_all").dispose();
+      const getFeedName = (value) => value.split("|")[0];
 
       feedList.empty();
-      Object.each(
-        this.rssfeeds,
-        function(feed, id) {
+
+      Object.values(this.rssfeeds)
+        .sort((a, b) => {
+          const nameA = getFeedName(a[CONST.RSSFEED_URL]).toLowerCase();
+          const nameB = getFeedName(b[CONST.RSSFEED_URL]).toLowerCase();
+          return nameA.localeCompare(nameB);
+        })
+        .forEach(feed => {
+          const id = feed[CONST.RSSFEED_ID];
+
           feedList.grab(
             new Element("li", {
               id: "rssfeed_" + id,
-              text: feed[CONST.RSSFEED_URL].split("|")[0],
+              text: getFeedName(feed[CONST.RSSFEED_URL]),
               class: feed[CONST.RSSFEED_ENABLED] ? "" : "disabled"
             }).grab(new Element("span", { class: "icon" }), "top")
           );
-        },
-        this
-      );
+        });
 
       feedList.grab(itemAll, "top");
 

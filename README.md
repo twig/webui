@@ -35,6 +35,7 @@ When it did compile, the code simply didn't work. I shouldn't have been surprise
 - copy to clipboard rather than show an awkward popup
 - fixed poor text wrapping in set label dialog
 - fixed bug in setupKeyboardEvents() that prevented ctrl+a from working
+- fixed sorting of RSS feeds to be alphabetical
 
 There's more to come if I can be bothered, but at least this is a working branch.
 
